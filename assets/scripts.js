@@ -99,11 +99,28 @@ $("#open-sections").on("click", function() {
     function removeRow(tableName){
         $(tableName).on("click", ".remove-field", function() {
             var removedItemName = $(this).closest("tr").find(".item-field").text();
-            items.splice(items.findIndex(x => x.itemName === removedItemName),1);
+            // items.splice(items.findIndex(x => x.itemName === removedItemName),1);
+            items.splice(items.findIndex(x => x.name === removedItemName),1);
             $(this).closest("tr").remove();
             console.log(`Removed ${removedItemName} from array`);
         });
     }
+
+// TOGGLES FAVOURITE STATUS TO TRUE/FALSE AND APPLIES CSS
+function toggleFavourite(tableName){
+    $(tableName).on("click", ".favourite-field", function() {
+        var favouriteItemName = $(this).closest("tr").find(".item-field").text();
+        var itemIndex = items.findIndex(x => x.name === favouriteItemName);
+        $(this).closest(".favourite-field").toggleClass("favourite-enable");
+        if (items[itemIndex].favourite != true) {
+            items[itemIndex].favourite = true;
+            console.log("favourite status is " + items[itemIndex].favourite);
+        } else {
+            items[itemIndex].favourite = false;
+            console.log("favourite status is " + items[itemIndex].favourite);
+        }
+    })
+}
 
 $(document).ready(function() {
 
@@ -122,6 +139,13 @@ $(document).ready(function() {
     removeRow("#yellow-table")
     removeRow("#orange-table")
     removeRow("#pink-table")
+    
+    toggleFavourite("#red-table")
+    toggleFavourite("#blue-table")
+    toggleFavourite("#green-table")
+    toggleFavourite("#yellow-table")
+    toggleFavourite("#orange-table")
+    toggleFavourite("#pink-table")
 
     // INCREASE QUANTITY
     $("#plus-button").on("click", function() {
