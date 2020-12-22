@@ -29,3 +29,12 @@ input[type="checkbox"] {
     margin: 0px 10px;
     vertical-align: middle;
   }
+
+  .favourite-field {
+    background: none;
+    border: none;
+}
+
+.favourite-enable {
+    color: rgb(255, 162, 0);
+}
