@@ -69,10 +69,14 @@ function captureInput(location, tableName){
     })
 }
 
+itemNames = [];
+for (x in items){
+    itemNames.push(items[x].name)
+}
 
-// $( "#item-name" ).autocomplete({
-//     source: rememberedItems,
-// });
+$( "#item-name" ).autocomplete({
+    source: itemNames,
+});
 
 $(document).ready(function() {
 
