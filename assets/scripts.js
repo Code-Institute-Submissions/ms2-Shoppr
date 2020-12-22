@@ -11,6 +11,11 @@ function checkQuantity(){
     return (quantity);
 }
 
+function resetInput(){
+    $("#quantity-counter").text(1);
+    $("#item-name").val('');
+}
+
 $(document).ready(function() {
 
     // INCREASE QUANTITY
