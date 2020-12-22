@@ -22,3 +22,10 @@
     border: dotted black 1px;
     border-radius: 8px;
 }
+
+/* Source: https://www.w3schools.com/css/css3_2dtransforms.asp */
+input[type="checkbox"] {
+    transform:scale(1.5, 1.5);
+    margin: 0px 10px;
+    vertical-align: middle;
+  }
