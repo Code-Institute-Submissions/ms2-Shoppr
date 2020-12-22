@@ -94,6 +94,17 @@ $("#open-sections").on("click", function() {
     $(".collapse").addClass('show');
 });
 
+// REMOVES ROW FROM TABLE AND LOCALSTORAGE ARRAY
+    // Source: https://stackoverflow.com/a/171293
+    function removeRow(tableName){
+        $(tableName).on("click", ".remove-field", function() {
+            var removedItemName = $(this).closest("tr").find(".item-field").text();
+            items.splice(items.findIndex(x => x.itemName === removedItemName),1);
+            $(this).closest("tr").remove();
+            console.log(`Removed ${removedItemName} from array`);
+        });
+    }
+
 $(document).ready(function() {
 
 
@@ -104,6 +115,13 @@ $(document).ready(function() {
     captureInput(".yellow-button", "#yellow-table")
     captureInput(".orange-button", "#orange-table")
     captureInput(".pink-button", "#pink-table")
+
+    removeRow("#red-table")
+    removeRow("#blue-table")
+    removeRow("#green-table")
+    removeRow("#yellow-table")
+    removeRow("#orange-table")
+    removeRow("#pink-table")
 
     // INCREASE QUANTITY
     $("#plus-button").on("click", function() {
