@@ -37,7 +37,7 @@ class Item {
     }
 }
 
-// CREATES ITEMS ARRAY
+// CREATES LOCALSTORAGE ITEMS ARRAY
 if (JSON.parse(localStorage.getItem('inputObjects')) == undefined){
     var items = [];
 } else {
@@ -69,11 +69,13 @@ function captureInput(location, tableName){
     })
 }
 
+// CREATES ARRAY OF ITEM NAMES FROM LOCALSTORAGE
 itemNames = [];
 for (x in items){
     itemNames.push(items[x].name)
 }
 
+// PROVIDES AUTOCOMPLETE SUGGESTIONS FROM ITEM NAMES
 $( "#item-name" ).autocomplete({
     source: itemNames,
 });
