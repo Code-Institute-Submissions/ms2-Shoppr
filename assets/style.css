@@ -11,3 +11,7 @@
     background: linear-gradient(90deg, #007bff 50%, rgb(58, 58, 58) 50%);
     color: white;
 }
+
+.red-line {
+    border-right: red double;
+}
