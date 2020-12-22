@@ -21,5 +21,13 @@ $(document).ready(function() {
         }
     });
 
+    // DECREASE QUANTITY
+    $("#minus-button").on("click", function() {
+        checkQuantity();
+        if (checkQuantity() > 1){
+            $("#quantity-counter").text(decreaseQuantity(quantity));
+        }
+    });
+
 
 })
