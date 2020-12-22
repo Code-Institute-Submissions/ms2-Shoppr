@@ -58,6 +58,7 @@ function captureInput(location, tableName){
                 for (x in items){
                     if(items[x].name == $("#item-name").val()){
                         alert("already in items")
+                        resetInput();
                         return;
                     }
                 }
