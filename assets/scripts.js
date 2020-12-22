@@ -87,6 +87,12 @@ $("#clear-autofill").on("click", function() {
     location.reload();
 })
 
+// OPENS ALL TABLES
+$("#open-sections").on("click", function() {
+    $(".collapse").removeClass('hide');
+    $(".collapse").addClass('show');
+});
+
 $(document).ready(function() {
 
 
