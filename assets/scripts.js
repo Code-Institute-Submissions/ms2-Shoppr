@@ -39,22 +39,40 @@ class Item {
 
 items = [];
 
+
 function captureInput(location, tableName){
     $(location).on("click", function() {
         if (Item.name != ""){
-            items.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location, false));
-            localStorage.setItem('inputObjects', JSON.stringify(items));
+            alert("added")
             insertRowData(tableName, $("#quantity-counter").text(), $("#item-name").val());
-            resetInput();
             let collapseParent = $(tableName).parent().parent().parent();
             $(".collapse").not(collapseParent).collapse('hide');
             $(collapseParent).addClass('show');
             $(collapseParent).removeClass('hide');
+            if (items.length > 0){
+                for (x in items){
+                    if(items[x].name == $("#item-name").val()){
+                        alert("already in items")
+                        return;
+                    }
+                }
+            }
+            items.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location, false));
+            localStorage.setItem('inputObjects', JSON.stringify(items));
+            resetInput();
         }
     })
 }
 
+
+// CREATES AUTOCOMPLETE FEATURE, ASSIGNS ARRAY OF UNIQUE VALUES FROM ABOVE
+// $( "#item-name" ).autocomplete({
+//     source: rememberedItems,
+// });
+
 $(document).ready(function() {
+
+
 
     captureInput(".red-button", "#red-table")
     captureInput(".blue-button", "#blue-table")
