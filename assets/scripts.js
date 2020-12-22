@@ -28,7 +28,39 @@ function insertRowData(tableName, itemQuantity, itemName){
     `);
 }
 
+class Item {
+    constructor(name, quantity, location, favourite) {
+        this.name = name;
+        this.quantity = quantity;
+        this.location = location;
+        this.favourite = favourite;
+    }
+}
+
+items = [];
+
+function captureInput(location, tableName){
+    $(location).on("click", function() {
+        if (Item.name != ""){
+            items.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location, false));
+            insertRowData(tableName, $("#quantity-counter").text(), $("#item-name").val());
+            resetInput();
+            let collapseParent = $(tableName).parent().parent().parent();
+            $(".collapse").not(collapseParent).collapse('hide');
+            $(collapseParent).addClass('show');
+            $(collapseParent).removeClass('hide');
+        }
+    })
+}
+
 $(document).ready(function() {
+
+    captureInput(".red-button", "#red-table")
+    captureInput(".blue-button", "#blue-table")
+    captureInput(".green-button", "#green-table")
+    captureInput(".yellow-button", "#yellow-table")
+    captureInput(".orange-button", "#orange-table")
+    captureInput(".pink-button", "#pink-table")
 
     // INCREASE QUANTITY
     $("#plus-button").on("click", function() {
