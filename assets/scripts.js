@@ -43,6 +43,7 @@ function captureInput(location, tableName){
     $(location).on("click", function() {
         if (Item.name != ""){
             items.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location, false));
+            localStorage.setItem('inputObjects', JSON.stringify(items));
             insertRowData(tableName, $("#quantity-counter").text(), $("#item-name").val());
             resetInput();
             let collapseParent = $(tableName).parent().parent().parent();
