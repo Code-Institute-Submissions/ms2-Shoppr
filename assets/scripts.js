@@ -37,7 +37,12 @@ class Item {
     }
 }
 
-items = [];
+// CREATES ITEMS ARRAY
+if (JSON.parse(localStorage.getItem('inputObjects')) == undefined){
+    var items = [];
+} else {
+    var items = JSON.parse(localStorage.getItem('inputObjects'));
+}
 
 
 function captureInput(location, tableName){
