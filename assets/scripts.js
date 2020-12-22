@@ -80,6 +80,13 @@ $( "#item-name" ).autocomplete({
     source: itemNames,
 });
 
+// CLEARS THE LOCALSTORAGE MEMORY
+$("#clear-autofill").on("click", function() {
+    localStorage.clear();
+    alert("Autofill Cleared")
+    location.reload();
+})
+
 $(document).ready(function() {
 
 
