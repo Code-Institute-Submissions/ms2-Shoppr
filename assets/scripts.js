@@ -44,7 +44,7 @@ if (JSON.parse(localStorage.getItem('inputObjects')) == undefined){
     var items = JSON.parse(localStorage.getItem('inputObjects'));
 }
 
-
+// IF INPUT FIELD ISN'T EMPTY, ADD TO TABLE, OPEN TABLE CARD, CHECK IF IT EXISTS IN LOCALSTORAGE AND IF NOT THEN ADD IT AND RESET INPUT FIELD
 function captureInput(location, tableName){
     $(location).on("click", function() {
         if (Item.name != ""){
@@ -70,7 +70,6 @@ function captureInput(location, tableName){
 }
 
 
-// CREATES AUTOCOMPLETE FEATURE, ASSIGNS ARRAY OF UNIQUE VALUES FROM ABOVE
 // $( "#item-name" ).autocomplete({
 //     source: rememberedItems,
 // });
