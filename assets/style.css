@@ -43,6 +43,10 @@ input[type="checkbox"] {
     display: none;
 }
 
+#menu-controls {
+    min-height: 100vh;
+}
+
 @media only screen and (max-width: 768px) {
     #shopping-list {
         min-height: 97vh;
