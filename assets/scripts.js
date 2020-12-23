@@ -100,14 +100,17 @@ $("#open-sections").on("click", function() {
     $(".collapse").addClass('show');
 });
 
+function updateLocalStorage(){
+    localStorage.setItem('inputObjects', JSON.stringify(items));
+}
+
 // REMOVES ROW FROM TABLE AND LOCALSTORAGE ARRAY
     // Source: https://stackoverflow.com/a/171293
     function removeRow(tableName){
         $(tableName).on("click", ".remove-field", function() {
             var removedItemName = $(this).closest("tr").find(".item-field").text();
-            // items.splice(items.findIndex(x => x.itemName === removedItemName),1);
             items.splice(items.findIndex(x => x.name === removedItemName),1);
-            localStorage.setItem('inputObjects', JSON.stringify(items));
+            updateLocalStorage();
             $(this).closest("tr").remove();
             console.log(`Removed ${removedItemName} from array`);
         });
@@ -121,12 +124,12 @@ function toggleFavourite(tableName){
         $(this).closest(".favourite-field").toggleClass("favourite-enable");
         if (items[itemIndex].favourite != true) {
             items[itemIndex].favourite = true;
-            localStorage.setItem('inputObjects', JSON.stringify(items));
+            updateLocalStorage();
             console.log("favourite status is " + items[itemIndex].favourite);
         } else {
             items[itemIndex].favourite = false;
             console.log("favourite status is " + items[itemIndex].favourite);
-            localStorage.setItem('inputObjects', JSON.stringify(items));
+            updateLocalStorage();
         }
     })
 }
