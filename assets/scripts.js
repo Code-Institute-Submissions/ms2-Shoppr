@@ -69,6 +69,7 @@ function captureInput(location, tableName){
             $(".collapse").not(collapseParent).collapse('hide');
             $(collapseParent).addClass('show');
             $(collapseParent).removeClass('hide');
+            goToShoppingList()
             if (items.length > 0){
                 for (x in items){
                     if(items[x].name == $("#item-name").val()){
@@ -79,15 +80,19 @@ function captureInput(location, tableName){
                 }
             }
 
-            if (JSON.parse(localStorage.getItem('inputObjects')) == undefined){
+            // if (JSON.parse(localStorage.getItem('inputObjects')) == undefined){
                 
-            }
+            // }
 
             items.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location, false));
             localStorage.setItem('inputObjects', JSON.stringify(items));
             resetInput();
         }
     })
+}
+
+function goToShoppingList(){
+    document.location = "#shopping-list";
 }
 
 // CREATES ARRAY OF ITEM NAMES FROM LOCALSTORAGE
@@ -190,5 +195,5 @@ $(document).ready(function() {
             $("#quantity-counter").text(decreaseQuantity(quantity));
         }
     });
-    
+
 })
