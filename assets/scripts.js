@@ -181,7 +181,7 @@ $(document).ready(function() {
     toggleFavourite("#pink-table")
 
     // INCREASE QUANTITY
-    $("#plus-button").on("click", function() {
+    $("#plus-btn").on("click", function() {
         checkQuantity();
         if (checkQuantity() < 10){
             $("#quantity-counter").text(increaseQuantity(quantity));
@@ -189,7 +189,7 @@ $(document).ready(function() {
     });
 
     // DECREASE QUANTITY
-    $("#minus-button").on("click", function() {
+    $("#minus-btn").on("click", function() {
         checkQuantity();
         if (checkQuantity() > 1){
             $("#quantity-counter").text(decreaseQuantity(quantity));

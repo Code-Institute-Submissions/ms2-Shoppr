@@ -39,7 +39,7 @@ input[type="checkbox"] {
     color: rgb(255, 162, 0);
 }
 
-#plus-button {
+#add-button {
     display: none;
 }
 
@@ -52,11 +52,11 @@ input[type="checkbox"] {
         min-height: 97vh;
     }
 
-    #plus-button {
+    #add-button {
         display: block;
     }
 
-    #plus-button i{
+    #add-button i{
         font-size: 50px;
         position: fixed;
         bottom: 20px;
