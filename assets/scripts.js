@@ -44,6 +44,7 @@ if (JSON.parse(localStorage.getItem('inputObjects')) == undefined){
     var items = JSON.parse(localStorage.getItem('inputObjects'));
 }
 
+
 // IF INPUT FIELD ISN'T EMPTY, ADD TO TABLE, OPEN TABLE CARD, CHECK IF IT EXISTS IN LOCALSTORAGE AND IF NOT THEN ADD IT AND RESET INPUT FIELD
 function captureInput(location, tableName){
     $(location).on("click", function() {
@@ -63,6 +64,11 @@ function captureInput(location, tableName){
                     }
                 }
             }
+
+            if (JSON.parse(localStorage.getItem('inputObjects')) == undefined){
+                
+            }
+
             items.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location, false));
             localStorage.setItem('inputObjects', JSON.stringify(items));
             resetInput();
@@ -101,6 +107,7 @@ $("#open-sections").on("click", function() {
             var removedItemName = $(this).closest("tr").find(".item-field").text();
             // items.splice(items.findIndex(x => x.itemName === removedItemName),1);
             items.splice(items.findIndex(x => x.name === removedItemName),1);
+            localStorage.setItem('inputObjects', JSON.stringify(items));
             $(this).closest("tr").remove();
             console.log(`Removed ${removedItemName} from array`);
         });
@@ -114,13 +121,16 @@ function toggleFavourite(tableName){
         $(this).closest(".favourite-field").toggleClass("favourite-enable");
         if (items[itemIndex].favourite != true) {
             items[itemIndex].favourite = true;
+            localStorage.setItem('inputObjects', JSON.stringify(items));
             console.log("favourite status is " + items[itemIndex].favourite);
         } else {
             items[itemIndex].favourite = false;
             console.log("favourite status is " + items[itemIndex].favourite);
+            localStorage.setItem('inputObjects', JSON.stringify(items));
         }
     })
 }
+
 
 $(document).ready(function() {
 
