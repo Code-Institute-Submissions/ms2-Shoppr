@@ -100,6 +100,7 @@ $("#open-sections").on("click", function() {
     $(".collapse").addClass('show');
 });
 
+// UPDATES LOCALSTORAGE WITH CHANGES TO ITEMS ARRAY
 function updateLocalStorage(){
     localStorage.setItem('inputObjects', JSON.stringify(items));
 }
