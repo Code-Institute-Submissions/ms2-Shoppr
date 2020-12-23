@@ -38,3 +38,9 @@ input[type="checkbox"] {
 .favourite-enable {
     color: rgb(255, 162, 0);
 }
+
+@media only screen and (max-width: 768px) {
+    #shopping-list {
+        min-height: 97vh;
+    }
+}

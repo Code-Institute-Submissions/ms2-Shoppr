@@ -190,11 +190,5 @@ $(document).ready(function() {
             $("#quantity-counter").text(decreaseQuantity(quantity));
         }
     });
-
-    // var shoppingListHeight = $("#shopping-list").height();
-    // var windowHeight = $(window).height();
-    // var emptySpace = windowHeight - shoppingListHeight;
-    // $("#empty-space").css("height", `${emptySpace}px`);
-
-
+    
 })
