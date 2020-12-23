@@ -47,6 +47,13 @@ input[type="checkbox"] {
     min-height: 100vh;
 }
 
+#banner-img {
+    background-image: url("https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/325253_2200-1200x628.jpg");
+    background-position: cover;
+    height: 40vh;
+    width: 100vw;
+}
+
 @media only screen and (max-width: 768px) {
     #shopping-list {
         min-height: 97vh;
