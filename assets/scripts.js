@@ -17,6 +17,7 @@ function resetInput(){
 }
 
 function insertRowData(tableName, itemQuantity, itemName){
+    console.log(`added ${itemQuantity} ${itemName}`)
     $(tableName).prepend(`
     <tr class="table-row">
         <td class="red-line"><input type="checkbox"></td>
@@ -49,7 +50,6 @@ if (JSON.parse(localStorage.getItem('inputObjects')) == undefined){
 function captureInput(location, tableName){
     $(location).on("click", function() {
         if (Item.name != ""){
-            alert("added")
             insertRowData(tableName, $("#quantity-counter").text(), $("#item-name").val());
             let collapseParent = $(tableName).parent().parent().parent();
             $(".collapse").not(collapseParent).collapse('hide');
@@ -58,7 +58,7 @@ function captureInput(location, tableName){
             if (items.length > 0){
                 for (x in items){
                     if(items[x].name == $("#item-name").val()){
-                        alert("already in items")
+                        console.log(`${$("#item-name").val()} exists in memory`)
                         resetInput();
                         return;
                     }
@@ -90,7 +90,7 @@ $( "#item-name" ).autocomplete({
 // CLEARS THE LOCALSTORAGE MEMORY
 $("#clear-autofill").on("click", function() {
     localStorage.clear();
-    alert("Autofill Cleared")
+    console.log("autofill has been cleared")
     location.reload();
 })
 
@@ -126,10 +126,10 @@ function toggleFavourite(tableName){
         if (items[itemIndex].favourite != true) {
             items[itemIndex].favourite = true;
             updateLocalStorage();
-            console.log("favourite status is " + items[itemIndex].favourite);
+            console.log(`favourite status of ${items[itemIndex].name} is ${items[itemIndex].favourite}`);
         } else {
             items[itemIndex].favourite = false;
-            console.log("favourite status is " + items[itemIndex].favourite);
+            console.log(`favourite status of ${items[itemIndex].name} is ${items[itemIndex].favourite}`);
             updateLocalStorage();
         }
     })
