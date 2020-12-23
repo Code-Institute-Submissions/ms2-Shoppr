@@ -18,12 +18,26 @@ function resetInput(){
 
 function insertRowData(tableName, itemQuantity, itemName){
     console.log(`added ${itemQuantity} ${itemName}`)
+
+    var itemIndex = items.findIndex(x => x.name === itemName);
+    console.log(itemIndex)
+    if (itemIndex != -1){
+        console.log("is not -1")
+        if (items[itemIndex].favourite === false){
+            console.log(`favourite status of ${itemName} is false`)
+            var favouriteStatus = "";
+        } else if (items[itemIndex].favourite === true){
+            var favouriteStatus = "favourite-enable";
+            console.log(`favourite status of ${itemName} is true`)
+        }
+    }
+
     $(tableName).prepend(`
     <tr class="table-row">
         <td class="red-line"><input type="checkbox"></td>
         <td class="quantity-field px-4"><span class="quantity-number">${itemQuantity}x</span></td>
         <td class="item-field w-75">${itemName}</td>
-        <td><button class="favourite-field"><i class="far fa-star"></i></button></td>
+        <td><button class="favourite-field ${favouriteStatus}"><i class="far fa-star"></i></button></td>
         <td><button class="remove-field"><i class="far fa-trash-alt"></i></button></td>
     </tr>
     `);
