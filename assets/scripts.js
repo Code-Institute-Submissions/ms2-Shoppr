@@ -191,5 +191,10 @@ $(document).ready(function() {
         }
     });
 
+    // var shoppingListHeight = $("#shopping-list").height();
+    // var windowHeight = $(window).height();
+    // var emptySpace = windowHeight - shoppingListHeight;
+    // $("#empty-space").css("height", `${emptySpace}px`);
+
 
 })
