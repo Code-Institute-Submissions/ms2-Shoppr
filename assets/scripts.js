@@ -157,23 +157,31 @@ function toggleFavourite(tableName){
 
 function editItemName(tableName){
     $(tableName).on("click", ".edit-field", function() {
-        var originalInput = $(".item-field").text()
+        // var originalInput = $(".item-field").text()
+        var originalInput = $(this).closest('tr').find('.item-field').text();
         if ($(this).find('i').hasClass('fas fa-pencil-alt')){
             $(this).find('i').removeClass().addClass('fas fa-check');
-            $(".item-field").empty()
-            $(".item-field").append(`<input class="text-center" type="text" placeholder="${originalInput}">`)
-            $(this).closest('tr').find('input').focus();
+            // $(".item-field").empty()
+            $(this).closest('tr').find('.item-field').empty();
+            // $(".item-field").append(`<input class="text-center" type="text" placeholder="${originalInput}">`)
+            $(this).closest('tr').find('.item-field').append(`<input class="text-center" type="text" placeholder="${originalInput}">`)
+            // $(this).closest('tr').find('input').focus();
+            $(this).closest('tr').find('.item-field').focus();
         } else if ($(this).find('i').hasClass('fas fa-check')){
             var textInput = $(".item-field").find('input').val();
             if (textInput == "") {
                 alert('nothing inputted')
                 var placeholderInput = $(".item-field").find('input').attr('placeholder');
-                $(".item-field").empty()
-                $(".item-field").text(placeholderInput);
+                // $(".item-field").empty()
+                $(this).closest('tr').find('.item-field').empty();
+                // $(".item-field").text(placeholderInput);
+                $(this).closest('tr').find('.item-field').text(placeholderInput);
             } else if (textInput != ""){
                 alert ('you inputted ' + textInput)
-                $(".item-field").empty()
-                $(".item-field").text(textInput);
+                // $(".item-field").empty()
+                $(this).closest('tr').find('.item-field').empty();
+                // $(".item-field").text(textInput);
+                $(this).closest('tr').find('.item-field').text(textInput);
             }
             $(this).find('i').removeClass().addClass('fas fa-pencil-alt');
         }
