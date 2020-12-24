@@ -155,6 +155,31 @@ function toggleFavourite(tableName){
     })
 }
 
+function editItemName(tableName){
+    $(tableName).on("click", ".edit-field", function() {
+        var originalInput = $(".item-field").text()
+        if ($(this).find('i').hasClass('fas fa-pencil-alt')){
+            $(this).find('i').removeClass().addClass('fas fa-check');
+            $(".item-field").empty()
+            $(".item-field").append(`<input class="text-center" type="text" placeholder="${originalInput}">`)
+            $(this).closest('tr').find('input').focus();
+        } else if ($(this).find('i').hasClass('fas fa-check')){
+            var textInput = $(".item-field").find('input').val();
+            if (textInput == "") {
+                alert('nothing inputted')
+                var placeholderInput = $(".item-field").find('input').attr('placeholder');
+                $(".item-field").empty()
+                $(".item-field").text(placeholderInput);
+            } else if (textInput != ""){
+                alert ('you inputted ' + textInput)
+                $(".item-field").empty()
+                $(".item-field").text(textInput);
+            }
+            $(this).find('i').removeClass().addClass('fas fa-pencil-alt');
+        }
+    })
+}
+
 // ADD BUTTON APPEARS AFTER SCROLLING DOWN
 // SOURCE: https://www.tutorialfor.com/questions-309330.htm
 $('#add-button').css('display', 'none');
@@ -169,6 +194,13 @@ $(window).scroll(function () {
 
 
 $(document).ready(function() {
+
+    editItemName("#red-table");
+    editItemName("#blue-table");
+    editItemName("#green-table");
+    editItemName("#yellow-table");
+    editItemName("#orange-table");
+    editItemName("#pink-table");
 
     captureInput(".red-button", "#red-table")
     captureInput(".blue-button", "#blue-table")
