@@ -16,6 +16,16 @@
     border-right: red double;
 }
 
+.edit-field {
+    background: none;
+    border: none;
+}
+
+.remove-field {
+    background: none;
+    border: none;
+}
+
 .quantity-number {
     padding: 5px 8px;
     vertical-align: middle;

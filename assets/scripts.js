@@ -34,11 +34,12 @@ function insertRowData(tableName, itemQuantity, itemName){
 
     $(tableName).prepend(`
     <tr class="table-row">
-        <td class="red-line"><input type="checkbox"></td>
-        <td class="quantity-field px-4"><span class="quantity-number">${itemQuantity}x</span></td>
+        <td class="px-3 red-line"><input type="checkbox"></td>
+        <td class="px-3 quantity-field"><span class="quantity-number">${itemQuantity}x</span></td>
         <td class="item-field w-75">${itemName}</td>
-        <td><button class="favourite-field ${favouriteStatus}"><i class="far fa-star"></i></button></td>
-        <td><button class="remove-field"><i class="far fa-trash-alt"></i></button></td>
+        <td class="px-2"><button class="favourite-field ${favouriteStatus}"><i class="far fa-star"></i></button></td>
+        <td class="px-2"><button class="edit-field"><i class="fas fa-pencil-alt"></i></button></td>
+        <td class="px-2"><button class="remove-field"><i class="far fa-trash-alt"></i></button></td>
     </tr>
     `);
 }
