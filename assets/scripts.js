@@ -201,8 +201,20 @@ $(window).scroll(function () {
     }
 })
 
+function moreOptions(tableName){
+    $(tableName).on("click", ".more-button", function() {
+        $("#options-modal").css('display', 'block');
+    })
+}
 
 $(document).ready(function() {
+
+    moreOptions("#red-table");
+    moreOptions("#blue-table");
+    moreOptions("#green-table");
+    moreOptions("#yellow-table");
+    moreOptions("#orange-table");
+    moreOptions("#pink-table");
 
     editItemName("#red-table");
     editItemName("#blue-table");
