@@ -204,6 +204,7 @@ $(window).scroll(function () {
 function moreOptions(tableName){
     $(tableName).on("click", ".more-button", function() {
         $("#options-modal").css('display', 'block');
+        $(this).parent("td").parent("tr").css('background-color','rgb(255, 255, 190)');
     })
 }
 

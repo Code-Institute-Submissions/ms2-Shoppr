@@ -83,11 +83,18 @@ input[type="checkbox"] {
     
     #options-content {
         position: fixed;
-        background-color: gray;
-        height: 33vh;
+        background-color: rgb(231, 231, 231);
+        border-radius: 15px 15px 0px 0px;
+        /* box-shadow: 0px 0px 10px 0px #888888; */
+        height: 8vh;
         bottom: 0;
         width: 100vw;
         padding: 10px;
+    }
+
+    .modal-icon {
+        padding: 10px;
+        /* background-color: red; */
     }
 
     #add-button {
