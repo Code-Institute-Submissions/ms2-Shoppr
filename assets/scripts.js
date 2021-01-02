@@ -40,6 +40,7 @@ function insertRowData(tableName, itemQuantity, itemName){
         <td class="px-2"><button class="favourite-field ${favouriteStatus}"><i class="far fa-star"></i></button></td>
         <td class="px-2"><button class="edit-field"><i class="fas fa-pencil-alt"></i></button></td>
         <td class="px-2"><button class="remove-field"><i class="far fa-trash-alt"></i></button></td>
+        <td class="px-2"><button class="more-button"><i class="fas fa-ellipsis-v"></i></button></td>
     </tr>
     `);
 }

@@ -84,4 +84,21 @@ input[type="checkbox"] {
         border-radius: 50%;
     }
 
+    .remove-field {
+        display: none;
+    }
+
+    .favourite-field {
+        display: none;
+    }
+
+    .edit-field {
+        display: none;
+    }
+
+    .more-button {
+        border: none;
+        background: none;
+    }
+
 }
