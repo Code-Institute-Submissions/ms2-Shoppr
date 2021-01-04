@@ -23,7 +23,7 @@ function insertRowData(tableName, itemQuantity, itemName){
     <tr class="table-row">
         <td class="px-3 red-line"><input type="checkbox"></td>
         <td class="px-3 quantity-field"><span class="quantity-number">${itemQuantity}x</span></td>
-        <td class="item-field w-75">${itemName}</td>
+        <td class="item-field w-75 text-left">${itemName}</td>
         <td class="px-2"><button class="remove-field"><i class="far fa-trash-alt"></i></button></td>
     </tr>
     `);
