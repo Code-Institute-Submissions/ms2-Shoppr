@@ -16,11 +16,6 @@
     border-right: red double;
 }
 
-.edit-field {
-    background: none;
-    border: none;
-}
-
 .remove-field {
     background: none;
     border: none;
@@ -39,15 +34,6 @@ input[type="checkbox"] {
     margin: 0px 10px;
     vertical-align: middle;
   }
-
-  .favourite-field {
-    background: none;
-    border: none;
-}
-
-.favourite-enable {
-    color: rgb(255, 162, 0);
-}
 
 #add-button {
     display: none;
@@ -82,23 +68,6 @@ input[type="checkbox"] {
         border: solid white 5px;
         color: rgb(12, 150, 138);
         border-radius: 50%;
-    }
-
-    .remove-field {
-        display: none;
-    }
-
-    .favourite-field {
-        display: none;
-    }
-
-    .edit-field {
-        display: none;
-    }
-
-    .more-button {
-        border: none;
-        background: none;
     }
 
 }
