@@ -104,6 +104,13 @@ $("#open-sections").on("click", function() {
     $(".collapse").addClass('show');
 });
 
+$("#edit-sections").on("click", function() {
+    var redPlaceholder = $('.red-button').attr('placeholder');
+    alert(redPlaceholder)
+    alert(redPlaceholder);
+    $('.red-button').empty().append(`<input type="text"></input>`)
+})
+
 // UPDATES LOCALSTORAGE WITH CHANGES TO ITEMS ARRAY
 function updateLocalStorage(){
     localStorage.setItem('inputObjects', JSON.stringify(items));
