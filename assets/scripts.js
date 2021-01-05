@@ -105,10 +105,20 @@ $("#open-sections").on("click", function() {
 });
 
 $("#edit-sections").on("click", function() {
-    var redPlaceholder = $('.red-button').attr('placeholder');
-    alert(redPlaceholder)
-    alert(redPlaceholder);
-    $('.red-button').empty().append(`<input type="text"></input>`)
+    var redPlaceholder = $('.red-button').text();
+    if ($('#edit-sections').text().includes("Edit locations")){
+        $('.red-button').off('click');
+        $('.red-button').empty().append(`<input type="text" placeholder="${redPlaceholder}"></input>`)
+        $('.red-button').parent().removeClass('col-6 text-right').addClass('col-12 text-center');
+        $('#edit-sections').text('Save Changes')
+    } else if ($('#edit-sections').text().includes("Save Changes")){
+        $('.red-button').on('click');
+        $('.red-button').empty()
+        // var redPlaceholder = 
+        $('.red-button').text(redPlaceholder)
+        $('.red-button').parent().removeClass('col-12 text-center').addClass('col-6 text-right');
+        $('#edit-sections').text(`<i class="px-2 fas fa-pencil-alt"></i> Edit locations`)
+    }
 })
 
 // UPDATES LOCALSTORAGE WITH CHANGES TO ITEMS ARRAY
