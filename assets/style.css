@@ -25,6 +25,7 @@ textarea:focus, input:focus, button:focus {
     border-radius: 0px;
     height: 100%;
     width: 100%;
+    background: rgb(231, 231, 231);
 }
 
 #item-name {

@@ -125,6 +125,7 @@ function editLocation(button){
                 $(button).addClass('hover');
                 $(this).find('i').removeClass('fa-check').addClass('fa-pencil-alt');
                 // NEED TO MAKE BUTTON CLICKABLE AGAIN
+                // NEEDS TO UPDATE TABLE HEADER, POINT TO NEW FUNCTION
             }
             else if (inputText != ""){
                 $(button).empty();
@@ -132,6 +133,7 @@ function editLocation(button){
                 $(button).addClass('hover');
                 $(this).find('i').removeClass('fa-check').addClass('fa-pencil-alt');
                 // NEED TO MAKE BUTTON CLICKABLE AGAIN
+                // NEEDS TO UPDATE TABLE HEADER, POINT TO NEW FUNCTION
             }
         }
     })
