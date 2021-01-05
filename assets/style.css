@@ -1,3 +1,7 @@
+textarea:focus, input:focus {
+    outline: none;
+}
+
 #accordion {
     width: 100%;
 }
@@ -16,8 +20,26 @@
     border-right: red double;
 }
 
+#minus-btn, #plus-btn {
+    border: none;
+    border-radius: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+#item-name {
+    width: 100%;
+    border: none;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.input-row {
+    border: 1px solid rgb(182, 182, 182);
+    border-radius: 5px;
+}
+
 .location-container {
-    /* background-color: rgb(255, 215, 154); */
     background: url("images/locationbg.jpg") no-repeat top center;
     background-size: cover;
     border-radius: 20px;
