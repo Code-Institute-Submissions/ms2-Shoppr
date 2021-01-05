@@ -1,5 +1,5 @@
-textarea:focus, input:focus {
-    outline: none;
+textarea:focus, input:focus, button:focus {
+    outline: solid 1px rgb(75, 75, 75);
 }
 
 #accordion {
