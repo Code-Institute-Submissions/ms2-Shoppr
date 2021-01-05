@@ -24,8 +24,17 @@
     color: white;
 }
 
-.location-buttons {
+.location-button-content {
     border-radius: 8px 0px 0px 8px;
+}
+
+/* SOURCE: https://stackoverflow.com/questions/38661118/centering-text-in-row-with-bootstrap-grid */
+.location-button-content::before {
+    content:"";
+    margin-left: 16.6%;
+}
+
+.location-buttons {
     width: 100%;
     height: 100%;
     color: white;
@@ -41,12 +50,6 @@
 
 .location-edit {
     border-radius: 0px 8px 8px 0px;
-    width: 100%;
-    height: 100%;
-    color: white;
-    font-size: 18px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.384);
 }
 
 .location-edit:hover {
