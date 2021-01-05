@@ -39,15 +39,23 @@ textarea:focus, input:focus, button:focus {
     border-radius: 5px;
 }
 
+.location-input {
+    width: 100%;
+    background: none;
+    border: none;
+    height: 100%;
+    color: white;
+}
+
+.location-input::placeholder {
+    color: rgba(255, 255, 255, 0.514);
+}
+
 .location-container {
     background: url("images/locationbg.jpg") no-repeat top center;
     background-size: cover;
     border-radius: 20px;
     color: white;
-}
-
-.location-button-content {
-    border-radius: 8px 0px 0px 8px;
 }
 
 /* SOURCE: https://stackoverflow.com/questions/38661118/centering-text-in-row-with-bootstrap-grid */
@@ -63,9 +71,10 @@ textarea:focus, input:focus, button:focus {
     font-size: 18px;
     border: none;
     background-color: rgba(0, 0, 0, 0.308);
+    border-radius: 8px 0px 0px 8px;
 }
 
-.location-buttons:hover {
+.hover:hover {
     background-color: white;
     color: black;
 }

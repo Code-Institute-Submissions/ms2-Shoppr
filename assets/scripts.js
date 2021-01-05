@@ -104,22 +104,38 @@ $("#open-sections").on("click", function() {
     $(".collapse").addClass('show');
 });
 
-$("#edit-sections").on("click", function() {
-    var redPlaceholder = $('.red-button').text();
-    if ($('#edit-sections').text().includes("Edit locations")){
-        $('.red-button').off('click');
-        $('.red-button').empty().append(`<input type="text" placeholder="${redPlaceholder}"></input>`)
-        $('.red-button').parent().removeClass('col-6 text-right').addClass('col-12 text-center');
-        $('#edit-sections').text('Save Changes')
-    } else if ($('#edit-sections').text().includes("Save Changes")){
-        $('.red-button').on('click');
-        $('.red-button').empty()
-        // var redPlaceholder = 
-        $('.red-button').text(redPlaceholder)
-        $('.red-button').parent().removeClass('col-12 text-center').addClass('col-6 text-right');
-        $('#edit-sections').text(`<i class="px-2 fas fa-pencil-alt"></i> Edit locations`)
-    }
-})
+function editLocation(button){
+    $(button).on("click", function() {
+        var button = $(this).parent().prev().find('button');
+        originalText = button.text();
+        console.log(originalText)
+        if ($(this).find('i').hasClass('fa-pencil-alt')){
+            $(button).off('click');
+            $(button).empty().append(`<input type="text" class="text-center location-input" placeholder="${originalText}"></input>`)
+            $(button).removeClass('hover');
+            $(button).find('input').focus();
+            $(this).find('i').removeClass('fa-pencil-alt').addClass('fa-check');
+
+        } else if ($(this).find('i').hasClass('fa-check')){
+            var inputText = $(button).find('input').val();
+            if (inputText == ""){
+                var inputPlaceholder = $(button).find('input').attr('placeholder')
+                $(button).empty();
+                $(button).text(inputPlaceholder)
+                $(button).addClass('hover');
+                $(this).find('i').removeClass('fa-check').addClass('fa-pencil-alt');
+                // NEED TO MAKE BUTTON CLICKABLE AGAIN
+            }
+            else if (inputText != ""){
+                $(button).empty();
+                $(button).text(inputText)
+                $(button).addClass('hover');
+                $(this).find('i').removeClass('fa-check').addClass('fa-pencil-alt');
+                // NEED TO MAKE BUTTON CLICKABLE AGAIN
+            }
+        }
+    })
+}
 
 // UPDATES LOCALSTORAGE WITH CHANGES TO ITEMS ARRAY
 function updateLocalStorage(){
@@ -152,6 +168,13 @@ $(window).scroll(function () {
 })
 
 $(document).ready(function() {
+
+    editLocation(".red-edit-button");
+    editLocation(".blue-edit-button");
+    editLocation(".green-edit-button");
+    editLocation(".yellow-edit-button");
+    editLocation(".orange-edit-button");
+    editLocation(".pink-edit-button");
 
     captureInput(".red-button", "#red-table")
     captureInput(".blue-button", "#blue-table")
