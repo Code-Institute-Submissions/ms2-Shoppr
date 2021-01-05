@@ -59,7 +59,7 @@ textarea:focus, input:focus, button:focus {
 }
 
 /* SOURCE: https://stackoverflow.com/questions/38661118/centering-text-in-row-with-bootstrap-grid */
-.location-buttons::before {
+.center::before {
     content:"";
     margin-left: 16.6%;
 }
