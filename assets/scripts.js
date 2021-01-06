@@ -171,7 +171,7 @@ function updateLocalStorage(){
 if ($(window).width() >= 768) {
     $('#add-button').css('display', 'none');
 } else if ($(window).width() < 768) {
-    // $('#add-button').css('display', 'block');
+    $('#add-button').css('display', 'none');
     $(window).scroll(function () {
         var height = $(window).height();
         if ($(window).scrollTop() >height) {
