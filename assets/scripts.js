@@ -48,6 +48,9 @@ if (JSON.parse(localStorage.getItem('inputObjects')) == undefined){
 // IF INPUT FIELD ISN'T EMPTY, ADD TO TABLE, OPEN TABLE CARD, CHECK IF IT EXISTS IN LOCALSTORAGE AND IF NOT THEN ADD IT AND RESET INPUT FIELD
 function captureInput(location, tableName){
     $(location).on("click", function() {
+        if ($(location).hasClass('prevent-click')) {
+            return;
+        }
         if (Item.name != ""){
             insertRowData(tableName, $("#quantity-counter").text(), $("#item-name").val());
             let collapseParent = $(tableName).parent().parent().parent();
@@ -110,12 +113,12 @@ function editLocation(button){
         originalText = button.text();
         console.log(originalText)
         if ($(this).find('i').hasClass('fa-pencil-alt')){
-            $(button).off('click');
+            // $(button).off('click');
+            $(button).addClass('prevent-click');
             $(button).empty().append(`<input type="text" class="text-center location-input" placeholder="${originalText}"></input>`)
             $(button).removeClass('hover center');
             $(button).find('input').focus();
             $(this).find('i').removeClass('fa-pencil-alt').addClass('fa-check');
-
         } else if ($(this).find('i').hasClass('fa-check')){
             var inputText = $(button).find('input').val();
             if (inputText == ""){
@@ -135,6 +138,8 @@ function editLocation(button){
                 // NEED TO MAKE BUTTON CLICKABLE AGAIN
                 // NEEDS TO UPDATE TABLE HEADER, POINT TO NEW FUNCTION
             }
+            // MAYBE PUT THE RE-ACTIVATION HERE?
+            $(button).removeClass('prevent-click');
         }
     })
 }
