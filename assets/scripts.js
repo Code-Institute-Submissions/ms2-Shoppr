@@ -167,15 +167,28 @@ function updateLocalStorage(){
 
 // ADD BUTTON APPEARS AFTER SCROLLING DOWN
 // SOURCE: https://www.tutorialfor.com/questions-309330.htm
-$('#add-button').css('display', 'none');
-$(window).scroll(function () {
-    var height = $(window).height();
-    if ($(window).scrollTop() >height) {
-        $('#add-button').css('display', 'block');
-    } else {
-        $('#add-button').css('display', 'none');
-    }
-})
+// $('#add-button').css('display', 'none');
+if ($(window).width() >= 768) {
+    $('#add-button').css('display', 'none');
+} else if ($(window).width() < 768) {
+    $('#add-button').css('display', 'block');
+    $(window).scroll(function () {
+        var height = $(window).height();
+        if ($(window).scrollTop() >height) {
+            $('#add-button').css('display', 'block');
+        } else {
+            $('#add-button').css('display', 'none');
+        }
+    })
+}
+// $(window).scroll(function () {
+//     var height = $(window).height();
+//     if ($(window).scrollTop() >height) {
+//         $('#add-button').css('display', 'block');
+//     } else {
+//         $('#add-button').css('display', 'none');
+//     }
+// })
 
 $(document).ready(function() {
 
