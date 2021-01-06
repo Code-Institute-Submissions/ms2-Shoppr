@@ -107,11 +107,13 @@ $("#open-sections").on("click", function() {
     $(".collapse").addClass('show');
 });
 
+// ENABLES EDITING OF LOCATION NAMES
 function editLocation(button){
     $(button).on("click", function() {
         var button = $(this).parent().prev().find('button');
         originalText = button.text();
-        console.log(originalText)
+        // var tableHeader = $('.table-header').text(); 
+        // console.log(tableHeader);
         if ($(this).find('i').hasClass('fa-pencil-alt')){
             // $(button).off('click');
             $(button).addClass('prevent-click');
@@ -120,9 +122,9 @@ function editLocation(button){
             $(button).find('input').focus();
             $(this).find('i').removeClass('fa-pencil-alt').addClass('fa-check');
         } else if ($(this).find('i').hasClass('fa-check')){
+            var inputPlaceholder = $(button).find('input').attr('placeholder')
             var inputText = $(button).find('input').val();
             if (inputText == ""){
-                var inputPlaceholder = $(button).find('input').attr('placeholder')
                 $(button).empty();
                 $(button).text(inputPlaceholder)
                 $(button).addClass('hover center');
@@ -133,11 +135,16 @@ function editLocation(button){
                 $(button).text(inputText)
                 $(button).addClass('hover center');
                 $(this).find('i').removeClass('fa-check').addClass('fa-pencil-alt');
+                var targetTableHeader = $(`h5:contains('${inputPlaceholder}')`); 
+                updateTableHeaders(inputText, targetTableHeader)
             }
-            // MAYBE PUT THE RE-ACTIVATION HERE?
             $(button).removeClass('prevent-click');
         }
     })
+}
+
+function updateTableHeaders(newLocationName, targetTableHeader) {
+    $(targetTableHeader).text(`${newLocationName}`);
 }
 
 // UPDATES LOCALSTORAGE WITH CHANGES TO ITEMS ARRAY
