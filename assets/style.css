@@ -110,11 +110,6 @@ input[type="checkbox"] {
     vertical-align: middle;
   }
 
-/* #add-button {
-    display: none;
-    background-color: red;
-} */
-
 #menu-controls {
     min-height: 100vh;
 }
@@ -130,10 +125,6 @@ input[type="checkbox"] {
     #shopping-list {
         min-height: 97vh;
     }
-/* 
-    #add-button {
-        display: block;
-    } */
 
     #add-button i{
         font-size: 50px;
