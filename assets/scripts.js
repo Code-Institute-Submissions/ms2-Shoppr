@@ -127,16 +127,12 @@ function editLocation(button){
                 $(button).text(inputPlaceholder)
                 $(button).addClass('hover center');
                 $(this).find('i').removeClass('fa-check').addClass('fa-pencil-alt');
-                // NEED TO MAKE BUTTON CLICKABLE AGAIN
-                // NEEDS TO UPDATE TABLE HEADER, POINT TO NEW FUNCTION
             }
             else if (inputText != ""){
                 $(button).empty();
                 $(button).text(inputText)
                 $(button).addClass('hover center');
                 $(this).find('i').removeClass('fa-check').addClass('fa-pencil-alt');
-                // NEED TO MAKE BUTTON CLICKABLE AGAIN
-                // NEEDS TO UPDATE TABLE HEADER, POINT TO NEW FUNCTION
             }
             // MAYBE PUT THE RE-ACTIVATION HERE?
             $(button).removeClass('prevent-click');
