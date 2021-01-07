@@ -16,16 +16,25 @@ function resetInput(){
     $("#item-name").val('');
 }
 
-var locations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves'];
+function updateLocationsMemory() {
+    localStorage.setItem('locationsMemory', JSON.stringify(locations));
+}
 
+if (JSON.parse(localStorage.getItem('locationsMemory')) == undefined){
+    var locations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves'];
+} else {
+    var locations = JSON.parse(localStorage.getItem('locationsMemory'));
+}
+
+// SETS LOCATION BUTTON TEXT FROM ARRAY
 function locationButtonNames(locationBtn, name) {
     $(locationBtn).text(name)
 }
 
+// SETS LOCATION TABLE HEADER TEXT FROM ARRAY
 function locationTableHeaders(locationHeader, name) {
     $(locationHeader).text(name);
 }
-
 
 function insertRowData(tableName, itemQuantity, itemName){
     console.log(`added ${itemQuantity} ${itemName}`)
@@ -118,15 +127,28 @@ $("#open-sections").on("click", function() {
     $(".collapse").addClass('show');
 });
 
+function updateAllLocations(){
+    locationButtonNames(".location-btn-1", locations[0]);
+    locationButtonNames(".location-btn-2", locations[1]);
+    locationButtonNames(".location-btn-3", locations[2]);
+    locationButtonNames(".location-btn-4", locations[3]);
+    locationButtonNames(".location-btn-5", locations[4]);
+    locationButtonNames(".location-btn-6", locations[5]);
+
+    locationTableHeaders(".header1", locations[0]);
+    locationTableHeaders(".header2", locations[1]);
+    locationTableHeaders(".header3", locations[2]);
+    locationTableHeaders(".header4", locations[3]);
+    locationTableHeaders(".header5", locations[4]);
+    locationTableHeaders(".header6", locations[5]);
+}
+
 // ENABLES EDITING OF LOCATION NAMES
 function editLocation(button){
     $(button).on("click", function() {
         var button = $(this).parent().prev().find('button');
         originalText = button.text();
-        // var tableHeader = $('.table-header').text(); 
-        // console.log(tableHeader);
         if ($(this).find('i').hasClass('fa-pencil-alt')){
-            // $(button).off('click');
             $(button).addClass('prevent-click');
             $(button).empty().append(`<input type="text" class="text-center location-input" placeholder="${originalText}"></input>`)
             $(button).removeClass('hover center');
@@ -143,11 +165,15 @@ function editLocation(button){
             }
             else if (inputText != ""){
                 $(button).empty();
-                $(button).text(inputText)
+                // $(button).text(inputText)
                 $(button).addClass('hover center');
                 $(this).find('i').removeClass('fa-check').addClass('fa-pencil-alt');
-                var targetTableHeader = $(`h5:contains('${inputPlaceholder}')`); 
-                updateTableHeaders(inputText, targetTableHeader)
+                // var targetTableHeader = $(`h5:contains('${inputPlaceholder}')`); 
+                // updateTableHeaders(inputText, targetTableHeader)
+                var locationIndex = locations.indexOf(inputPlaceholder);
+                locations[locationIndex] = inputText;
+                updateAllLocations();
+                updateLocationsMemory();
             }
             $(button).removeClass('prevent-click');
         }
@@ -193,19 +219,21 @@ if ($(window).width() >= 768) {
 
 $(document).ready(function() {
 
-    locationButtonNames(".location-btn-1", locations[0]);
-    locationButtonNames(".location-btn-2", locations[1]);
-    locationButtonNames(".location-btn-3", locations[2]);
-    locationButtonNames(".location-btn-4", locations[3]);
-    locationButtonNames(".location-btn-5", locations[4]);
-    locationButtonNames(".location-btn-6", locations[5]);
+    // locationButtonNames(".location-btn-1", locations[0]);
+    // locationButtonNames(".location-btn-2", locations[1]);
+    // locationButtonNames(".location-btn-3", locations[2]);
+    // locationButtonNames(".location-btn-4", locations[3]);
+    // locationButtonNames(".location-btn-5", locations[4]);
+    // locationButtonNames(".location-btn-6", locations[5]);
 
-    locationTableHeaders(".header1", locations[0]);
-    locationTableHeaders(".header2", locations[1]);
-    locationTableHeaders(".header3", locations[2]);
-    locationTableHeaders(".header4", locations[3]);
-    locationTableHeaders(".header5", locations[4]);
-    locationTableHeaders(".header6", locations[5]);
+    updateAllLocations();
+
+    // locationTableHeaders(".header1", locations[0]);
+    // locationTableHeaders(".header2", locations[1]);
+    // locationTableHeaders(".header3", locations[2]);
+    // locationTableHeaders(".header4", locations[3]);
+    // locationTableHeaders(".header5", locations[4]);
+    // locationTableHeaders(".header6", locations[5]);
 
     editLocation(".location-edit-btn-1");
     editLocation(".location-edit-btn-2");
