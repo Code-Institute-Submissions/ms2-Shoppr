@@ -16,6 +16,8 @@ function resetInput(){
     $("#item-name").val('');
 }
 
+var locations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves'];
+
 function insertRowData(tableName, itemQuantity, itemName){
     console.log(`added ${itemQuantity} ${itemName}`)
 
