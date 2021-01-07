@@ -184,26 +184,26 @@ if ($(window).width() >= 768) {
 
 $(document).ready(function() {
 
-    editLocation(".red-edit-button");
-    editLocation(".blue-edit-button");
-    editLocation(".green-edit-button");
-    editLocation(".yellow-edit-button");
-    editLocation(".orange-edit-button");
-    editLocation(".pink-edit-button");
+    editLocation(".location-edit-btn-1");
+    editLocation(".location-edit-btn-2");
+    editLocation(".location-edit-btn-3");
+    editLocation(".location-edit-btn-4");
+    editLocation(".location-edit-btn-5");
+    editLocation(".location-edit-btn-6");
 
-    captureInput(".red-button", "#red-table")
-    captureInput(".blue-button", "#blue-table")
-    captureInput(".green-button", "#green-table")
-    captureInput(".yellow-button", "#yellow-table")
-    captureInput(".orange-button", "#orange-table")
-    captureInput(".pink-button", "#pink-table")
+    captureInput(".location-btn-1", "#table-1")
+    captureInput(".location-btn-2", "#table-2")
+    captureInput(".location-btn-3", "#table-3")
+    captureInput(".location-btn-4", "#table-4")
+    captureInput(".location-btn-5", "#table-5")
+    captureInput(".location-btn-6", "#table-6")
 
-    removeRow("#red-table")
-    removeRow("#blue-table")
-    removeRow("#green-table")
-    removeRow("#yellow-table")
-    removeRow("#orange-table")
-    removeRow("#pink-table")
+    removeRow("#table-1")
+    removeRow("#table-2")
+    removeRow("#table-3")
+    removeRow("#table-4")
+    removeRow("#table-5")
+    removeRow("#table-6")
 
 
     // INCREASE QUANTITY
