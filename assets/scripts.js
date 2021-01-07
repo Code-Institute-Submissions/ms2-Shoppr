@@ -18,6 +18,10 @@ function resetInput(){
 
 var locations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves'];
 
+function locationNames(location, name) {
+    $(location).text(name)
+}
+
 function insertRowData(tableName, itemQuantity, itemName){
     console.log(`added ${itemQuantity} ${itemName}`)
 
@@ -183,6 +187,13 @@ if ($(window).width() >= 768) {
 }
 
 $(document).ready(function() {
+
+    locationNames(".location-btn-1", locations[0])
+    locationNames(".location-btn-2", locations[1])
+    locationNames(".location-btn-3", locations[2])
+    locationNames(".location-btn-4", locations[3])
+    locationNames(".location-btn-5", locations[4])
+    locationNames(".location-btn-6", locations[5])
 
     editLocation(".location-edit-btn-1");
     editLocation(".location-edit-btn-2");
