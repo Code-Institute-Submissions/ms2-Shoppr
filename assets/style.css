@@ -2,6 +2,8 @@ textarea:focus, input:focus, button:focus {
     outline: solid 1px rgb(75, 75, 75);
 }
 
+#mapid { height: 400px; }
+
 #accordion {
     width: 100%;
 }

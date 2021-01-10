@@ -26,6 +26,8 @@ if (JSON.parse(localStorage.getItem('locationsMemory')) == undefined){
     var locations = JSON.parse(localStorage.getItem('locationsMemory'));
 }
 
+// var locations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves'];
+
 // SETS LOCATION BUTTON TEXT FROM ARRAY
 function locationButtonNames(locationBtn, name) {
     $(locationBtn).text(name)
@@ -216,6 +218,7 @@ if ($(window).width() >= 768) {
         }
     })
 }
+
 
 $(document).ready(function() {
 
