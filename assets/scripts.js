@@ -86,6 +86,19 @@ function convertToCsvFormat(array) {
     $("#createCSV").attr("href", csvDownloadURL)
 }
 
+$("#uploadCSV").change(function() {
+    var readFile = new FileReader();
+    readFile.onload = function() {
+        var result = readFile.result
+        alert(result)
+        // NEED TO CONVERT CSV BACK INTO OBJECT ARRAY AND CLEAR SLISTARRAY/TABLE OF CONTENT
+    }
+
+    readFile.readAsText(this.files[0]); 
+});
+
+
+
 
 // IF INPUT FIELD ISN'T EMPTY, ADD TO TABLE, OPEN TABLE CARD, CHECK IF IT EXISTS IN LOCALSTORAGE AND IF NOT THEN ADD IT AND RESET INPUT FIELD
 function captureInput(location, tableName){
