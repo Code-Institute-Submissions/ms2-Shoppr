@@ -66,6 +66,8 @@ if (JSON.parse(localStorage.getItem('inputObjects')) == undefined){
     var items = JSON.parse(localStorage.getItem('inputObjects'));
 }
 
+var sListArray = [];
+
 
 // IF INPUT FIELD ISN'T EMPTY, ADD TO TABLE, OPEN TABLE CARD, CHECK IF IT EXISTS IN LOCALSTORAGE AND IF NOT THEN ADD IT AND RESET INPUT FIELD
 function captureInput(location, tableName){
@@ -75,6 +77,9 @@ function captureInput(location, tableName){
         }
         if ($("#item-name").val() != ""){
             insertRowData(tableName, $("#quantity-counter").text(), $("#item-name").val());
+
+            sListArray.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location));
+
             let collapseParent = $(tableName).parent().parent().parent();
             $(".collapse").not(collapseParent).collapse('hide');
             $(collapseParent).addClass('show');
