@@ -74,6 +74,18 @@ $("#createCSV").on("click", function() {
     }
 })
 
+function convertToCsvFormat(array) {
+    flatArray = [];
+    for (x in array){
+        flatArray.push(array[x].name)
+        flatArray.push(array[x].quantity)
+        flatArray.push(array[x].location)
+    }
+    csvFormatted = flatArray.join("%2C")
+    csvDownloadURL = "data:application/csv;charset=utf-8," + csvFormatted
+    $("#createCSV").attr("href", csvDownloadURL)
+}
+
 
 // IF INPUT FIELD ISN'T EMPTY, ADD TO TABLE, OPEN TABLE CARD, CHECK IF IT EXISTS IN LOCALSTORAGE AND IF NOT THEN ADD IT AND RESET INPUT FIELD
 function captureInput(location, tableName){
@@ -85,6 +97,7 @@ function captureInput(location, tableName){
             insertRowData(tableName, $("#quantity-counter").text(), $("#item-name").val());
 
             sListArray.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location));
+            convertToCsvFormat(sListArray)
 
             let collapseParent = $(tableName).parent().parent().parent();
             $(".collapse").not(collapseParent).collapse('hide');
