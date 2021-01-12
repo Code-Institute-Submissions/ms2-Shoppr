@@ -68,6 +68,12 @@ if (JSON.parse(localStorage.getItem('inputObjects')) == undefined){
 
 var sListArray = [];
 
+$("#createCSV").on("click", function() {
+    if (sListArray.length === 0) {
+        alert('there is nothing in the shoping list')
+    }
+})
+
 
 // IF INPUT FIELD ISN'T EMPTY, ADD TO TABLE, OPEN TABLE CARD, CHECK IF IT EXISTS IN LOCALSTORAGE AND IF NOT THEN ADD IT AND RESET INPUT FIELD
 function captureInput(location, tableName){
