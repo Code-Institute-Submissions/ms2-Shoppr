@@ -102,6 +102,9 @@ $("#uploadCSV").change(function() {
                 var quantityIndex = loopIndex + 1
                 var locationIndex = loopIndex + 2
                 uploadedArray.push(new Item(uploadConvertToArray[x], uploadConvertToArray[quantityIndex], uploadConvertToArray[locationIndex]));
+
+                insertRowData("#table-1", uploadConvertToArray[quantityIndex], uploadConvertToArray[x]);
+                // DOES NOT OPEN TABLE CARD
             }
         }
         // NEED TO CONVERT CSV BACK INTO OBJECT ARRAY AND CLEAR SLISTARRAY/TABLE OF CONTENT
