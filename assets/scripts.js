@@ -81,16 +81,29 @@ function convertToCsvFormat(array) {
         flatArray.push(array[x].quantity)
         flatArray.push(array[x].location)
     }
-    csvFormatted = flatArray.join("%2C")
-    csvDownloadURL = "data:application/csv;charset=utf-8," + csvFormatted
+    csvFormatted = flatArray.join("|")
+    csvConcat = "data:application/csv;charset=utf-8," + csvFormatted
+    csvDownloadURL = csvConcat.replace(/ /g, '%20')
+    console.log(csvDownloadURL)
     $("#createCSV").attr("href", csvDownloadURL)
 }
+
+var uploadedArray = [];
 
 $("#uploadCSV").change(function() {
     var readFile = new FileReader();
     readFile.onload = function() {
         var result = readFile.result
-        alert(result)
+        var uploadConvertToArray = result.split("|")
+        console.log(uploadConvertToArray)
+        for (x in uploadConvertToArray){
+            if (x % 3 === 0){
+                var loopIndex = Number.parseInt(x)
+                var quantityIndex = loopIndex + 1
+                var locationIndex = loopIndex + 2
+                uploadedArray.push(new Item(uploadConvertToArray[x], uploadConvertToArray[quantityIndex], uploadConvertToArray[locationIndex]));
+            }
+        }
         // NEED TO CONVERT CSV BACK INTO OBJECT ARRAY AND CLEAR SLISTARRAY/TABLE OF CONTENT
     }
 
