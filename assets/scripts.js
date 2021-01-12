@@ -73,7 +73,7 @@ function captureInput(location, tableName){
         if ($(location).hasClass('prevent-click')) {
             return;
         }
-        if ("#item-name" != ""){
+        if ($("#item-name").val() != ""){
             insertRowData(tableName, $("#quantity-counter").text(), $("#item-name").val());
             let collapseParent = $(tableName).parent().parent().parent();
             $(".collapse").not(collapseParent).collapse('hide');
