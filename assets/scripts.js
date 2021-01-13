@@ -90,10 +90,10 @@ function convertToCsvFormat(array) {
 
 var uploadedArray = [];
 
-// function buttonTableLink(buttonLocation) {
-//     buttonLocationIndex = buttonLocation.split("location-btn-"|"table-")
-//     console.log(buttonLocationIndex[1])
-// }
+function buttonTableLink(buttonLocation) {
+    buttonLocationIndex = buttonLocation.split("location-btn-"|"table-")
+    console.log(buttonLocationIndex[1])
+}
 
  var buttonTableLink = [
     {buttonLocation : ".location-btn-1", tableID: "#table-1"},
@@ -130,7 +130,6 @@ $("#uploadCSV").change(function() {
                 var locationIndex = loopIndex + 2
                 uploadedArray.push(new Item(uploadConvertToArray[x], uploadConvertToArray[quantityIndex], uploadConvertToArray[locationIndex]));
                 var matchingTable = findButtonTableLink(uploadConvertToArray[locationIndex])
-                console.log(x)
 
                 // console.log(uploadConvertToArray[x])
                 // console.log(uploadedArray[length])
