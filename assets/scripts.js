@@ -90,20 +90,58 @@ function convertToCsvFormat(array) {
 
 var uploadedArray = [];
 
+// function buttonTableLink(buttonLocation) {
+//     buttonLocationIndex = buttonLocation.split("location-btn-"|"table-")
+//     console.log(buttonLocationIndex[1])
+// }
+
+ var buttonTableLink = [
+    {buttonLocation : ".location-btn-1", tableID: "#table-1"},
+    {buttonLocation : ".location-btn-2", tableID: "#table-2"},
+    {buttonLocation : ".location-btn-3", tableID: "#table-3"},
+    {buttonLocation : ".location-btn-4", tableID: "#table-4"},
+    {buttonLocation : ".location-btn-5", tableID: "#table-5"},
+    {buttonLocation : ".location-btn-6", tableID: "#table-6"},
+ ]
+
+ function findButtonTableLink(value) {
+    for (i in buttonTableLink){
+        if (buttonTableLink[i].buttonLocation == value) {
+            return buttonTableLink[i].tableID;
+        } else if (buttonTableLink[i].tableID == value) {
+            return buttonTableLink[i].buttonLocation;
+        }
+        else {
+            console.log("not found")
+        }
+    }
+ }
+
 $("#uploadCSV").change(function() {
     var readFile = new FileReader();
     readFile.onload = function() {
         var result = readFile.result
         var uploadConvertToArray = result.split("|")
-        console.log(uploadConvertToArray)
         for (x in uploadConvertToArray){
             if (x % 3 === 0){
+                console.log(x)
                 var loopIndex = Number.parseInt(x)
                 var quantityIndex = loopIndex + 1
                 var locationIndex = loopIndex + 2
                 uploadedArray.push(new Item(uploadConvertToArray[x], uploadConvertToArray[quantityIndex], uploadConvertToArray[locationIndex]));
+                var matchingTable = findButtonTableLink(uploadConvertToArray[locationIndex])
+                console.log(x)
 
-                insertRowData("#table-1", uploadConvertToArray[quantityIndex], uploadConvertToArray[x]);
+                // console.log(uploadConvertToArray[x])
+                // console.log(uploadedArray[length])
+                // console.log("matching table of " + uploadConvertToArray[x] + "is " + matchingTable)
+
+                insertRowData(matchingTable, uploadConvertToArray[quantityIndex], uploadConvertToArray[x]);
+
+                $(".collapse").removeClass('hide');
+                $(".collapse").addClass('show');
+                
+
                 // DOES NOT OPEN TABLE CARD
             }
         }
