@@ -390,6 +390,10 @@ function updateLocalStorage(){
             updateLocalStorage();
             $(this).closest("tr").remove();
             updateHeaderQuantity(tableName)
+            var rowsLength = $(tableName).children('tr').length
+            if (rowsLength == "0") {
+                tableIncomplete(tableName)
+            }
             console.log(`Removed ${removedItemName} from array`);
         });
     }
