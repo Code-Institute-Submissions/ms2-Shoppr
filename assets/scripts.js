@@ -56,6 +56,7 @@ function updateTableBanner(tableName){
             matchingBorderColour = "20px solid " + bannerImages[x][2];
             $("#banner-img").css('background-image',`url('${matchingImage}')`)
             $(".location-container").css('border', matchingBorderColour);
+            $("#banner-img").css('background-color', matchingBorderColour);
         }
     }
 }
