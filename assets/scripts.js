@@ -327,7 +327,7 @@ function updateAllLocations(){
     locationButtonNames(".location-btn-5", locations[5]);
 
     locationTableHeaders(".header0", locations[0]);
-    locationTableHeaders(".header1", locations[1]);x
+    locationTableHeaders(".header1", locations[1]);
     locationTableHeaders(".header2", locations[2]);
     locationTableHeaders(".header3", locations[3]);
     locationTableHeaders(".header4", locations[4]);
