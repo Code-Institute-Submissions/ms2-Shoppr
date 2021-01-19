@@ -39,6 +39,22 @@ function locationTableHeaders(locationHeader, name) {
 function updateTableBanner(tableName){
     var tableHeaderText = $(tableName).parent().parent().parent().prev().children().first().children().text()
     $(".table-title").text(tableHeaderText);
+
+    bannerImages = [
+        ["#table-0", "assets/images/banner0.jpg"],
+        ["#table-1", "assets/images/banner1.jpg"],
+        ["#table-2", "assets/images/banner2.jpg"],
+        ["#table-3", "assets/images/banner3.jpg"],
+        ["#table-4", "assets/images/banner4.jpg"],
+        ["#table-5", "assets/images/banner5.jpg"],
+    ]
+
+    for (x in bannerImages) {
+        if (bannerImages[x][0] == tableName){
+            matchingImage = bannerImages[x][1]
+            $("#banner-img").css('background-image',`url('${matchingImage}')`)
+        }
+    }
 }
 
 function insertRowData(tableName, itemQuantity, itemName){
