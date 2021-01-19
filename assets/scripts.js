@@ -26,8 +26,6 @@ if (JSON.parse(localStorage.getItem('locationsMemory')) == undefined){
     var locations = JSON.parse(localStorage.getItem('locationsMemory'));
 }
 
-// var locations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves'];
-
 // SETS LOCATION BUTTON TEXT FROM ARRAY
 function locationButtonNames(locationBtn, name) {
     $(locationBtn).text(name)
@@ -38,17 +36,26 @@ function locationTableHeaders(locationHeader, name) {
     $(locationHeader).text(name);
 }
 
+// function updateHeaderQuantity(tableId){
+//     var tableRowCount = $(`${tableId} .item-check:not(:checked)`).length
+//     $(tableId).parent().parent().parent().prev().children('.float-right').children('a').text(tableRowCount)
+// }
+
 function insertRowData(tableName, itemQuantity, itemName){
     console.log(`added ${itemQuantity} ${itemName}`)
 
+
     $(tableName).prepend(`
     <tr class="table-row">
-        <td class="px-3 red-line"><input type="checkbox"></td>
+        <td class="px-3 red-line"><input type="checkbox" class="item-check"></td>
         <td class="px-3 quantity-field"><span class="quantity-number">${itemQuantity}x</span></td>
         <td class="item-field w-75 text-left">${itemName}</td>
         <td class="px-2"><button class="remove-field"><i class="far fa-trash-alt"></i></button></td>
     </tr>
     `);
+
+    updateHeaderQuantity(tableName)
+    
 }
 
 class Item {
@@ -71,16 +78,26 @@ var sListArray = [];
 $("#createCSV").on("click", function() {
     if (sListArray.length === 0) {
         alert('there is nothing in the shoping list')
+    } else {
+        convertToCsvFormat(sListArray)
     }
 })
 
 function convertToCsvFormat(array) {
     flatArray = [];
+
+    for (title in locations){
+        flatArray.push(locations[title])
+    }
+
     for (x in array){
         flatArray.push(array[x].name)
         flatArray.push(array[x].quantity)
         flatArray.push(array[x].location)
     }
+
+    console.log("flatArray after items added is " + flatArray)
+
     csvFormatted = flatArray.join("|")
     csvConcat = "data:application/csv;charset=utf-8," + csvFormatted
     csvDownloadURL = csvConcat.replace(/ /g, '%20')
@@ -88,7 +105,7 @@ function convertToCsvFormat(array) {
     $("#createCSV").attr("href", csvDownloadURL)
 }
 
-var uploadedArray = [];
+// var uploadedArray = [];
 
 function buttonTableLink(buttonLocation) {
     buttonLocationIndex = buttonLocation.split("location-btn-"|"table-")
@@ -96,12 +113,12 @@ function buttonTableLink(buttonLocation) {
 }
 
  var buttonTableLink = [
+    {buttonLocation : ".location-btn-0", tableID: "#table-0"},
     {buttonLocation : ".location-btn-1", tableID: "#table-1"},
     {buttonLocation : ".location-btn-2", tableID: "#table-2"},
     {buttonLocation : ".location-btn-3", tableID: "#table-3"},
     {buttonLocation : ".location-btn-4", tableID: "#table-4"},
     {buttonLocation : ".location-btn-5", tableID: "#table-5"},
-    {buttonLocation : ".location-btn-6", tableID: "#table-6"},
  ]
 
  function findButtonTableLink(value) {
@@ -112,46 +129,117 @@ function buttonTableLink(buttonLocation) {
             return buttonTableLink[i].buttonLocation;
         }
         else {
-            console.log("not found")
+            console.log(value + " was not found in " + buttonTableLink[i].tableID)
         }
     }
+ }
+
+ function removeAllData() {
+    $(".table-row").remove();
+    sListArray = [];
  }
 
 $("#uploadCSV").change(function() {
     var readFile = new FileReader();
     readFile.onload = function() {
         var result = readFile.result
-        var uploadConvertToArray = result.split("|")
-        for (x in uploadConvertToArray){
+        var uploadDelimiter = result.split("|")
+        var tableTitles = uploadDelimiter.slice(0, 6)
+        var listItems = uploadDelimiter.slice(6)
+
+        removeAllData()
+
+        // CHANGE TITLES OF TABLES HERE USING tableTitles VARIABLE
+        // find location-edit-btn class
+        console.log(tableTitles)
+
+        // for (i in tableTitles){
+        //     $(".location-btn-" + i).text(tableTitles[i])
+        //     $(".header" + i).text(tableTitles[i])
+        // }
+
+        locations = tableTitles
+        updateAllLocations()
+        updateLocationsMemory()
+
+
+        for (x in listItems){
             if (x % 3 === 0){
                 console.log(x)
                 var loopIndex = Number.parseInt(x)
                 var quantityIndex = loopIndex + 1
                 var locationIndex = loopIndex + 2
-                uploadedArray.push(new Item(uploadConvertToArray[x], uploadConvertToArray[quantityIndex], uploadConvertToArray[locationIndex]));
-                var matchingTable = findButtonTableLink(uploadConvertToArray[locationIndex])
-
-                // console.log(uploadConvertToArray[x])
-                // console.log(uploadedArray[length])
-                // console.log("matching table of " + uploadConvertToArray[x] + "is " + matchingTable)
-
-                insertRowData(matchingTable, uploadConvertToArray[quantityIndex], uploadConvertToArray[x]);
-
-                $(".collapse").removeClass('hide');
-                $(".collapse").addClass('show');
-                
-
-                // DOES NOT OPEN TABLE CARD
+                sListArray.push(new Item(listItems[x], listItems[quantityIndex], listItems[locationIndex]));
+                items.push(new Item(listItems[x], listItems[quantityIndex], listItems[locationIndex]));
+                updateLocalStorage();
+                var matchingTable = findButtonTableLink(listItems[locationIndex])
+                insertRowData(matchingTable, listItems[quantityIndex], listItems[x]);
+                openAllSections()
             }
         }
-        // NEED TO CONVERT CSV BACK INTO OBJECT ARRAY AND CLEAR SLISTARRAY/TABLE OF CONTENT
     }
 
     readFile.readAsText(this.files[0]); 
 });
 
 
+function collapseCardsLoop(cardsArray){
+    for (x in cardsArray){
+        var tableItemsCounter = $(cardsArray).eq(x).children().children('.float-right').children('a').text()
+        if (tableItemsCounter != "Completed" && tableItemsCounter != "0") {
+            $(cardsArray).eq(x).children('.collapse').addClass('show')
+            break;
+        }
+    }
+}
 
+function updateHeaderQuantity(tableId){
+    var tableRowCount = $(`${tableId} .item-check:not(:checked)`).length
+    $(tableId).parent().parent().parent().prev().children('.float-right').children('a').text(tableRowCount)
+    if ($(`${tableId} .item-check:checked`).length >0 && $(`${tableId} .item-check:not(:checked)`).length <=0){ // HANDLES WHEN YOU REMOVE THE LAST UNCHECKED ITEM IN A TABLE OF CHECKED ITEMS
+        tableCompleted(tableId)
+    }
+}
+
+function tableCompleted(tableId){
+    $(tableId).parent().parent().parent().collapse("toggle")
+    $(tableId).parent().parent().parent().prev().addClass('colour-complete')
+    $(tableId).parent().parent().parent().prev().children('.float-right').children('a').text("Completed")
+}
+
+function tableIncomplete(tableId){
+    updateHeaderQuantity(tableId)
+    if ($(tableId).parent().parent().parent().prev().hasClass("colour-complete")){
+        $(tableId).parent().parent().parent().prev().removeClass("colour-complete").addClass("colour-neutral")
+    }
+}
+
+// SOURCE: https://stackoverflow.com/a/12602806
+$('#accordion').on('click', 'input[class=item-check]', function(){
+    var tableId = "#" + $(this).closest(".table").attr('id');
+    var remainingCards = $(tableId).parent().parent().parent().parent().nextAll().toArray()
+    var remainingCardsCounter = [];
+    var allCards = $("#accordion").children('.card').toArray()
+    var tableRowCount = $(`${tableId} .item-check:not(:checked)`).length
+
+    for (x in remainingCards){
+        var counters = $(tableId).parent().parent().parent().parent().nextAll().children('.card-header').children('.float-right').children('a').eq(x)
+        remainingCardsCounter.push(counters.text())
+    }
+
+    // SOURCE: https://stackoverflow.com/questions/8846075/css3-unchecked-pseudo-class
+    if ($(`${tableId} .item-check:not(:checked)`).length <1) {
+        tableCompleted(tableId)
+        // SOURCE: https://stackoverflow.com/a/18867667
+        if (remainingCardsCounter.every(x => x === "0") || remainingCardsCounter.every(x => x === "Completed")) {
+            collapseCardsLoop(allCards)
+        } else {
+            collapseCardsLoop(remainingCards)
+        }
+    } else if (tableRowCount >= 1){ // IF NOT ALL ITEMS ARE CHECKED IN TABLE
+        tableIncomplete(tableId)
+    }
+})
 
 // IF INPUT FIELD ISN'T EMPTY, ADD TO TABLE, OPEN TABLE CARD, CHECK IF IT EXISTS IN LOCALSTORAGE AND IF NOT THEN ADD IT AND RESET INPUT FIELD
 function captureInput(location, tableName){
@@ -159,17 +247,28 @@ function captureInput(location, tableName){
         if ($(location).hasClass('prevent-click')) {
             return;
         }
+        if ($(tableName).parent().parent().parent().prev().hasClass("colour-complete")){
+            $(tableName).parent().parent().parent().prev().removeClass("colour-complete").addClass("colour-neutral")
+        }
         if ($("#item-name").val() != ""){
             insertRowData(tableName, $("#quantity-counter").text(), $("#item-name").val());
 
-            sListArray.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location));
-            convertToCsvFormat(sListArray)
+            // ADDS QUANTITY TO TABLE HEADER
+            // var TableRowCount = $(tableName).children('tr').length
+            // $(tableName).parent().parent().parent().prev().children('.float-right').children('a').text(TableRowCount)
 
-            let collapseParent = $(tableName).parent().parent().parent();
-            $(".collapse").not(collapseParent).collapse('hide');
-            $(collapseParent).addClass('show');
-            $(collapseParent).removeClass('hide');
-            goToShoppingList()
+            sListArray.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location));
+
+            // let collapseParent = $(tableName).parent().parent().parent();
+            // $(".collapse").not(collapseParent).collapse('hide');
+            // $(collapseParent).addClass('show');
+            // $(collapseParent).removeClass('hide');
+            // goToShoppingList()
+
+            // collapseShow(tableName);
+            $(tableName).parent().parent().parent().collapse("show")
+
+            // DETECTS DUPLICATES BEFORE ADDING TO ITEMS ARRAY
             if (items.length > 0){
                 for (x in items){
                     if(items[x].name == $("#item-name").val()){
@@ -179,11 +278,6 @@ function captureInput(location, tableName){
                     }
                 }
             }
-
-            // if (JSON.parse(localStorage.getItem('inputObjects')) == undefined){
-                
-            // }
-
             items.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location));
             localStorage.setItem('inputObjects', JSON.stringify(items));
             resetInput();
@@ -214,25 +308,30 @@ $("#clear-autofill").on("click", function() {
 })
 
 // OPENS ALL TABLES
-$("#open-sections").on("click", function() {
+function openAllSections() {
     $(".collapse").removeClass('hide');
     $(".collapse").addClass('show');
+}
+
+// APPLIES OPEN ALL TABLES FUNCTION TO BUTTON CLICK
+$("#open-sections").on("click", function() {
+    openAllSections()
 });
 
 function updateAllLocations(){
-    locationButtonNames(".location-btn-1", locations[0]);
-    locationButtonNames(".location-btn-2", locations[1]);
-    locationButtonNames(".location-btn-3", locations[2]);
-    locationButtonNames(".location-btn-4", locations[3]);
-    locationButtonNames(".location-btn-5", locations[4]);
-    locationButtonNames(".location-btn-6", locations[5]);
+    locationButtonNames(".location-btn-0", locations[0]);
+    locationButtonNames(".location-btn-1", locations[1]);
+    locationButtonNames(".location-btn-2", locations[2]);
+    locationButtonNames(".location-btn-3", locations[3]);
+    locationButtonNames(".location-btn-4", locations[4]);
+    locationButtonNames(".location-btn-5", locations[5]);
 
-    locationTableHeaders(".header1", locations[0]);
-    locationTableHeaders(".header2", locations[1]);
-    locationTableHeaders(".header3", locations[2]);
-    locationTableHeaders(".header4", locations[3]);
-    locationTableHeaders(".header5", locations[4]);
-    locationTableHeaders(".header6", locations[5]);
+    locationTableHeaders(".header0", locations[0]);
+    locationTableHeaders(".header1", locations[1]);x
+    locationTableHeaders(".header2", locations[2]);
+    locationTableHeaders(".header3", locations[3]);
+    locationTableHeaders(".header4", locations[4]);
+    locationTableHeaders(".header5", locations[5]);
 }
 
 // ENABLES EDITING OF LOCATION NAMES
@@ -287,8 +386,10 @@ function updateLocalStorage(){
         $(tableName).on("click", ".remove-field", function() {
             var removedItemName = $(this).closest("tr").find(".item-field").text();
             items.splice(items.findIndex(x => x.name === removedItemName),1);
+            sListArray.splice(sListArray.findIndex(x => x.name === removedItemName),1);
             updateLocalStorage();
             $(this).closest("tr").remove();
+            updateHeaderQuantity(tableName)
             console.log(`Removed ${removedItemName} from array`);
         });
     }
@@ -313,11 +414,11 @@ if ($(window).width() >= 768) {
 $(document).ready(function() {
 
     // locationButtonNames(".location-btn-1", locations[0]);
-    // locationButtonNames(".location-btn-2", locations[1]);
-    // locationButtonNames(".location-btn-3", locations[2]);
-    // locationButtonNames(".location-btn-4", locations[3]);
-    // locationButtonNames(".location-btn-5", locations[4]);
-    // locationButtonNames(".location-btn-6", locations[5]);
+    // locationButtonNames(".location-btn-1", locations[1]);
+    // locationButtonNames(".location-btn-2", locations[2]);
+    // locationButtonNames(".location-btn-3", locations[3]);
+    // locationButtonNames(".location-btn-4", locations[4]);
+    // locationButtonNames(".location-btn-5", locations[5]);
 
     updateAllLocations();
 
@@ -328,26 +429,26 @@ $(document).ready(function() {
     // locationTableHeaders(".header5", locations[4]);
     // locationTableHeaders(".header6", locations[5]);
 
+    editLocation(".location-edit-btn-0");
     editLocation(".location-edit-btn-1");
     editLocation(".location-edit-btn-2");
     editLocation(".location-edit-btn-3");
     editLocation(".location-edit-btn-4");
     editLocation(".location-edit-btn-5");
-    editLocation(".location-edit-btn-6");
 
+    captureInput(".location-btn-0", "#table-0")
     captureInput(".location-btn-1", "#table-1")
     captureInput(".location-btn-2", "#table-2")
     captureInput(".location-btn-3", "#table-3")
     captureInput(".location-btn-4", "#table-4")
     captureInput(".location-btn-5", "#table-5")
-    captureInput(".location-btn-6", "#table-6")
 
+    removeRow("#table-0")
     removeRow("#table-1")
     removeRow("#table-2")
     removeRow("#table-3")
     removeRow("#table-4")
     removeRow("#table-5")
-    removeRow("#table-6")
 
 
     // INCREASE QUANTITY

@@ -61,6 +61,12 @@
                         <!-- LOCATION BUTTONS -->
                         <div class="row mx-1 py-2">
                             <div class="col-10 my-1 px-0">
+                                <button class="p-2 location-btn-0 center location-buttons hover"></button>
+                            </div>
+                            <div class="col-2 my-1 px-0">
+                                <button class="p-2 location-edit-btn-0 location-buttons location-edit"><i class="px-2 fas fa-pencil-alt"></i></button>
+                            </div>
+                            <div class="col-10 my-1 px-0">
                                 <button class="p-2 location-btn-1 center location-buttons hover"></button>
                             </div>
                             <div class="col-2 my-1 px-0">
@@ -90,12 +96,6 @@
                             <div class="col-2 my-1 px-0">
                                 <button class="p-2 location-edit-btn-5 location-buttons location-edit"><i class="px-2 fas fa-pencil-alt"></i></button>
                             </div>
-                            <div class="col-10 my-1 px-0">
-                                <button class="p-2 location-btn-6 center location-buttons hover"></button>
-                            </div>
-                            <div class="col-2 my-1 px-0">
-                                <button class="p-2 location-edit-btn-6 location-buttons location-edit"><i class="px-2 fas fa-pencil-alt"></i></button>
-                            </div>
                         </div>
                     </div>
                     <div class="row text-center my-2">
@@ -115,17 +115,20 @@
                             <!-- FIRST LOCATION HEADER -->
                             <div class="card my-2">
                                 <div class="card-header p-0">
-                                    <div class="text-left my-0">
+                                    <span class="float-left my-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapse1">
-                                            <h5 class="m-0 table-header header1"></h5>
+                                            <h5 class="m-0 table-header header0"></h5>
                                         </a>
-                                    </div>
+                                    </span>
+                                    <span class="float-right my-0">
+                                        <a id="header0-complete" class="btn btn-link" data-toggle="collapse" data-target="#collapse1">0</a>
+                                    </span>
                                 </div>
                                 <!-- FIRST LOCATION TABLE -->
-                                <div id="collapse1" class="collapse hide" data-parent="#accordion">
+                                <div id="collapse1" class="collapse" data-parent="#accordion">
                                     <div class="card-body p-0">
                                         <div class="row text-center m-0">
-                                            <table id="table-1" class="table m-0"></table>
+                                            <table id="table-0" class="table m-0"></table>
                                         </div>
                                     </div>
                                 </div>
@@ -133,17 +136,20 @@
                             <!-- SECOND LOCATION HEADER -->
                             <div class="card my-2">
                                 <div class="card-header p-0">
-                                    <div class="text-left my-0">
+                                    <span class="float-left my-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapse2">
-                                            <h5 class="m-0 table-header header2"></h5>
+                                            <h5 class="m-0 table-header header1"></h5>
                                         </a>
-                                    </div>
+                                    </span>
+                                    <span class="float-right my-0">
+                                        <a id="header1-complete" class="btn btn-link" data-toggle="collapse" data-target="#collapse2">0</a>
+                                    </span>
                                 </div>
                                 <!-- SECOND LOCATION TABLE -->
-                                <div id="collapse2" class="collapse hide" data-parent="#accordion">
+                                <div id="collapse2" class="collapse" data-parent="#accordion">
                                     <div class="card-body p-0">
                                         <div class="row text-center m-0">
-                                            <table id="table-2" class="table m-0"></table>
+                                            <table id="table-1" class="table m-0"></table>
                                         </div>
                                     </div>
                                 </div>
@@ -151,17 +157,20 @@
                             <!-- THIRD LOCATION HEADER -->
                             <div class="card my-2">
                                 <div class="card-header p-0">
-                                    <div class="text-left my-0">
+                                    <span class="float-left my-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapse3">
-                                            <h5 class="m-0 table-header header3"></h5>
+                                            <h5 class="m-0 table-header header2"></h5>
                                         </a>
-                                    </div>
+                                    </span>
+                                    <span class="float-right my-0">
+                                        <a id="header2-complete" class="btn btn-link" data-toggle="collapse" data-target="#collapse3">0</a>
+                                    </span>
                                 </div>
                                 <!-- THIRD LOCATION TABLE -->
-                                <div id="collapse3" class="collapse hide" data-parent="#accordion">
+                                <div id="collapse3" class="collapse" data-parent="#accordion">
                                     <div class="card-body p-0">
                                         <div class="row text-center m-0">
-                                            <table id="table-3" class="table m-0"></table>
+                                            <table id="table-2" class="table m-0"></table>
                                         </div>
                                     </div>
                                 </div>
@@ -169,17 +178,20 @@
                             <!-- FOURTH LOCATION HEADER -->
                             <div class="card my-2">
                                 <div class="card-header p-0">
-                                    <div class="text-left my-0">
+                                    <span class="float-left my-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapse4">
-                                            <h5 class="m-0 table-header header4"></h5>
+                                            <h5 class="m-0 table-header header3"></h5>
                                         </a>
-                                    </div>
+                                    </span>
+                                    <span class="float-right my-0">
+                                        <a id="header3-complete" class="btn btn-link" data-toggle="collapse" data-target="#collapse4">0</a>
+                                    </span>
                                 </div>
                                 <!-- FOURTH LOCATION TABLE -->
-                                <div id="collapse4" class="collapse hide" data-parent="#accordion">
+                                <div id="collapse4" class="collapse" data-parent="#accordion">
                                     <div class="card-body p-0">
                                         <div class="row text-center m-0">
-                                            <table id="table-4" class="table m-0"></table>
+                                            <table id="table-3" class="table m-0"></table>
                                         </div>
                                     </div>
                                 </div>
@@ -187,17 +199,20 @@
                             <!-- FIFTH LOCATION HEADER -->
                             <div class="card my-2">
                                 <div class="card-header p-0">
-                                    <div class="text-left my-0">
+                                    <span class="float-left my-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapse5">
-                                            <h5 class="m-0 table-header header5"></h5>
+                                            <h5 class="m-0 table-header header4"></h5>
                                         </a>
-                                    </div>
+                                    </span>
+                                    <span class="float-right my-0">
+                                        <a id="header4-complete" class="btn btn-link" data-toggle="collapse" data-target="#collapse5">0</a>
+                                    </span>
                                 </div>
                                 <!-- FIFTH LOCATION TABLE -->
-                                <div id="collapse5" class="collapse hide" data-parent="#accordion">
+                                <div id="collapse5" class="collapse" data-parent="#accordion">
                                     <div class="card-body p-0">
                                         <div class="row text-center m-0">
-                                            <table id="table-5" class="table m-0"></table>
+                                            <table id="table-4" class="table m-0"></table>
                                         </div>
                                     </div>
                                 </div>
@@ -205,17 +220,20 @@
                             <!-- SIXTH LOCATION HEADER -->
                             <div class="card my-2">
                                 <div class="card-header p-0">
-                                    <div class="text-left my-0">
+                                    <span class="float-left my-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapse6">
-                                            <h5 class="m-0 table-header header6"></h5>
+                                            <h5 class="m-0 table-header header5"></h5>
                                         </a>
-                                    </div>
+                                    </span>
+                                    <span class="float-right my-0">
+                                        <a id="header5-complete" class="btn btn-link" data-toggle="collapse" data-target="#collapse6">0</a>
+                                    </span>
                                 </div>
                                 <!-- SIXTH LOCATION TABLE -->
-                                <div id="collapse6" class="collapse hide" data-parent="#accordion">
+                                <div id="collapse6" class="collapse" data-parent="#accordion">
                                     <div class="card-body p-0">
                                         <div class="row text-center m-0">
-                                            <table id="table-6" class="table m-0"></table>
+                                            <table id="table-5" class="table m-0"></table>
                                         </div>
                                     </div>
                                 </div>

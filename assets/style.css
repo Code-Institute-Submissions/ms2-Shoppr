@@ -63,6 +63,20 @@ textarea:focus, input:focus, button:focus {
     color: white;
 }
 
+.colour-complete {
+    background-color: #D4EDDA;
+    transition: background-color 70ms linear;
+}
+
+.colour-remind {
+    background-color: #FFF3CD;
+    transition: background-color 70ms linear;
+}
+
+.colour-neutral {
+    transition: background-color 70ms linear;
+}
+
 /* SOURCE: https://stackoverflow.com/questions/38661118/centering-text-in-row-with-bootstrap-grid */
 .center::before {
     content:"";
