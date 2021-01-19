@@ -392,6 +392,11 @@ function editLocation(button){
                 locations[locationIndex] = inputText;
                 updateAllLocations();
                 updateLocationsMemory();
+                var locationBtn = ".location-btn-" + $(button).attr('class').split('location-btn-')[1].split('')[0];
+                var linkedTable = findButtonTableLink(locationBtn);
+                if ($(linkedTable).parent().parent().parent().hasClass('show')) {
+                    updateTableBanner(linkedTable);
+                }
             }
             $(button).removeClass('prevent-click');
         }
