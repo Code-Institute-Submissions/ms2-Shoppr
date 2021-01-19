@@ -188,6 +188,8 @@ function collapseCardsLoop(cardsArray){
         var tableItemsCounter = $(cardsArray).eq(x).children().children('.float-right').children('a').text()
         if (tableItemsCounter != "Completed" && tableItemsCounter != "0") {
             $(cardsArray).eq(x).children('.collapse').addClass('show')
+            var nextTableId = `#${$(cardsArray).eq(x).children('.collapse').children().children().children().attr('id')}`
+            updateTableBanner(nextTableId)
             break;
         }
     }
