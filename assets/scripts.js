@@ -36,14 +36,13 @@ function locationTableHeaders(locationHeader, name) {
     $(locationHeader).text(name);
 }
 
-// function updateHeaderQuantity(tableId){
-//     var tableRowCount = $(`${tableId} .item-check:not(:checked)`).length
-//     $(tableId).parent().parent().parent().prev().children('.float-right').children('a').text(tableRowCount)
-// }
+function updateTableBanner(tableName){
+    var tableHeaderText = $(tableName).parent().parent().parent().prev().children().first().children().text()
+    $(".table-title").text(tableHeaderText);
+}
 
 function insertRowData(tableName, itemQuantity, itemName){
     console.log(`added ${itemQuantity} ${itemName}`)
-
 
     $(tableName).prepend(`
     <tr class="table-row">
@@ -54,7 +53,8 @@ function insertRowData(tableName, itemQuantity, itemName){
     </tr>
     `);
 
-    updateHeaderQuantity(tableName)
+    updateHeaderQuantity(tableName);
+    updateTableBanner(tableName);
     
 }
 
@@ -305,6 +305,11 @@ $("#clear-autofill").on("click", function() {
     localStorage.clear();
     console.log("autofill has been cleared")
     location.reload();
+})
+
+$(".btn").on("click", function() {
+    var clickedTableId = `#${$(this).parent().parent().parent().children('.collapse').children().children().children().attr('id')}`
+    updateTableBanner(clickedTableId)
 })
 
 // OPENS ALL TABLES
