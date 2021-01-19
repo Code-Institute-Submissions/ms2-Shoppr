@@ -142,6 +142,9 @@ input[type="checkbox"] {
     border-radius: 20px;
     height: 40vh;
     width: 100vw;
+}
+
+#hero-banner {
     position: relative;
 }
 
@@ -156,6 +159,19 @@ input[type="checkbox"] {
     border-radius: 20px;
     padding: 5px 10px;
     display: none;
+}
+
+.open-close-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    box-shadow: 5px -5px 15px -11px rgba(0,0,0,0.58);
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
 }
 
 #person1 {

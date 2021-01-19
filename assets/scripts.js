@@ -340,9 +340,23 @@ function openAllSections() {
     $(".collapse").addClass('show');
 }
 
+function closeAllSections() {
+    $(".collapse").removeClass('show');
+    $(".collapse").addClass('hide');
+}
+
 // APPLIES OPEN ALL TABLES FUNCTION TO BUTTON CLICK
-$("#open-sections").on("click", function() {
-    openAllSections()
+$("#open-close").on("click", function() {
+    var openCloseIcon = $("#open-close").children().children().children()
+    if (openCloseIcon.hasClass('fa-level-down-alt')) {
+        $("#open-close").children().children().children('.open-close-text').text("Close all ")
+        $("#open-close").children().children().children('i').toggleClass("fa-level-down-alt fa-level-up-alt");
+        openAllSections();
+    } else if (openCloseIcon.hasClass('fa-level-up-alt')) {
+        $("#open-close").children().children().children('.open-close-text').text("Open all ")
+        $("#open-close").children().children().children('i').toggleClass("fa-level-down-alt fa-level-up-alt");
+        closeAllSections();
+    };
 });
 
 function updateAllLocations(){
