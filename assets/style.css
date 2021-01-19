@@ -137,6 +137,7 @@ input[type="checkbox"] {
     background-size: cover;
     background-color: #3F6292;
     background-position: center;
+    border-radius: 20px;
     height: 40vh;
     width: 100vw;
     position: relative;
@@ -148,9 +149,12 @@ input[type="checkbox"] {
     bottom: 0;
     /* right: 0; */
     text-align: center;
-    margin-right: 6%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    box-shadow: 5px -5px 15px -11px rgba(0,0,0,0.58);
     background-color: white;
-    padding: 5px
+    border-radius: 20px;
+    padding: 5px 10px
 }
 
 #person1 {
