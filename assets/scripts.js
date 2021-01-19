@@ -37,6 +37,7 @@ function locationTableHeaders(locationHeader, name) {
 }
 
 function updateTableBanner(tableName){
+    $(".table-title").css('display','block')
     var tableHeaderText = $(tableName).parent().parent().parent().prev().children().first().children().text()
     $(".table-title").text(tableHeaderText);
 
