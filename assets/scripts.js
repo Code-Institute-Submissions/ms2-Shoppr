@@ -347,14 +347,14 @@ function closeAllSections() {
 
 // APPLIES OPEN ALL TABLES FUNCTION TO BUTTON CLICK
 $("#open-close").on("click", function() {
-    var openCloseIcon = $("#open-close").children().children().children()
+    var openCloseIcon = $("#open-close").children().children()
     if (openCloseIcon.hasClass('fa-level-down-alt')) {
-        $("#open-close").children().children().children('.open-close-text').text("Close all ")
-        $("#open-close").children().children().children('i').toggleClass("fa-level-down-alt fa-level-up-alt");
+        $("#open-close").children().children('.open-close-text').text("Close all ")
+        $("#open-close").children().children('i').toggleClass("fa-level-down-alt fa-level-up-alt");
         openAllSections();
     } else if (openCloseIcon.hasClass('fa-level-up-alt')) {
-        $("#open-close").children().children().children('.open-close-text').text("Open all ")
-        $("#open-close").children().children().children('i').toggleClass("fa-level-down-alt fa-level-up-alt");
+        $("#open-close").children().children('.open-close-text').text("Open all ")
+        $("#open-close").children().children('i').toggleClass("fa-level-down-alt fa-level-up-alt");
         closeAllSections();
     };
 });
