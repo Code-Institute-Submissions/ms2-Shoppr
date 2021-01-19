@@ -57,10 +57,12 @@ textarea:focus, input:focus, button:focus {
 }
 
 .location-container {
-    background: url("images/locationbg.jpg") no-repeat top center;
-    background-size: cover;
+    /* background: url("images/locationbg.jpg") no-repeat top center;
+    background-size: cover; */
+    background-color: #F7EDE1;
+    border: 20px solid #D57967;
     border-radius: 20px;
-    color: white;
+    color: black;
 }
 
 .colour-complete {

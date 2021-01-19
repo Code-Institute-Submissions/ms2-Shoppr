@@ -42,18 +42,20 @@ function updateTableBanner(tableName){
     $(".table-title").text(tableHeaderText);
 
     bannerImages = [
-        ["#table-0", "assets/images/banner0.jpg"],
-        ["#table-1", "assets/images/banner1.jpg"],
-        ["#table-2", "assets/images/banner2.jpg"],
-        ["#table-3", "assets/images/banner3.jpg"],
-        ["#table-4", "assets/images/banner4.jpg"],
-        ["#table-5", "assets/images/banner5.jpg"],
+        ["#table-0", "assets/images/banner0.jpg", "#3F6292"],
+        ["#table-1", "assets/images/banner1.jpg", "#D57967"],
+        ["#table-2", "assets/images/banner2.jpg", "#AABE8D"],
+        ["#table-3", "assets/images/banner3.jpg", "#F2E2BC"],
+        ["#table-4", "assets/images/banner4.jpg", "#CA546A"],
+        ["#table-5", "assets/images/banner5.jpg", "#E26E5C"],
     ]
 
     for (x in bannerImages) {
         if (bannerImages[x][0] == tableName){
-            matchingImage = bannerImages[x][1]
+            matchingImage = bannerImages[x][1];
+            matchingBorderColour = "20px solid " + bannerImages[x][2];
             $("#banner-img").css('background-image',`url('${matchingImage}')`)
+            $(".location-container").css('border', matchingBorderColour);
         }
     }
 }
