@@ -244,14 +244,20 @@
                         </div>
                     </div>
                     <div id="import-export" class="row text-center">
-                        <div class="col import-export-btn import">
-                            <span><i class="fas fa-upload"></i> Import</span>
+                        <div class="col px-0 mr-3">
+                            <a class="import-export-btn">
+                                <span><i class="fas fa-upload"></i> Import</span>
+                            </a>
                         </div>
-                        <div class="col import-export-btn">
-                            <span><i class="fas fa-download"></i> Download</span>
+                        <div class="col px-0">
+                            <a id="createCSV" href="#" download="file.csv" class="import-export-btn">
+                                <span><i class="fas fa-download"></i> Download</span>
+                            </a>
                         </div>
-                        <div class="col import-export-btn email">
-                            <span><i class="fas fa-paper-plane"></i> Email</span>
+                        <div class="col px-0 ml-3">
+                            <a class="import-export-btn">
+                                <span><i class="fas fa-paper-plane"></i> Email</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -260,7 +266,7 @@
         <div id="add-button">
             <a href="#"><i class="fas fa-plus-circle"></i></a>
         </div>
-        <div><a id="createCSV" href="#" download="file.csv">Create CSV</a></div>
+        <!-- <div><a id="createCSV" href="#" download="file.csv">Create CSV</a></div> -->
         <div><input type="file" id="uploadCSV" name="filename"></div>
 
         <script type="text/javascript" src="assets/scripts.js"></script>
