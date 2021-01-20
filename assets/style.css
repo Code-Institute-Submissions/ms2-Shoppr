@@ -22,6 +22,19 @@ textarea:focus, input:focus, button:focus {
     padding: 10px 20px;
 }
 
+.import-export-btn {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    padding: 10px 0px;
+}
+
+.import {
+    margin-right: 10px;
+}
+
+.email {
+    margin-left: 10px;
+}
+
 #accordion {
     width: 100%;
 }
