@@ -60,7 +60,7 @@ textarea:focus, input:focus, button:focus {
     /* background: url("images/locationbg.jpg") no-repeat top center;
     background-size: cover; */
     background-color: #F7EDE1;
-    border: 20px solid #D57967;
+    border: 12px solid #299D8E;
     border-radius: 20px;
     color: black;
 }
@@ -90,8 +90,9 @@ textarea:focus, input:focus, button:focus {
     height: 100%;
     color: white;
     font-size: 18px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.308);
+    border: none;;
+    /* background-color: rgba(0, 0, 0, 0.212); */
+    background-color: #AAA49B;
     border-radius: 8px 0px 0px 8px;
 }
 
@@ -134,10 +135,10 @@ input[type="checkbox"] {
 
 #banner-img {
     /* background-image: url("https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/325253_2200-1200x628.jpg"); */
-    background-image: url("images/banner1.jpg");
+    background-image: url("images/banner-default.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #3F6292;
+    background-color: #299D8E;
     background-position: center;
     border-radius: 20px;
     height: 40vh;
