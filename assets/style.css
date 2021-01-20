@@ -27,9 +27,12 @@ textarea:focus, input:focus, button:focus {
     padding: 10px 0px;
     background: none;
     border: none;
-    /* width: 100%; */
     display: block;
     color: black;
+}
+
+#fileBrowser {
+    padding: 0px;
 }
 
 #accordion {

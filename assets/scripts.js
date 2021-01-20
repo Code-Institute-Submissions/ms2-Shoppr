@@ -163,6 +163,10 @@ function buttonTableLink(buttonLocation) {
     sListArray = [];
  }
 
+ $("#importCSV").on("click", function() {
+     $("#uploadCSV")[0].click();
+ })
+
 $("#uploadCSV").change(function() {
     var readFile = new FileReader();
     readFile.onload = function() {
