@@ -2,7 +2,7 @@ textarea:focus, input:focus, button:focus {
     outline: solid 1px rgb(75, 75, 75);
 }
 
-.added-item-alert{
+.added-item-alert {
     padding: 15px;
     position: fixed;
     left: 50%;
@@ -11,9 +11,10 @@ textarea:focus, input:focus, button:focus {
     transform:translateX(-50%);
     -webkit-transform:translate(-50%);
     -ms-transform: translate(-50%);
+    display: none;
 }
 
-.added-item-alert span {
+#modal-bar {
     background-color: #299D8E;
     color: white;
     box-shadow: 5px -5px 15px -11px rgba(0,0,0,0.58);

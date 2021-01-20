@@ -75,6 +75,10 @@ function insertRowData(tableName, itemQuantity, itemName){
 
     updateHeaderQuantity(tableName);
     updateTableBanner(tableName);
+
+    var tableTitle = $(tableName).parent().parent().parent().prev().children('.float-left').children().children().text()
+    $(".added-item-alert").css('display','block');
+    $("#modal-bar").html(`Added <strong>${itemName}</strong> into <strong>${tableTitle}</strong>`);
     
 }
 
