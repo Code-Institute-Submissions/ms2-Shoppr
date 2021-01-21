@@ -210,6 +210,25 @@ input[type="checkbox"] {
     margin-bottom: 10px;
     /* SOURCE: https://stackoverflow.com/a/9612782  */
     border: 3px solid transparent;
+    background-color: rgb(247, 247, 247);
+}
+
+#add-new {
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.add-new-btn {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    border-radius: 10px;
+    border: none;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+    background-color: white;
+    width: 100%;
+}
+
+#settings-btn.collapsed {
     background-color: white;
 }
 

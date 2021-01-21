@@ -164,7 +164,12 @@ function buttonTableLink(buttonLocation) {
  }
 
  $("#settings-btn").on("click", function() {
-     $(this).children().children('i').toggleClass('fa-cog fa-level-down-alt')
+    //  $(this).children().children('i').toggleClass('fa-cog fa-level-down-alt')
+    if ($(this).hasClass('show')) {
+        $(this).children().children('i').toggleClass('fa-cog fa-level-down-alt')
+    } else if (!$(this).hasClass('show')) {
+        $(this).children().children('i').toggleClass('fa-cog fa-level-down-alt')
+    }
  })
 
 //  SOURCE: https://stackoverflow.com/a/38095783
