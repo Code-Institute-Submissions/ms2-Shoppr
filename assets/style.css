@@ -138,22 +138,24 @@ textarea:focus, input:focus, button:focus {
     border-radius: 8px 0px 0px 8px;
 }
 
+.card-header {
+    background: none;
+}
+
 .card {
     border-radius: 10px;
-    border-bottom: 4px solid rgb(235, 235, 235);
-}
-
-.card-header {
-    background-color: transparent;
     border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    overflow: hidden;
 }
 
-.card-header a {
+.card a {
     color: black;
 }
 
-.card-header a:hover {
+.card a:hover {
     text-decoration: none;
+    color: rgb(114, 114, 114);
 }
 
 .hover:hover {
@@ -248,13 +250,27 @@ input[type="checkbox"] {
     width: 100%;
 }
 
+.emailSubmit {
+    background: none;
+    border: none;
+    width: 18%;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    padding: 10px 0px;
+    float: right;
+    margin: 10px 0px;
+}
+
 #emailInput {
     width: 100%;
     padding: 0px;
+    float: left;
 }
 
 #emailInput input {
-    width: 100%;
+    width: 80%;
     border-radius: 10px;
     padding: 10px 0px;
     margin: 10px 0px;

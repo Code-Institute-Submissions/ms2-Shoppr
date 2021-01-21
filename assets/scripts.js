@@ -241,6 +241,7 @@ function updateHeaderQuantity(tableId){
 
 function tableCompleted(tableId){
     $(tableId).parent().parent().parent().collapse("toggle")
+    $(tableId).parent().parent().parent().prev().removeClass('card-header')
     $(tableId).parent().parent().parent().prev().addClass('colour-complete')
     $(tableId).parent().parent().parent().prev().children('.float-right').children('a').text("Completed")
 }
