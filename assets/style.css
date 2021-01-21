@@ -138,6 +138,24 @@ textarea:focus, input:focus, button:focus {
     border-radius: 8px 0px 0px 8px;
 }
 
+.card {
+    border-radius: 10px;
+    border-bottom: 4px solid rgb(235, 235, 235);
+}
+
+.card-header {
+    background-color: transparent;
+    border: none;
+}
+
+.card-header a {
+    color: black;
+}
+
+.card-header a:hover {
+    text-decoration: none;
+}
+
 .hover:hover {
     background-color: rgb(245, 245, 245);
     color: black;

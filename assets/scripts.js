@@ -49,6 +49,14 @@ function updateTableBanner(tableName){
         ["#table-4", "assets/images/banner4.jpg", "#CA546A"],
         ["#table-5", "assets/images/banner5.jpg", "#E26E5C"],
     ]
+
+    for (x in bannerImages) {
+        if (bannerImages[x][0] == tableName){
+            matchingImage = bannerImages[x][1];
+            $("#banner-img").css('background-image',`url('${matchingImage}')`)
+            $("#banner-img").css('background-color', bannerImages[x][2]);
+        }
+    }
 }
 
 function insertRowData(tableName, itemQuantity, itemName){
