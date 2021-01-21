@@ -354,8 +354,8 @@ $(".btn").on("click", function() {
 
 // OPENS ALL TABLES
 function openAllSections() {
-    $(".collapse").removeClass('hide');
-    $(".collapse").addClass('show');
+    $("#accordion .collapse").removeClass('hide');
+    $("#accordion .collapse").addClass('show');
 }
 
 function closeAllSections() {
