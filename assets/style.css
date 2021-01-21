@@ -169,7 +169,8 @@ input[type="checkbox"] {
     vertical-align: middle;
   }
 
-#menu-controls {
+/* LOOK INTO THIS */
+#menu-controls { 
     min-height: 100vh;
 }
 
@@ -202,6 +203,24 @@ input[type="checkbox"] {
     display: none;
 }
 
+#settings {
+    /* border: 2px solid black; */
+    color: black;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    border-radius: 10px;
+    padding: 6px 10px 0px 10px;
+    margin-bottom: 10px;
+    /* SOURCE: https://stackoverflow.com/a/9612782  */
+    border: 3px solid transparent;
+}
+
+#settings:hover {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
+    text-decoration: none;
+    color: black;
+    border-bottom: 3px solid rgb(231, 231, 231);
+}
+
 .open-close-btn {
     position: absolute;
     bottom: 0;
@@ -219,11 +238,6 @@ input[type="checkbox"] {
 .open-close-btn:hover {
     background-color: rgba(255, 255, 255, 0.603);
     color: rgba(0, 0, 0, 0.603);
-}
-
-#person1 {
-    background-image: url("images/shopper1.png");
-    z-index: 1;
 }
 
 @media only screen and (max-width: 768px) {
