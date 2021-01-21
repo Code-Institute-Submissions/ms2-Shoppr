@@ -163,6 +163,10 @@ function buttonTableLink(buttonLocation) {
     sListArray = [];
  }
 
+ $("#settings-btn").on("click", function() {
+     $(this).children().children('i').toggleClass('fa-cog fa-level-down-alt')
+ })
+
 //  SOURCE: https://stackoverflow.com/a/38095783
  $("#importCSV").on("click", function() {
      $("#uploadCSV")[0].click();
