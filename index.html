@@ -39,8 +39,20 @@
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <div id="settings">
-                            <h4>Settings <i class="fas fa-cog"></i></h4>
+                        <button id="settings-btn" data-toggle="collapse" data-target="#settings-content"><h4>Settings <i class="fas fa-cog"></i></h4></button>
+                    </div>
+                    <div id="settings-content" class="collapse text-center">
+                        <div class="col-12">
+                            <button class="options-btn"><i class="fas fa-power-off mx-2"></i> Turn auto-suggest off</button>
+                        </div>
+                        <div class="col-12">
+                            <button id="clear-autofill" class="options-btn"><i class="fas fa-comment mx-2"></i> Reset auto-suggestions</button>
+                        </div>
+                        <div class="col-12">
+                            <button class="options-btn"><i class="far fa-trash-alt mx-2"></i> Empty shopping list</button>
+                        </div>
+                        <div class="col-12">
+                            <button class="options-btn"><i class="fas fa-undo-alt mx-2"></i> Reset item locations to default</button>
                         </div>
                     </div>
                     <div class="row my-2 justify-content-center">
@@ -104,11 +116,6 @@
                             <div class="col-2 my-1 px-0">
                                 <button class="p-2 location-edit-btn-5 location-buttons location-edit"><i class="px-2 fas fa-pencil-alt"></i></button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row text-center my-2">
-                        <div class="col-12 my-3">
-                            <button id="clear-autofill" class="my-2">Clear autofill</button>
                         </div>
                     </div>
                 </div>
