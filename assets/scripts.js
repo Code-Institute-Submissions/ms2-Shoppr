@@ -163,6 +163,7 @@ function buttonTableLink(buttonLocation) {
     sListArray = [];
  }
 
+//  SOURCE: https://stackoverflow.com/a/38095783
  $("#importCSV").on("click", function() {
      $("#uploadCSV")[0].click();
  })

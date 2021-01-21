@@ -29,6 +29,15 @@ textarea:focus, input:focus, button:focus {
     border: none;
     display: block;
     color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.import-export-btn:hover {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
+    text-decoration: none;
+    color: black;
+    border-bottom: 3px solid rgb(231, 231, 231);
 }
 
 #fileBrowser {
