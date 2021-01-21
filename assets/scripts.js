@@ -49,16 +49,6 @@ function updateTableBanner(tableName){
         ["#table-4", "assets/images/banner4.jpg", "#CA546A"],
         ["#table-5", "assets/images/banner5.jpg", "#E26E5C"],
     ]
-
-    for (x in bannerImages) {
-        if (bannerImages[x][0] == tableName){
-            matchingImage = bannerImages[x][1];
-            matchingBorderColour = "12px solid " + bannerImages[x][2];
-            $("#banner-img").css('background-image',`url('${matchingImage}')`)
-            $(".location-container").css('border', matchingBorderColour);
-            $("#banner-img").css('background-color', matchingBorderColour);
-        }
-    }
 }
 
 function insertRowData(tableName, itemQuantity, itemName){
