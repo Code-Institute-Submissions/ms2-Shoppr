@@ -383,9 +383,9 @@ $( "#item-name" ).autocomplete({
 // SOURCE: https://stackoverflow.com/a/24099610
 $("#clear-autofill").on("click", function() {
     $("#item-name").autocomplete({source: []});
+    localStorage.removeItem('inputObjects');
     $("#settings-btn").trigger('click');
     modalPopup("Cleared auto-suggestions", "all")
-    // NEEDS TO CLEAR FROM LOCALSTORAGE
 })
 
 $("#autoSuggestToggle").on("click", function() {
