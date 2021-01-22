@@ -35,6 +35,10 @@ body {
     line-height: 25px;
 }
 
+.card:hover { 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.39);
+}
+
 .import-export-btn {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12);
     padding: 10px 0px;
@@ -196,6 +200,7 @@ body {
 
 .card-header {
     background: none;
+    cursor: pointer;
 }
 
 .card {
@@ -211,7 +216,7 @@ body {
 
 .card a:hover {
     text-decoration: none;
-    color: rgb(114, 114, 114);
+    color: black;
 }
 
 .location-edit {

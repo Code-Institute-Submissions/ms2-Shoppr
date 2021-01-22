@@ -407,6 +407,12 @@ $(".btn").on("click", function() {
     updateTableBanner(clickedTableId)
 })
 
+$('.card-header').on("click", function() {
+    $(this).next('.collapse').collapse('toggle')
+    var cardTableId = "#" + $(this).next().children().children().children().attr('id')
+    updateTableBanner(cardTableId)
+})
+
 function defaultHeroBanner(){
     var defaultHeroImg = "assets/images/banner-default.jpg"
     $("#banner-img").css('background-color','#299D8E')
