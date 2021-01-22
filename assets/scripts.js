@@ -336,7 +336,7 @@ for (x in items){
 
 // PROVIDES AUTOCOMPLETE SUGGESTIONS FROM ITEM NAMES
 $( "#item-name" ).autocomplete({
-    source: itemNames,
+    source: itemNames
 });
 
 // CLEARS THE LOCALSTORAGE MEMORY
@@ -344,18 +344,19 @@ $( "#item-name" ).autocomplete({
 $("#clear-autofill").on("click", function() {
     $("#item-name").autocomplete({source: []});
     $("#settings-btn").trigger('click');
-    // DOES NOT WORK WITH LOCAL STORAGE
 })
 
 $("#autoSuggestToggle").on("click", function() {
     if ($("#autoSuggestToggle").children('i').hasClass('fa-toggle-on')){
-        $("#autoSuggestToggle").children('i').removeClass('fa-toggle-on')
-        $("#autoSuggestToggle").children('i').addClass('fa-toggle-off')
+        $("#autoSuggestToggle").html('<i></i> Auto-suggest off');
+        $("#autoSuggestToggle").children('i').addClass('fas fa-toggle-off');
         $("#item-name").autocomplete('disable');
+        localStorage.setItem('autoSuggestToggleState', "toggle-off");
     } else if ($("#autoSuggestToggle").children('i').hasClass('fa-toggle-off')){
-        $("#autoSuggestToggle").children('i').removeClass('fa-toggle-off')
-        $("#autoSuggestToggle").children('i').addClass('fa-toggle-on')
+        $("#autoSuggestToggle").html('<i></i> Auto-suggest on');
+        $("#autoSuggestToggle").children('i').addClass('fas fa-toggle-on');
         $("#item-name").autocomplete('enable');
+        localStorage.setItem('autoSuggestToggleState', "toggle-on");
     }
 })
 
@@ -492,6 +493,23 @@ if ($(window).width() >= 768) {
 
 
 $(document).ready(function() {
+
+    // SET DEFAULT STATE FOR AUTO-SUGGEST FEATURE AS ON
+    if (localStorage.getItem('autoSuggestToggleState') === null) {
+        localStorage.setItem('autoSuggestToggleState', 'toggle-on')
+    }
+    // IF WHEN PAGE LOADS THE STATE IS ON THEN WRITE HTML AND CORRECT ON TOGGLE ICON
+    if (localStorage.getItem('autoSuggestToggleState') === "toggle-on") {
+        $("#autoSuggestToggle").html('<i></i> Auto-suggest on');
+        $("#autoSuggestToggle").children('i').addClass('fas fa-toggle-on');
+        $("#item-name").autocomplete('enable');
+    }
+    // IF WHEN PAGE LOADS THE STATE IS OFF THEN WRITE HTML AND CORRECT OFF TOGGLE ICON
+    if (localStorage.getItem('autoSuggestToggleState') === "toggle-off") {
+        $("#autoSuggestToggle").html('<i></i> Auto-suggest off');
+        $("#autoSuggestToggle").children('i').addClass('fas fa-toggle-off');
+        $("#item-name").autocomplete('disable');
+    }
 
     // locationButtonNames(".location-btn-1", locations[0]);
     // locationButtonNames(".location-btn-1", locations[1]);
