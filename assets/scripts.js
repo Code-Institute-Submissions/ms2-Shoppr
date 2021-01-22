@@ -425,6 +425,7 @@ function defaultHeroBanner(){
 function openAllSections() {
     $("#accordion .collapse").removeClass('hide');
     $("#accordion .collapse").addClass('show');
+    defaultHeroBanner();
 }
 
 function closeAllSections() {
