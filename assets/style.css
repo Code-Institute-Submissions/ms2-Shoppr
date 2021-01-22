@@ -38,7 +38,7 @@ body {
 .import-export-btn {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12);
     padding: 10px 0px;
-    background: none;
+    background: white;
     border: none;
     display: block;
     color: black;
