@@ -432,7 +432,7 @@ function editLocation(button){
         originalText = button.text();
         if ($(this).find('i').hasClass('fa-pencil-alt')){
             $(button).addClass('prevent-click');
-            $(button).empty().append(`<input type="text" class="text-center location-input" placeholder="${originalText}"></input>`)
+            $(button).empty().append(`<input type="text" class="text-center location-input" maxlength="18" placeholder="${originalText}"></input>`)
             $(button).removeClass('hover center');
             $(button).find('input').focus();
             $(this).find('i').removeClass('fa-pencil-alt').addClass('fa-check');

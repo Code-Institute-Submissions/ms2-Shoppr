@@ -265,7 +265,6 @@ input[type="checkbox"] {
     border-radius: 20px;
     padding: 5px 10px;
     display: none;
-    font-size: 5vmax;
 }
 
 #settings-btn {
