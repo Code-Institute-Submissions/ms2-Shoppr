@@ -23,7 +23,9 @@ body {
     color: white;
     box-shadow: 5px -5px 15px -11px rgba(0,0,0,0.58);
     border-radius: 20px;
+    width: 100%;
     padding: 10px 20px;
+    line-height: 25px;
 }
 
 .import-export-btn {
