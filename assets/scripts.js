@@ -239,12 +239,21 @@ $("#uploadCSV").change(function() {
                 var matchingTable = findButtonTableLink(listItems[locationIndex])
                 insertRowData(matchingTable, listItems[quantityIndex], listItems[x]);
                 openAllSections()
+                var defaultHeroImg = "assets/images/banner-default.jpg"
+                $("#banner-img").css('background-color','#299D8E')
+                $("#banner-img").css('background-image',`url('${defaultHeroImg}')`)
+                $(".table-title").empty()
+                $(".table-title").css('display','none')
             }
         }
     }
 
     readFile.readAsText(this.files[0]); 
+    // var defaultHeroImg = "assets/images/banner-default.jpg"
+    // $("#banner-img").css('background-color','#299D8E')
+    // $("#banner-img").css('background-image',`url('${defaultHeroImg}')`)
 });
+
 
 
 function collapseCardsLoop(cardsArray){
