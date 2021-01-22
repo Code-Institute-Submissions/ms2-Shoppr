@@ -346,6 +346,18 @@ $("#clear-autofill").on("click", function() {
     location.reload();
 })
 
+$("#autoSuggestToggle").on("click", function() {
+    if ($("#autoSuggestToggle").children('i').hasClass('fa-toggle-on')){
+        $("#autoSuggestToggle").children('i').removeClass('fa-toggle-on')
+        $("#autoSuggestToggle").children('i').addClass('fa-toggle-off')
+        $("#item-name").autocomplete('disable');
+    } else if ($("#autoSuggestToggle").children('i').hasClass('fa-toggle-off')){
+        $("#autoSuggestToggle").children('i').removeClass('fa-toggle-off')
+        $("#autoSuggestToggle").children('i').addClass('fa-toggle-on')
+        $("#item-name").autocomplete('enable');
+    }
+})
+
 $(".btn").on("click", function() {
     var clickedTableId = `#${$(this).parent().parent().parent().children('.collapse').children().children().children().attr('id')}`
     updateTableBanner(clickedTableId)
