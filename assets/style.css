@@ -23,6 +23,7 @@ body {
     -webkit-transform:translate(-50%);
     -ms-transform: translate(-50%);
     display: none;
+    width: 100%;
 }
 
 #modal-bar {
@@ -30,7 +31,7 @@ body {
     color: white;
     box-shadow: 5px -5px 15px -11px rgba(0,0,0,0.58);
     border-radius: 20px;
-    width: 100%;
+    display: inline-block;
     padding: 10px 20px;
     line-height: 25px;
 }
