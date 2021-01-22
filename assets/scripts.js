@@ -26,6 +26,19 @@ if (JSON.parse(localStorage.getItem('locationsMemory')) == undefined){
     var locations = JSON.parse(localStorage.getItem('locationsMemory'));
 }
 
+$("#resetLocations").on("click", function() {
+    var defaultLocations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves']
+    localStorage.removeItem('locationsMemory')
+    locationButtonNames('.location-btn-0', defaultLocations[0])
+    locationButtonNames('.location-btn-1', defaultLocations[1])
+    locationButtonNames('.location-btn-2', defaultLocations[2])
+    locationButtonNames('.location-btn-3', defaultLocations[3])
+    locationButtonNames('.location-btn-4', defaultLocations[4])
+    locationButtonNames('.location-btn-5', defaultLocations[5])
+    $("#settings-btn").trigger('click');
+ })
+
+
 // SETS LOCATION BUTTON TEXT FROM ARRAY
 function locationButtonNames(locationBtn, name) {
     $(locationBtn).text(name)
@@ -163,6 +176,8 @@ function buttonTableLink(buttonLocation) {
 
  $("#emptyShoppingList").on("click", function() {
     removeAllData()
+    $("#settings-btn").trigger('click');
+    closeAllSections();
  })
 
  $("#settings-btn").on("click", function() {
