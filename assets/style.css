@@ -2,6 +2,10 @@ textarea:focus, input:focus, button:focus {
     outline: solid 1px rgb(75, 75, 75);
 }
 
+body {
+    background-color: rgb(252, 252, 252);
+}
+
 .added-item-alert {
     padding: 15px;
     position: fixed;
@@ -97,9 +101,7 @@ textarea:focus, input:focus, button:focus {
 }
 
 .location-container {
-    /* background: url("images/locationbg.jpg") no-repeat top center;
-    background-size: cover; */
-    background-color: white;
+    /* background-color: white; */
     border: none;
     border-radius: 20px;
     color: black;
