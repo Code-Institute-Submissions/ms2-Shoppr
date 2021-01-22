@@ -239,11 +239,12 @@ $("#uploadCSV").change(function() {
                 var matchingTable = findButtonTableLink(listItems[locationIndex])
                 insertRowData(matchingTable, listItems[quantityIndex], listItems[x]);
                 openAllSections()
-                var defaultHeroImg = "assets/images/banner-default.jpg"
-                $("#banner-img").css('background-color','#299D8E')
-                $("#banner-img").css('background-image',`url('${defaultHeroImg}')`)
-                $(".table-title").empty()
-                $(".table-title").css('display','none')
+                // var defaultHeroImg = "assets/images/banner-default.jpg"
+                // $("#banner-img").css('background-color','#299D8E')
+                // $("#banner-img").css('background-image',`url('${defaultHeroImg}')`)
+                // $(".table-title").empty()
+                // $(".table-title").css('display','none')
+                defaultHeroBanner()
             }
         }
     }
@@ -357,6 +358,8 @@ function captureInput(location, tableName){
             items.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location));
             localStorage.setItem('inputObjects', JSON.stringify(items));
             resetInput();
+        } else if ($("#item-name").val() == ""){
+            $('.input-row').effect('shake')
         }
     })
 }
@@ -404,6 +407,14 @@ $(".btn").on("click", function() {
     updateTableBanner(clickedTableId)
 })
 
+function defaultHeroBanner(){
+    var defaultHeroImg = "assets/images/banner-default.jpg"
+    $("#banner-img").css('background-color','#299D8E')
+    $("#banner-img").css('background-image',`url('${defaultHeroImg}')`)
+    $(".table-title").empty()
+    $(".table-title").css('display','none')
+}
+
 // OPENS ALL TABLES
 function openAllSections() {
     $("#accordion .collapse").removeClass('hide');
@@ -413,6 +424,7 @@ function openAllSections() {
 function closeAllSections() {
     $(".collapse").removeClass('show');
     $(".collapse").addClass('hide');
+    defaultHeroBanner();
 }
 
 // APPLIES OPEN ALL TABLES FUNCTION TO BUTTON CLICK
@@ -456,6 +468,14 @@ function editLocation(button){
             $(button).removeClass('hover center');
             $(button).find('input').focus();
             $(this).find('i').removeClass('fa-pencil-alt').addClass('fa-check');
+
+            // SOURCE: https://stackoverflow.com/a/302154
+            $(button).bind('keypress', function(e) {
+                if(e.keyCode==13){
+                    $(button).parent().next().children('button').trigger('click')
+                }
+            });
+
         } else if ($(this).find('i').hasClass('fa-check')){
             var inputPlaceholder = $(button).find('input').attr('placeholder')
             var inputText = $(button).find('input').val();
@@ -509,8 +529,10 @@ function updateLocalStorage(){
             var rowsLength = $(tableName).children('tr').length
             if (rowsLength == "0") {
                 tableIncomplete(tableName)
+                closeAllSections()
             }
             console.log(`Removed ${removedItemName} from array`);
+            
         });
     }
 
