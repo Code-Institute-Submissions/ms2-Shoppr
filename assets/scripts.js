@@ -198,15 +198,6 @@ function buttonTableLink(buttonLocation) {
     modalPopup("Emptied shopping list", "all")
  })
 
- $("#settings-btn").on("click", function() {
-    //  $(this).children().children('i').toggleClass('fa-cog fa-level-down-alt')
-    if ($(this).hasClass('show')) {
-        $(this).children().children('i').toggleClass('fa-cog fa-level-down-alt')
-    } else if (!$(this).hasClass('show')) {
-        $(this).children().children('i').toggleClass('fa-cog fa-level-down-alt')
-    }
- })
-
 //  SOURCE: https://stackoverflow.com/a/38095783
  $("#importCSV").on("click", function() {
      $("#uploadCSV")[0].click();

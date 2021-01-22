@@ -6,6 +6,13 @@ body {
     background-color: rgb(252, 252, 252);
 }
 
+/* SOURCE: https://stackoverflow.com/a/39405065 */
+#settings-btn:not([aria-expanded="true"]) .fas.fa-level-down-alt,
+#settings-btn[aria-expanded="false"] .fas.fa-level-down-alt,
+#settings-btn[aria-expanded="true"] .fas.fa-cog {
+   display:none;
+}
+
 .popup-alert {
     padding: 15px;
     position: fixed;
