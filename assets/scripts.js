@@ -340,10 +340,11 @@ $( "#item-name" ).autocomplete({
 });
 
 // CLEARS THE LOCALSTORAGE MEMORY
+// SOURCE: https://stackoverflow.com/a/24099610
 $("#clear-autofill").on("click", function() {
-    localStorage.clear();
-    console.log("autofill has been cleared")
-    location.reload();
+    $("#item-name").autocomplete({source: []});
+    $("#settings-btn").trigger('click');
+    // DOES NOT WORK WITH LOCAL STORAGE
 })
 
 $("#autoSuggestToggle").on("click", function() {
