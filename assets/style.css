@@ -99,10 +99,6 @@ body {
     border-radius: 5px;
 }
 
-#mobileQuantity input {
-    width: 100% ;
-}
-
 .location-input {
     width: 100%;
     background: none;
@@ -438,3 +434,4 @@ input[type="checkbox"] {
     }
 
 }
+

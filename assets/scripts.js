@@ -7,12 +7,12 @@ function decreaseQuantity(quantity){
 }
 
 function checkQuantity(){
-    quantity = parseInt($(".quantity-counter").text());
+    quantity = parseInt($("#quantity-counter").text());
     return (quantity);
 }
 
 function resetInput(){
-    $(".quantity-counter").text(1);
+    $("#quantity-counter").text(1);
     $("#item-name").val('');
 }
 
@@ -328,14 +328,13 @@ function captureInput(location, tableName){
             $(tableName).parent().parent().parent().prev().removeClass("colour-complete").addClass("colour-neutral")
         }
         if ($("#item-name").val() != ""){
-            insertRowData(tableName, $(".quantity-counter").text(), $("#item-name").val());
-            console.log($(".quantity-counter").text())
+            insertRowData(tableName, $("#quantity-counter").text(), $("#item-name").val());
 
             // ADDS QUANTITY TO TABLE HEADER
             // var TableRowCount = $(tableName).children('tr').length
             // $(tableName).parent().parent().parent().prev().children('.float-right').children('a').text(TableRowCount)
 
-            sListArray.push(new Item($("#item-name").val(), $(".quantity-counter").text(), location));
+            sListArray.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location));
 
             // let collapseParent = $(tableName).parent().parent().parent();
             // $(".collapse").not(collapseParent).collapse('hide');
@@ -356,7 +355,7 @@ function captureInput(location, tableName){
                     }
                 }
             }
-            items.push(new Item($("#item-name").val(), $(".quantity-counter").text(), location));
+            items.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location));
             localStorage.setItem('inputObjects', JSON.stringify(items));
             resetInput();
         } else if ($("#item-name").val() == ""){
@@ -622,7 +621,7 @@ $(document).ready(function() {
     $("#plus-btn").on("click", function() {
         checkQuantity();
         if (checkQuantity() < 10){
-            $(".quantity-counter").text(increaseQuantity(quantity));
+            $("#quantity-counter").text(increaseQuantity(quantity));
         }
     });
 
@@ -630,8 +629,9 @@ $(document).ready(function() {
     $("#minus-btn").on("click", function() {
         checkQuantity();
         if (checkQuantity() > 1){
-            $(".quantity-counter").text(decreaseQuantity(quantity));
+            $("#quantity-counter").text(decreaseQuantity(quantity));
         }
     });
 
 })
+

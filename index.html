@@ -64,18 +64,14 @@
                         <div class="col-9 px-0">
                             <input type="text" id="item-name" maxlength="18" class="text-left pl-4" placeholder="Type item name">
                         </div>
-                        <div class="d-none d-sm-none d-md-block col-md-1 mx-0 px-0">
+                        <div class="col-1 mx-0 px-0">
                             <button id="minus-btn">-</button>
                         </div>
-                        <div class="d-none d-sm-none d-md-block col-md-1 my-auto px-0 text-center">
-                            <div class="quantity-counter">1</div>
+                        <div class="col-1 my-auto px-0 text-center">
+                            <div id="quantity-counter">1</div>
                         </div>
-                        <div class="d-none d-sm-none d-md-block col-md-1 mx-0 px-0">
+                        <div class="col-1 mx-0 px-0">
                             <button id="plus-btn">+</button>
-                        </div>
-                        <div id="mobileQuantity" class="d-block d-sm-block d-md-none col-3 my-auto">
-                            <!-- SOURCE: https://stackoverflow.com/q/25425181 -->
-                            <input class="quantity-counter" type="text" pattern="\d*" maxlength="2" placeholder="1" class="text-center">
                         </div>
                     </div>
                     <div class="container py-2 mt-2 location-container">
@@ -295,11 +291,12 @@
                 </div>
             </div>
         </div>
-        <!-- <div id="add-button">
+        <div id="add-button">
             <a href="#"><i class="fas fa-plus-circle"></i></a>
-        </div> -->
+        </div>
         <script type="text/javascript" src="assets/scripts.js"></script>
     </body>
 
 
 </html>
+
