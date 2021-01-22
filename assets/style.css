@@ -6,7 +6,7 @@ body {
     background-color: rgb(252, 252, 252);
 }
 
-.added-item-alert {
+.popup-alert {
     padding: 15px;
     position: fixed;
     left: 50%;

@@ -36,6 +36,7 @@ $("#resetLocations").on("click", function() {
     locationButtonNames('.location-btn-4', defaultLocations[4])
     locationButtonNames('.location-btn-5', defaultLocations[5])
     $("#settings-btn").trigger('click');
+    modalPopup("Reset location names back to default", "all")
  })
 
 
@@ -88,9 +89,25 @@ function insertRowData(tableName, itemQuantity, itemName){
     updateTableBanner(tableName);
 
     var tableTitle = $(tableName).parent().parent().parent().prev().children('.float-left').children().children().text()
-    $(".added-item-alert").css('display','block');
-    $("#modal-bar").html(`Added <strong>${itemName}</strong> into <strong>${tableTitle}</strong>`);
+    // $(".added-item-alert").css('display','block');
+    // $("#modal-bar").html(`Added <strong>${itemName}</strong> into <strong>${tableTitle}</strong>`);
+    modalPopup(`Added <strong>${itemName}</strong> into <strong>${tableTitle}</strong>`, "mobile")
     
+}
+
+function modalPopup(text, breakpoint){
+    if (breakpoint == "mobile"){
+        $("#modal-container").removeClass();
+        $("#modal-container").addClass("d-xl-none d-lg-none d-md-none");
+    } else if (breakpoint == "desktop"){
+        $("#modal-container").removeClass();
+        $("#modal-container").addClass("d-xl-block d-lg-block d-md-block d-sm-none d-none");
+    } else if (breakpoint == "all"){
+        $("#modal-container").removeClass();
+    }
+    $("#modal-bar").html(text);
+    $(".popup-alert").fadeIn('1000')
+    setTimeout(function(){ $(".popup-alert").fadeOut('1000') }, 1500);
 }
 
 class Item {
@@ -178,6 +195,7 @@ function buttonTableLink(buttonLocation) {
     removeAllData()
     $("#settings-btn").trigger('click');
     closeAllSections();
+    modalPopup("Emptied shopping list", "all")
  })
 
  $("#settings-btn").on("click", function() {
@@ -363,6 +381,8 @@ $( "#item-name" ).autocomplete({
 $("#clear-autofill").on("click", function() {
     $("#item-name").autocomplete({source: []});
     $("#settings-btn").trigger('click');
+    modalPopup("Cleared auto-suggestions", "all")
+    // NEEDS TO CLEAR FROM LOCALSTORAGE
 })
 
 $("#autoSuggestToggle").on("click", function() {
