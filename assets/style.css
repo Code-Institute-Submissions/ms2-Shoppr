@@ -123,21 +123,67 @@ body {
 }
 
 /* SOURCE: https://stackoverflow.com/questions/38661118/centering-text-in-row-with-bootstrap-grid */
-.center::before {
+/* .center::before {
     content:"";
     margin-left: 16.6%;
-}
+} */
 
 .location-buttons {
     width: 100%;
     height: 100%;
     color: black;
     font-size: 18px;
-    border: none;;
-    /* background-color: rgba(0, 0, 0, 0.212); */
+    border: none;
+    /* border-bottom: 4px solid rgb(91, 247, 174); */
     background-color: white;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12);
     border-radius: 8px 0px 0px 8px;
+}
+
+.location-btn-0 {
+    border-left: 6px solid #3F6292;
+}
+
+.location-btn-1  {
+    border-left: 6px solid #D57967;
+}
+
+.location-btn-2 {
+    border-left: 6px solid #AABE8D;
+}
+
+.location-btn-3 {
+    border-left: 6px solid #F2E2BC;
+}
+
+.location-btn-4 {
+    border-left: 6px solid #CA546A;
+}
+
+.location-btn-5 {
+    border-left: 6px solid #E26E5C;
+}
+
+.col-2 > .location-edit {
+    transition: background-color 0.3s ease;
+}
+
+.col-2 > .location-edit:hover {
+    background-color: rgb(243, 243, 243);
+    transition: background-color 0.3s linear;
+    /* color: white; */
+    border-radius: 0 8px 8px 0;
+}
+
+.hover {
+    transition: border-width 0.3s ease;
+}
+
+.hover:hover {
+    border-width: 24px;
+    transition: border-width 0.3s linear;
+    /* background-color: #F2E2BC; */
+    /* color: white; */
 }
 
 .card-header {
@@ -158,11 +204,6 @@ body {
 .card a:hover {
     text-decoration: none;
     color: rgb(114, 114, 114);
-}
-
-.hover:hover {
-    background-color: rgb(245, 245, 245);
-    color: black;
 }
 
 .location-edit {
