@@ -161,6 +161,10 @@ function buttonTableLink(buttonLocation) {
     sListArray = [];
  }
 
+ $("#emptyShoppingList").on("click", function() {
+    removeAllData()
+ })
+
  $("#settings-btn").on("click", function() {
     //  $(this).children().children('i').toggleClass('fa-cog fa-level-down-alt')
     if ($(this).hasClass('show')) {
