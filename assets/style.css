@@ -341,13 +341,13 @@ input[type="checkbox"] {
     margin: 10px 0px;
 }
 
-#emailInput {
+#emailDropdown {
     width: 100%;
     padding: 0px;
     float: left;
 }
 
-#emailInput input {
+#emailDropdown input {
     width: 80%;
     border-radius: 10px;
     padding: 10px 0px;

@@ -155,6 +155,8 @@ function convertToCsvFormat(array) {
     csvDownloadURL = csvConcat.replace(/ /g, '%20')
     console.log(csvDownloadURL)
     $("#createCSV").attr("href", csvDownloadURL)
+
+    return csvFormatted;
 }
 
 // var uploadedArray = [];
@@ -558,6 +560,33 @@ if ($(window).width() >= 768) {
         }
     })
 }
+
+$("#sendEmail").on("click", function() {
+    var userEmail = $("#emailInput").val();
+    var csvContent = convertToCsvFormat(sListArray);
+    console.log(csvContent)
+
+    var enc = window.btoa(csvContent)
+    console.log(enc)
+
+
+    emailjs.init("user_VBOljHoPAv6fbpkGFq5GA");
+    emailjs.send('gmail', 'export_email', {
+        "from_name": "Shoppr",
+        "to_email": userEmail,
+        message: "Your exported shopping list file is attached to this email.",
+        variable_sazymqs: enc
+    })
+    .then(
+        function(response) {
+            console.log("Success", response);
+        },
+        function(error){
+            console.log("Failed", error);
+        });
+
+
+})
 
 
 $(document).ready(function() {

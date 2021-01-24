@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Shopping list generator">
+        <title>Shoppr</title>
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
         <!-- Bootstrap CSS -->
@@ -22,8 +23,8 @@
         <!-- Bootstrap JS -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>  
 
+        <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 
-        <title>Shoppr</title>
     </head>
 
     <body>
@@ -265,20 +266,20 @@
                             </a>
                         </div>
                         <div class="col px-0">
-                            <a id="createCSV" href="#" download="file.csv" class="import-export-btn">
+                            <a id="createCSV" href="#" download="shoppr-export.csv" class="import-export-btn">
                                 <span><i class="fas fa-download"></i> Download</span>
                             </a>
                         </div>
                         <div class="col px-0 ml-3">
-                            <a class="import-export-btn collapsed" data-toggle="collapse" data-target="#emailInput">
+                            <a class="import-export-btn collapsed" data-toggle="collapse" data-target="#emailDropdown">
                                 <span><i class="fas fa-paper-plane"></i> Email</span>
                             </a>
                         </div>
                     </div>
                     <div class="row">
-                        <div id="emailInput" class="col-12 collapse">
-                            <input type="email" class="text-center" placeholder="Please type your email address">
-                            <button type="submit" class="emailSubmit">Submit</button>
+                        <div id="emailDropdown" class="col-12 collapse">
+                            <input id="emailInput" type="email" class="text-center" placeholder="Please type your email address">
+                            <button id="sendEmail" type="submit" class="emailSubmit">Submit</button>
                         </div>
                     </div>
                     <div class="row">
