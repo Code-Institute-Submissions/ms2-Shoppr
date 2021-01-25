@@ -564,10 +564,9 @@ if ($(window).width() >= 768) {
 $("#sendEmail").on("click", function() {
     var userEmail = $("#emailInput").val();
     var csvContent = convertToCsvFormat(sListArray);
-    console.log(csvContent)
-
     var enc = window.btoa(csvContent)
-    console.log(enc)
+    $("#sendEmail").css('background-color','#FFF3CD')
+    $("#sendEmail").text("Sending...")
 
 
     emailjs.init("user_VBOljHoPAv6fbpkGFq5GA");
@@ -580,9 +579,13 @@ $("#sendEmail").on("click", function() {
     .then(
         function(response) {
             console.log("Success", response);
+            $("#sendEmail").css('background-color','#D4EDDA')
+            $("#sendEmail").text("Sent!")
         },
         function(error){
             console.log("Failed", error);
+            $("#sendEmail").css('background-color','#E26E5C')
+            $("#sendEmail").text("Try again")
         });
 
 
