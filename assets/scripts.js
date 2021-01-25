@@ -110,12 +110,18 @@ function modalPopup(text, breakpoint){
     setTimeout(function(){ $(".popup-alert").fadeOut('1000') }, 1500);
 }
 
-class Item {
-    constructor(name, quantity, location) {
-        this.name = name;
-        this.quantity = quantity;
-        this.location = location;
-    }
+// class Item {
+//     constructor(name, quantity, location) {
+//         this.name = name;
+//         this.quantity = quantity;
+//         this.location = location;
+//     }
+// }
+
+function Item (name, quantity, location) {
+    this.name = name;
+    this.quantity = quantity;
+    this.location = location;
 }
 
 // CREATES LOCALSTORAGE ITEMS ARRAY
@@ -236,17 +242,25 @@ $("#uploadCSV").change(function() {
                 var quantityIndex = loopIndex + 1
                 var locationIndex = loopIndex + 2
                 sListArray.push(new Item(listItems[x], listItems[quantityIndex], listItems[locationIndex]));
-                items.push(new Item(listItems[x], listItems[quantityIndex], listItems[locationIndex]));
-                updateLocalStorage();
-                var matchingTable = findButtonTableLink(listItems[locationIndex])
+
+                var matchingTable = findButtonTableLink(listItems[locationIndex]);
                 insertRowData(matchingTable, listItems[quantityIndex], listItems[x]);
-                toggleSectionCollapse("open")
-                // var defaultHeroImg = "assets/images/banner-default.jpg"
-                // $("#banner-img").css('background-color','#299D8E')
-                // $("#banner-img").css('background-image',`url('${defaultHeroImg}')`)
-                // $(".table-title").empty()
-                // $(".table-title").css('display','none')
-                defaultHeroBanner()
+                toggleSectionCollapse("open");
+                defaultHeroBanner();
+                
+                 // DETECTS DUPLICATES BEFORE ADDING TO ITEMS ARRAY
+                if (itemNames.length > 0){
+                    console.log("itemNames length is more than 0")
+                    if (itemNames.indexOf(listItems[loopIndex]) != -1){
+                        console.log(listItems[loopIndex] + " was found in itemNames array")
+                    } else if (itemNames.indexOf(listItems[loopIndex]) == -1){
+                        items.push(new Item(listItems[loopIndex], listItems[quantityIndex], listItems[locationIndex]));
+                    }
+                } else if (itemNames.length <1) {
+                    items.push(new Item(listItems[loopIndex], listItems[quantityIndex], listItems[locationIndex]));
+                }
+
+                updateLocalStorage();
             }
         }
     }
@@ -319,6 +333,16 @@ $('#accordion').on('click', 'input[class=item-check]', function(){
         tableIncomplete(tableId)
     }
 })
+
+function detectDuplicates(item, array){
+    for (x in array){
+        if (array[x].name != $(item).val()){
+            console.log(`${$(item).val()} doesn't exist in array`)
+            var itemValue = $(item).val();
+            return itemValue;
+        }
+    } 
+}
 
 // IF INPUT FIELD ISN'T EMPTY, ADD TO TABLE, OPEN TABLE CARD, CHECK IF IT EXISTS IN LOCALSTORAGE AND IF NOT THEN ADD IT AND RESET INPUT FIELD
 function captureInput(location, tableName){
