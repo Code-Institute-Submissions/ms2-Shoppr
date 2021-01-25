@@ -40,24 +40,6 @@ body {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.39);
 }
 
-.import-export-btn {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-    padding: 10px 0px;
-    background: white;
-    border: none;
-    display: block;
-    color: black;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.import-export-btn:hover {
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
-    text-decoration: none;
-    color: black;
-    border-bottom: 3px solid rgb(231, 231, 231);
-}
-
 #fileBrowser {
     padding: 0px;
 }
@@ -317,7 +299,7 @@ input[type="checkbox"] {
 
 /* SOURCE: https://stackoverflow.com/a/38850580 */
 .hero-btn:after {
-    background: rgb(63,98,146);
+    /* background: rgb(63,98,146); */
     background: linear-gradient(90deg, rgba(63,98,146,1) 0%, rgba(213,121,103,1) 20%, rgba(242,226,188,1) 40%, rgba(170,190,141,1) 60%, rgba(202,84,106,1) 80%, rgba(226,110,92,1) 100%);
     position: absolute;
     content: '';
@@ -326,6 +308,24 @@ input[type="checkbox"] {
     left: 0;
     bottom: 0;
     border-radius: 0px 0px 10px 10px;
+}
+
+.import-export-btn {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    padding: 10px 0px;
+    background: white;
+    border: none;
+    display: block;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.import-export-btn:hover {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
+    text-decoration: none;
+    color: black;
+    border-bottom: 3px solid rgb(231, 231, 231);
 }
 
 .import-export-btn[aria-expanded="true"]{

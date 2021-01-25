@@ -196,7 +196,7 @@ function buttonTableLink(buttonLocation) {
  $("#emptyShoppingList").on("click", function() {
     removeAllData()
     $("#settings-btn").trigger('click');
-    closeAllSections();
+    toggleSectionCollapse("closed")
     modalPopup("Emptied shopping list", "all")
  })
 
@@ -240,7 +240,7 @@ $("#uploadCSV").change(function() {
                 updateLocalStorage();
                 var matchingTable = findButtonTableLink(listItems[locationIndex])
                 insertRowData(matchingTable, listItems[quantityIndex], listItems[x]);
-                openAllSections()
+                toggleSectionCollapse("open")
                 // var defaultHeroImg = "assets/images/banner-default.jpg"
                 // $("#banner-img").css('background-color','#299D8E')
                 // $("#banner-img").css('background-image',`url('${defaultHeroImg}')`)
@@ -423,30 +423,30 @@ function defaultHeroBanner(){
     $(".table-title").css('display','none')
 }
 
-// OPENS ALL TABLES
-function openAllSections() {
-    $("#accordion .collapse").removeClass('hide');
-    $("#accordion .collapse").addClass('show');
-    defaultHeroBanner();
-}
-
-function closeAllSections() {
-    $(".collapse").removeClass('show');
-    $(".collapse").addClass('hide');
-    defaultHeroBanner();
+function toggleSectionCollapse(toggle){
+    if (toggle == "open") {
+        $("#accordion .collapse").removeClass('hide');
+        $("#accordion .collapse").addClass('show');
+        defaultHeroBanner();
+        $("#open-close").children().children('.open-close-text').text("Close all ")
+        $("#open-close").children().children('i').removeClass("fa-level-down-alt").addClass("fa-level-up-alt");
+    } else if (toggle == "closed") {
+        $(".collapse").removeClass('show');
+        $(".collapse").addClass('hide');
+        defaultHeroBanner();
+        $("#open-close").children().children('.open-close-text').text("Open all ")
+        // $("#open-close").children().children('i').toggleClass("fa-level-down-alt fa-level-up-alt");
+        $("#open-close").children().children('i').removeClass("fa-level-up-alt").addClass("fa-level-down-alt");
+    }
 }
 
 // APPLIES OPEN ALL TABLES FUNCTION TO BUTTON CLICK
 $("#open-close").on("click", function() {
     var openCloseIcon = $("#open-close").children().children()
     if (openCloseIcon.hasClass('fa-level-down-alt')) {
-        $("#open-close").children().children('.open-close-text').text("Close all ")
-        $("#open-close").children().children('i').toggleClass("fa-level-down-alt fa-level-up-alt");
-        openAllSections();
+        toggleSectionCollapse("open")
     } else if (openCloseIcon.hasClass('fa-level-up-alt')) {
-        $("#open-close").children().children('.open-close-text').text("Open all ")
-        $("#open-close").children().children('i').toggleClass("fa-level-down-alt fa-level-up-alt");
-        closeAllSections();
+        toggleSectionCollapse("closed")
     };
 });
 
@@ -538,7 +538,7 @@ function updateLocalStorage(){
             var rowsLength = $(tableName).children('tr').length
             if (rowsLength == "0") {
                 tableIncomplete(tableName)
-                closeAllSections()
+                toggleSectionCollapse("closed")
             }
             console.log(`Removed ${removedItemName} from array`);
             
