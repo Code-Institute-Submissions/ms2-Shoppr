@@ -255,9 +255,11 @@ $("#uploadCSV").change(function() {
                         console.log(listItems[loopIndex] + " was found in itemNames array")
                     } else if (itemNames.indexOf(listItems[loopIndex]) == -1){
                         items.push(new Item(listItems[loopIndex], listItems[quantityIndex], listItems[locationIndex]));
+                        itemNames.push(listItems[loopIndex])
                     }
                 } else if (itemNames.length <1) {
                     items.push(new Item(listItems[loopIndex], listItems[quantityIndex], listItems[locationIndex]));
+                    itemNames.push(listItems[loopIndex])
                 }
 
                 updateLocalStorage();

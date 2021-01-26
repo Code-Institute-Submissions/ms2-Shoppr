@@ -42,8 +42,37 @@
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <button id="settings-btn" class="collapsed my-3" aria-expanded="false" data-toggle="collapse" data-target="#settings-content"><h4>Settings <i class="fas fa-cog"></i><i class="fas fa-level-down-alt"></i></h4></button>
+                        <div class="col-12 text-center">
+                            <button id="help-btn" class="nav-btn my-2" data-toggle="modal" data-target="#exampleModal"><h4>Help <i class="fas fa-info-circle"></i></h4></button>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button id="settings-btn" class="nav-btn collapsed my-2" aria-expanded="false" data-toggle="collapse" data-target="#settings-content"><h4>Settings <i class="fas fa-cog"></i><i class="fas fa-level-down-alt"></i></h4></button>
+                        </div>
                     </div>
+
+                    <div class="modal fade" tabindex="-1" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Guide</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>This shopping list is designed to allow you to add items to your list in order of the sections within your supermarket <em>(eg. front shelves, fridges)</em>. This is so you can follow your list in the same order as your supermarket layout.</p>
+                                    <p>If you rename the locations, this will be remembered the next time you visit Shoppr. Previously entered items will also be suggested in the future when you start to type the same item name again.</p>
+                                    <p>The option is there to download your shopping list as a CSV file, which will let you import it back into Shoppr in the future if you wanted to re-use a particular list.</p>
+                                    <p>If you need to share the list with someone else, you can email it to them or if you want to view the list on another device you can email it to yourself.</p>
+                                    <p>The email will contain the shopping list within it but it will also attach the CSV so you can import it back into Shoppr on another device.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div id="settings-content" class="collapse text-center">
                         <div class="col-12">
                             <button id="autoSuggestToggle" class="options-btn"></button>

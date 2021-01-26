@@ -265,13 +265,17 @@ input[type="checkbox"] {
     font-size: 3vmax;
 }
 
-#settings-btn {
+.nav-btn {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12);
     border-radius: 10px;
     padding: 6px 10px 0px 10px;
     margin-bottom: 10px;
     /* SOURCE: https://stackoverflow.com/a/9612782  */
     border: 3px solid transparent;
+    background: white;
+}
+
+#settings-btn {
     background-color: rgb(247, 247, 247);
 }
 
@@ -375,12 +379,12 @@ input[type="checkbox"] {
     background-color: white;
 }
 
-#settings-btn a {
+/* #settings-btn a {
     color: black;
     text-decoration: none;
-}
+} */
 
-#settings-btn:hover {
+.nav-btn:hover {
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
     text-decoration: none;
     color: black;
