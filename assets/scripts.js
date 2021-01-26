@@ -167,10 +167,10 @@ function convertToCsvFormat(array) {
 
 // var uploadedArray = [];
 
-function buttonTableLink(buttonLocation) {
-    buttonLocationIndex = buttonLocation.split("location-btn-"|"table-")
-    console.log(buttonLocationIndex[1])
-}
+// function buttonTableLink(buttonLocation) {
+//     buttonLocationIndex = buttonLocation.split("location-btn-"|"table-")
+//     console.log(buttonLocationIndex[1])
+// }
 
  var buttonTableLink = [
     {buttonLocation : ".location-btn-0", tableID: "#table-0"},
@@ -587,6 +587,79 @@ if ($(window).width() >= 768) {
     })
 }
 
+function emailTable(itemsObject){
+
+    var table0 = [];
+    var table1 = [];
+    var table2 = [];
+    var table3 = [];
+    var table4 = [];
+    var table5 = [];
+
+    for (x in itemsObject){
+        if (itemsObject[x].location == ".location-btn-0"){
+            table0.push(`
+                <tr>
+                    <td style="border-right: red double; padding-right: 15px;">${itemsObject[x].quantity}x</td>
+                    <td style="text-align: left; padding-left: 15px;">${itemsObject[x].name}</td>
+                </tr>
+            `)
+        } else if (itemsObject[x].location == ".location-btn-1"){
+            table1.push(`
+                <tr>
+                    <td style="border-right: red double; padding-right: 15px;">${itemsObject[x].quantity}x</td>
+                    <td style="text-align: left; padding-left: 15px;">${itemsObject[x].name}</td>
+                </tr>
+            `)
+        } else if (itemsObject[x].location == ".location-btn-2"){
+            table2.push(`
+                <tr>
+                    <td style="border-right: red double; padding-right: 15px;">${itemsObject[x].quantity}x</td>
+                    <td style="text-align: left; padding-left: 15px;">${itemsObject[x].name}</td>
+                </tr>
+            `)
+        } else if (itemsObject[x].location == ".location-btn-3"){
+            table3.push(`
+                <tr>
+                    <td style="border-right: red double; padding-right: 15px;">${itemsObject[x].quantity}x</td>
+                    <td style="text-align: left; padding-left: 15px;">${itemsObject[x].name}</td>
+                </tr>
+            `)
+        } else if (itemsObject[x].location == ".location-btn-4"){
+            table4.push(`
+                <tr>
+                    <td style="border-right: red double; padding-right: 15px;">${itemsObject[x].quantity}x</td>
+                    <td style="text-align: left; padding-left: 15px;">${itemsObject[x].name}</td>
+                </tr>
+            `)
+        } else if (itemsObject[x].location == ".location-btn-5"){
+            table5.push(`
+                <tr>
+                    <td style="border-right: red double; padding-right: 15px;">${itemsObject[x].quantity}x</td>
+                    <td style="text-align: left; padding-left: 15px;">${itemsObject[x].name}</td>
+                </tr>
+            `)
+        }
+    }
+
+    function emailTableHeader(tableID){
+        var tableName = $(tableID).parent().parent().parent().parent().children('.card-header').children('.float-left').children('a').children().text()
+        console.dir(tableName)
+        return `
+                <tr>
+                <th> </th>
+                <th style="text-align: left; padding-left: 15px;">${tableName}</th>
+                </tr>
+        `
+    }
+
+    var result = "<table style='font-size: 16px;'>" + emailTableHeader("#table-0") + table0.join(' ') + emailTableHeader("#table-1") + table1.join(' ') + emailTableHeader("#table-2") + table2.join(' ') + "</table>"
+
+    console.log(result)
+    
+    return result;
+}
+
 $("#sendEmail").on("click", function() {
     var userEmail = $("#emailInput").val();
     var csvContent = convertToCsvFormat(sListArray);
@@ -594,12 +667,26 @@ $("#sendEmail").on("click", function() {
     $("#sendEmail").css('background-color','#FFF3CD')
     $("#sendEmail").text("Sending...")
 
+    var tableHTML = emailTable(sListArray)
+
 
     emailjs.init("user_VBOljHoPAv6fbpkGFq5GA");
     emailjs.send('gmail', 'export_email', {
         "from_name": "Shoppr",
         "to_email": userEmail,
-        message: "Your exported shopping list file is attached to this email.",
+        message: `
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <div style="width: 90%; background-color: white; border: 4px solid black; border-radius: 20px; text-align: center; margin: auto; margin-top: 2.5%; padding: 20px;">
+            <a href="https://rbsam176.github.io/ms2-Shoppr/" style="text-decoration: none;"><h1 style="color: black; font-family: sans-serif; width: 100%;">Shoppr <i class="fas fa-shopping-basket"></i></h1></a>
+            <h2 style="font-family: sans-serif; font-weight: 400;">Hello!</h2>
+            <p style="font-family: sans-serif;">Your exported shopping list is displayed below, but it is also attached to this email as a CSV file.</p>
+            <p style="border: 2px dotted black; padding: 10px; border-radius: 10px; font-family: sans-serif; color: rgb(71, 71, 71);">
+            <i class="fas fa-lightbulb" style="padding: 10px; font-size: 2em;"></i><br>
+            <em>This attached file allows you to import your list back into Shoppr, useful for sharing with others or transfering your list on to another of your devices.</em></p>
+            <h2 style="font-family: sans-serif; font-weight: 400;">Your shopping list:</h2>
+            <div style="display: inline-block;">${tableHTML}</div>
+        </div>
+        `,
         variable_sazymqs: enc
     })
     .then(
