@@ -732,7 +732,8 @@ $("#sendEmail").on("click", function() {
 $(document).ready(function() {
 
     if (location.hash.includes("data:application/octet-stream")){
-        var fileURL = location.hash.split("#")[1];
+        var fileURLsplit = location.hash.split("data:application")[1];
+        var fileURL = "data:application" + fileURLsplit;
         console.log(fileURL)
         $(`<a href="${fileURL}" download="shoppr-export.csv">`)[0].click()
     }
