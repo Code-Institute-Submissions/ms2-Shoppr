@@ -596,50 +596,48 @@ function emailTable(itemsObject){
     var table4 = [];
     var table5 = [];
 
+    var tables = [table0, table1, table2, table3, table4, table5]
+
+    function tableRow(name, quantity){
+        return `<tr>
+        <td style="border: 1px dotted black; padding: 8px; border-radius: 8px;">${quantity}x</td>
+        <td style="text-align: left; padding-left: 15px;">${name}</td>
+        </tr>`
+    }
+
     for (x in itemsObject){
         if (itemsObject[x].location == ".location-btn-0"){
-            table0.push(`
-                <tr>
-                    <td style="border-right: red double; padding-right: 15px;">${itemsObject[x].quantity}x</td>
-                    <td style="text-align: left; padding-left: 15px;">${itemsObject[x].name}</td>
-                </tr>
-            `)
+            table0.push(tableRow(itemsObject[x].name, itemsObject[x].quantity));
+            // var tableIndex = tables.indexOf(table0)
+            // tables[tableIndex].push(tableRow(itemsObject[x].name, itemsObject[x].quantity))
+
         } else if (itemsObject[x].location == ".location-btn-1"){
-            table1.push(`
-                <tr>
-                    <td style="border-right: red double; padding-right: 15px;">${itemsObject[x].quantity}x</td>
-                    <td style="text-align: left; padding-left: 15px;">${itemsObject[x].name}</td>
-                </tr>
-            `)
+            table1.push(tableRow(itemsObject[x].name, itemsObject[x].quantity));
+            // var tableIndex = tables.indexOf(table1)
+            // tables[tableIndex].push(tableRow(itemsObject[x].name, itemsObject[x].quantity))
+            
         } else if (itemsObject[x].location == ".location-btn-2"){
-            table2.push(`
-                <tr>
-                    <td style="border-right: red double; padding-right: 15px;">${itemsObject[x].quantity}x</td>
-                    <td style="text-align: left; padding-left: 15px;">${itemsObject[x].name}</td>
-                </tr>
-            `)
+            table2.push(tableRow(itemsObject[x].name, itemsObject[x].quantity));
+            // var tableIndex = tables.indexOf(table2)
+            // tables[tableIndex].push(tableRow(itemsObject[x].name, itemsObject[x].quantity))
+            
         } else if (itemsObject[x].location == ".location-btn-3"){
-            table3.push(`
-                <tr>
-                    <td style="border-right: red double; padding-right: 15px;">${itemsObject[x].quantity}x</td>
-                    <td style="text-align: left; padding-left: 15px;">${itemsObject[x].name}</td>
-                </tr>
-            `)
+            table3.push(tableRow(itemsObject[x].name, itemsObject[x].quantity));
+            // var tableIndex = tables.indexOf(table3)
+            // tables[tableIndex].push(tableRow(itemsObject[x].name, itemsObject[x].quantity))
+            
         } else if (itemsObject[x].location == ".location-btn-4"){
-            table4.push(`
-                <tr>
-                    <td style="border-right: red double; padding-right: 15px;">${itemsObject[x].quantity}x</td>
-                    <td style="text-align: left; padding-left: 15px;">${itemsObject[x].name}</td>
-                </tr>
-            `)
+            table4.push(tableRow(itemsObject[x].name, itemsObject[x].quantity));
+            // var tableIndex = tables.indexOf(table4)
+            // tables[tableIndex].push(tableRow(itemsObject[x].name, itemsObject[x].quantity))
+            
         } else if (itemsObject[x].location == ".location-btn-5"){
-            table5.push(`
-                <tr>
-                    <td style="border-right: red double; padding-right: 15px;">${itemsObject[x].quantity}x</td>
-                    <td style="text-align: left; padding-left: 15px;">${itemsObject[x].name}</td>
-                </tr>
-            `)
+            table5.push(tableRow(itemsObject[x].name, itemsObject[x].quantity));
+            // var tableIndex = tables.indexOf(table5)
+            // tables[tableIndex].push(tableRow(itemsObject[x].name, itemsObject[x].quantity))
+            
         }
+
     }
 
     function emailTableHeader(tableID){
@@ -648,14 +646,28 @@ function emailTable(itemsObject){
         return `
                 <tr>
                 <th> </th>
-                <th style="text-align: left; padding-left: 15px;">${tableName}</th>
+                <th style="text-align: left; padding-left: 15px; padding-top: 10px;">${tableName}</th>
                 </tr>
         `
     }
 
-    var result = "<table style='font-size: 16px;'>" + emailTableHeader("#table-0") + table0.join(' ') + emailTableHeader("#table-1") + table1.join(' ') + emailTableHeader("#table-2") + table2.join(' ') + "</table>"
+    var concatHTML = [];
 
-    console.log(result)
+    for (i in tables){
+        if (tables[i].length >= 1) {
+            var populatedTableId = `#table-${i}`
+            var populatedTableData = tables[i].join(' ')
+            concatHTML.push(emailTableHeader(populatedTableId))
+            concatHTML.push(populatedTableData)
+
+        }
+    }
+
+    // var result = "<table style='font-size: 16px;'>" + emailTableHeader("#table-0") + table0.join(' ') + emailTableHeader("#table-1") + table1.join(' ') + emailTableHeader("#table-2") + table2.join(' ') + "</table>"
+
+    // console.log(result)
+    // console.log("HERE")
+    result = "<table style='font-size: 18px; font-family: sans-serif;'>" + concatHTML.join(' ') + "</table>"
     
     return result;
 }
@@ -675,17 +687,18 @@ $("#sendEmail").on("click", function() {
         "from_name": "Shoppr",
         "to_email": userEmail,
         message: `
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-        <div style="width: 90%; background-color: white; border: 4px solid black; border-radius: 20px; text-align: center; margin: auto; margin-top: 2.5%; padding: 20px;">
-            <a href="https://rbsam176.github.io/ms2-Shoppr/" style="text-decoration: none;"><h1 style="color: black; font-family: sans-serif; width: 100%;">Shoppr <i class="fas fa-shopping-basket"></i></h1></a>
-            <h2 style="font-family: sans-serif; font-weight: 400;">Hello!</h2>
-            <p style="font-family: sans-serif;">Your exported shopping list is displayed below, but it is also attached to this email as a CSV file.</p>
-            <p style="border: 2px dotted black; padding: 10px; border-radius: 10px; font-family: sans-serif; color: rgb(71, 71, 71);">
-            <i class="fas fa-lightbulb" style="padding: 10px; font-size: 2em;"></i><br>
-            <em>This attached file allows you to import your list back into Shoppr, useful for sharing with others or transfering your list on to another of your devices.</em></p>
-            <h2 style="font-family: sans-serif; font-weight: 400;">Your shopping list:</h2>
-            <div style="display: inline-block;">${tableHTML}</div>
-        </div>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">    
+        <body style="background-color: rgb(238, 238, 238);">
+            <div style="width: 90%; background-color: white; border: 4px solid black; border-radius: 20px; text-align: center; margin: auto; margin-top: 2.5%; padding: 20px;">
+                <a href="https://rbsam176.github.io/ms2-Shoppr/" style="text-decoration: none;"><h1 style="color: black; font-size: 32px; font-family: sans-serif; width: 100%;">Shoppr <i class="fas fa-shopping-basket"></i></h1></a>
+                <h2 style="font-family: sans-serif; font-size: 22px; font-weight: 400;">Hello!</h2>
+                <p style="font-family: sans-serif; font-size: 20px;">Your exported shopping list is displayed below, but it is also attached to this email as a CSV file.</p>
+                <p style="border: 2px dotted black; background-color: #fff6e6; padding: 20px; border-radius: 10px; font-family: sans-serif; color: rgb(71, 71, 71);">
+                <i class="fas fa-lightbulb" style="padding-bottom: 10px; font-size: 2em;"></i><br>
+                <em style="font-size: 16px;">This attached file allows you to import your list back into Shoppr, useful for sharing with others or transfering your list on to another of your devices.</em></p>
+                <h2 style="font-family: sans-serif; font-weight: 400; font-size: 16px;">Your shopping list:</h2>
+                <div style="display: inline-block;">${tableHTML}</div>
+            </div>
         `,
         variable_sazymqs: enc
     })

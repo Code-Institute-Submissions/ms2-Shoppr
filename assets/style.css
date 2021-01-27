@@ -230,11 +230,6 @@ input[type="checkbox"] {
     vertical-align: middle;
   }
 
-/* LOOK INTO THIS */
-#menu-controls { 
-    /* min-height: 100vh; */
-}
-
 #banner-img {
     /* background-image: url("https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/325253_2200-1200x628.jpg"); */
     background-image: url("images/banner-default.jpg");
