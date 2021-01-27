@@ -736,12 +736,13 @@ $(document).ready(function() {
         var fileURLsplit = location.hash.split("data:application")[1];
         var fileURL = "data:application" + fileURLsplit;
         console.log(fileURL)
-        $(`<a href="${fileURL}" download="shoppr-export.csv">`)[0].click().then(
-            function(){
-                modalPopup("Downloaded CSV file", "all")
-                window.location.hash = "#"
-            }
-        )
+        $(`<a href="${fileURL}" download="shoppr-export.csv">`)[0].click()
+        $("#downloadModal").modal('show')
+        $("#modalDownloadBtn").attr("href", fileURL)
+        $("#modalDownloadClose").on('click', function() {
+            window.location.hash = "#"
+        })
+
     }
 
     // SET DEFAULT STATE FOR AUTO-SUGGEST FEATURE AS ON
