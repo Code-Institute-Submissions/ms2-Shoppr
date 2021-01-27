@@ -736,9 +736,12 @@ $(document).ready(function() {
         var fileURLsplit = location.hash.split("data:application")[1];
         var fileURL = "data:application" + fileURLsplit;
         console.log(fileURL)
-        $(`<a href="${fileURL}" download="shoppr-export.csv">`)[0].click()
-        window.location.hash = "#"
-        modalPopup("Downloaded CSV file", "all")
+        $(`<a href="${fileURL}" download="shoppr-export.csv">`)[0].click().then(
+            function(){
+                modalPopup("Downloaded CSV file", "all")
+                window.location.hash = "#"
+            }
+        )
     }
 
     // SET DEFAULT STATE FOR AUTO-SUGGEST FEATURE AS ON
