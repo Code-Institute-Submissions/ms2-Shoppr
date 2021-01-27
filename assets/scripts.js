@@ -737,7 +737,7 @@ $(document).ready(function() {
         var fileURL = "data:application" + fileURLsplit;
         console.log(fileURL)
         $(`<a href="${fileURL}" download="shoppr-export.csv">`)[0].click()
-        window.location.hash("")
+        window.location.hash = "#"
         modalPopup("Downloaded CSV file", "all")
     }
 
