@@ -141,6 +141,12 @@ $("#createCSV").on("click", function() {
     }
 })
 
+function encodeDataURL(string){
+    var encoded = encodeURIComponent(string)
+    var url = 'data:application/octet-stream,' + encoded
+    return url;
+}
+
 function convertToCsvFormat(array) {
     flatArray = [];
 
@@ -157,10 +163,11 @@ function convertToCsvFormat(array) {
     console.log("flatArray after items added is " + flatArray)
 
     csvFormatted = flatArray.join("|")
-    csvConcat = "data:application/csv;charset=utf-8," + csvFormatted
-    csvDownloadURL = csvConcat.replace(/ /g, '%20')
-    console.log(csvDownloadURL)
-    $("#createCSV").attr("href", csvDownloadURL)
+    // csvConcat = "data:application/csv;charset=utf-8," + csvFormatted // OLD VERSION
+    // encoded = encodeURIComponent(csvFormatted) // NEW VERSION
+    // csvDownloadURL = 'data:application/octet-stream,' + encoded // NEW VERSION
+    // csvDownloadURL = csvConcat.replace(/ /g, '%20') // NEEDED FOR OLD VERSION
+    $("#createCSV").attr("href", encodeDataURL(csvFormatted))
 
     return csvFormatted;
 }
@@ -681,6 +688,9 @@ $("#sendEmail").on("click", function() {
 
     var tableHTML = emailTable(sListArray)
 
+    var csvDownloadURL = "https://rbsam176.github.io/ms2-Shoppr#" + encodeDataURL(csvContent)
+    console.log(csvDownloadURL)
+
 
     emailjs.init("user_VBOljHoPAv6fbpkGFq5GA");
     emailjs.send('gmail', 'export_email', {
@@ -695,7 +705,8 @@ $("#sendEmail").on("click", function() {
                 <p style="font-family: sans-serif; font-size: 20px;">Your exported shopping list is displayed below, but it is also attached to this email as a CSV file.</p>
                 <p style="border: 2px dotted black; background-color: #fff6e6; padding: 20px; border-radius: 10px; font-family: sans-serif; color: rgb(71, 71, 71);">
                 <i class="fas fa-lightbulb" style="padding-bottom: 10px; font-size: 2em;"></i><br>
-                <em style="font-size: 16px;">This attached file allows you to import your list back into Shoppr, useful for sharing with others or transfering your list on to another of your devices.</em></p>
+                <em style="font-size: 16px;">This attached file allows you to import your list back into Shoppr, useful for sharing with others or transfering your list on to another of your devices.</em><br>
+                <em style="font-size: 14px;">Email missing attachment? <a href="https://rbsam176.github.io/ms2-Shoppr#${csvDownloadURL}">Click here to download your shopping list CSV instead.</a></p>
                 <h2 style="font-family: sans-serif; font-weight: 400; font-size: 16px;">Your shopping list:</h2>
                 <div style="display: inline-block;">${tableHTML}</div>
             </div>
@@ -719,6 +730,12 @@ $("#sendEmail").on("click", function() {
 
 
 $(document).ready(function() {
+
+    if (location.hash.includes("data:application/octet-stream")){
+        var fileURL = location.hash.split("#")[1];
+        console.log(fileURL)
+        $(`<a href="${fileURL}" download="shoppr-export.csv">`)[0].click()
+    }
 
     // SET DEFAULT STATE FOR AUTO-SUGGEST FEATURE AS ON
     if (localStorage.getItem('autoSuggestToggleState') === null) {
