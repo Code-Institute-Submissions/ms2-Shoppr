@@ -138,6 +138,7 @@ $("#createCSV").on("click", function() {
         alert('there is nothing in the shoping list')
     } else {
         convertToCsvFormat(sListArray)
+        modalPopup("Downloaded CSV file", "all")
     }
 })
 
@@ -736,6 +737,8 @@ $(document).ready(function() {
         var fileURL = "data:application" + fileURLsplit;
         console.log(fileURL)
         $(`<a href="${fileURL}" download="shoppr-export.csv">`)[0].click()
+        window.location.hash("")
+        modalPopup("Downloaded CSV file", "all")
     }
 
     // SET DEFAULT STATE FOR AUTO-SUGGEST FEATURE AS ON
