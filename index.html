@@ -320,15 +320,17 @@
                             </a>
                         </div>
                         <div class="col px-0 ml-3">
-                            <a class="import-export-btn collapsed" data-toggle="collapse" data-target="#emailDropdown">
+                            <a id="emailCSV" class="import-export-btn collapsed" data-toggle="collapse" data-target="#emailDropdown" aria-expanded="false">
                                 <span><i class="fas fa-paper-plane"></i> Email</span>
                             </a>
                         </div>
                     </div>
                     <div class="row">
                         <div id="emailDropdown" class="col-12 collapse">
-                            <input id="emailInput" type="email" class="text-center" placeholder="Please type your email address">
-                            <button id="sendEmail" type="submit" class="emailSubmit">Submit</button>
+                            <form onsubmit="return false">
+                                <input id="emailInput" type="email" class="text-center" placeholder="Please type your email address">
+                                <button id="sendEmail" type="submit" class="emailSubmit">Submit</button>
+                            </form>
                         </div>
                     </div>
                     <div class="row">
