@@ -742,7 +742,6 @@ $(document).ready(function() {
         $("#modalDownloadClose").on('click', function() {
             window.location.hash = "#"
         })
-
     }
 
     // SET DEFAULT STATE FOR AUTO-SUGGEST FEATURE AS ON
