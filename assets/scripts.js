@@ -222,7 +222,8 @@ function convertToCsvFormat(array) {
 $("#uploadCSV").change(function() {
     var readFile = new FileReader();
     readFile.onload = function() {
-        var result = readFile.result
+        var read = readFile.result
+        var result = read.replace('&amp;', '&')
         var uploadDelimiter = result.split("|")
         var tableTitles = uploadDelimiter.slice(0, 6)
         var listItems = uploadDelimiter.slice(6)
@@ -684,6 +685,9 @@ $("#sendEmail").on("click", function() {
     var userEmail = $("#emailInput").val();
     var csvContent = convertToCsvFormat(sListArray);
     var enc = window.btoa(csvContent)
+    // var enc = window.btoa(encodeURIComponent(csvContent))
+    console.log("here")
+    console.log(enc)
     $("#sendEmail").css('background-color','#FFF3CD')
     $("#sendEmail").text("Sending...")
 
@@ -705,9 +709,11 @@ $("#sendEmail").on("click", function() {
                 <h2 style="font-family: sans-serif; font-size: 22px; font-weight: 400;">Hello!</h2>
                 <p style="font-family: sans-serif; font-size: 20px;">Your exported shopping list is displayed below, but it is also attached to this email as a CSV file.</p>
                 <p style="border: 2px dotted black; background-color: #fff6e6; padding: 20px; border-radius: 10px; font-family: sans-serif; color: rgb(71, 71, 71);">
-                <i class="fas fa-lightbulb" style="padding-bottom: 10px; font-size: 2em;"></i><br>
-                <em style="font-size: 16px;">This attached file allows you to import your list back into Shoppr, useful for sharing with others or transfering your list on to another of your devices.</em><br>
-                <em style="font-size: 14px;">Email missing attachment? <a href="https://rbsam176.github.io/ms2-Shoppr#${csvDownloadURL}">Click here to download your shopping list CSV instead.</a></p>
+                    <i class="fas fa-lightbulb" style="padding-bottom: 10px; font-size: 2em;"></i><br><hr>
+                    <em style="font-size: 16px;">This attached file allows you to import your list back into Shoppr, useful for sharing with others or transfering your list on to another of your devices.</em><br>
+                    <em style="font-size: 14px;">Email missing attachment?<br>
+                    <a href="https://rbsam176.github.io/ms2-Shoppr#${csvDownloadURL}">Click here to download your shopping list CSV instead.</a>
+                </p>
                 <h2 style="font-family: sans-serif; font-weight: 400; font-size: 16px;">Your shopping list:</h2>
                 <div style="display: inline-block;">${tableHTML}</div>
             </div>
