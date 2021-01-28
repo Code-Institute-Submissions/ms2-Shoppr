@@ -35,6 +35,14 @@ $("#resetLocations").on("click", function() {
     locationButtonNames('.location-btn-3', defaultLocations[3])
     locationButtonNames('.location-btn-4', defaultLocations[4])
     locationButtonNames('.location-btn-5', defaultLocations[5])
+
+    locationTableHeaders(".header0", defaultLocations[0]);
+    locationTableHeaders(".header1", defaultLocations[1]);
+    locationTableHeaders(".header2", defaultLocations[2]);
+    locationTableHeaders(".header3", defaultLocations[3]);
+    locationTableHeaders(".header4", defaultLocations[4]);
+    locationTableHeaders(".header5", defaultLocations[5]);
+
     $("#settings-btn").trigger('click');
     modalPopup("Reset location names back to default", "all")
  })
