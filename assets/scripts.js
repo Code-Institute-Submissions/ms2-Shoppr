@@ -710,10 +710,9 @@ $("#sendEmail").on("click", function() {
         "from_name": "Shoppr",
         "to_email": userEmail,
         message: `
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">    
         <body style="background-color: rgb(238, 238, 238);">
             <div style="width: 90%; background-color: white; border: 4px solid black; border-radius: 20px; text-align: center; margin: auto; margin-top: 2.5%; padding: 20px;">
-                <a href="https://rbsam176.github.io/ms2-Shoppr/" style="text-decoration: none;"><h1 style="color: black; font-size: 32px; font-family: sans-serif; width: 100%;">Shoppr <i class="fas fa-shopping-basket"></i></h1></a>
+                <a href="https://rbsam176.github.io/ms2-Shoppr/" style="text-decoration: none;"><h1 style="color: black; font-size: 32px; font-family: sans-serif; width: 100%;">Shoppr <img src="assets/images/shopping-basket-solid.png" height="32px"></h1></a>
                 <h2 style="font-family: sans-serif; font-size: 22px; font-weight: 400;">Hello!</h2>
                 <p style="font-family: sans-serif; font-size: 20px;">Your exported shopping list is displayed below, but it is also attached to this email as a CSV file.</p>
                 <p style="line-height: 1.6; border: 2px dotted black; background-color: #fff6e6; padding: 20px; border-radius: 10px; font-family: sans-serif; color: rgb(71, 71, 71);">
