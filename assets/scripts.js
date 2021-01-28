@@ -27,21 +27,22 @@ if (JSON.parse(localStorage.getItem('locationsMemory')) == undefined){
 }
 
 $("#resetLocations").on("click", function() {
-    var defaultLocations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves']
+    // var defaultLocations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves']
+    locations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves']
     localStorage.removeItem('locationsMemory')
-    locationButtonNames('.location-btn-0', defaultLocations[0])
-    locationButtonNames('.location-btn-1', defaultLocations[1])
-    locationButtonNames('.location-btn-2', defaultLocations[2])
-    locationButtonNames('.location-btn-3', defaultLocations[3])
-    locationButtonNames('.location-btn-4', defaultLocations[4])
-    locationButtonNames('.location-btn-5', defaultLocations[5])
+    locationButtonNames('.location-btn-0', locations[0])
+    locationButtonNames('.location-btn-1', locations[1])
+    locationButtonNames('.location-btn-2', locations[2])
+    locationButtonNames('.location-btn-3', locations[3])
+    locationButtonNames('.location-btn-4', locations[4])
+    locationButtonNames('.location-btn-5', locations[5])
 
-    locationTableHeaders(".header0", defaultLocations[0]);
-    locationTableHeaders(".header1", defaultLocations[1]);
-    locationTableHeaders(".header2", defaultLocations[2]);
-    locationTableHeaders(".header3", defaultLocations[3]);
-    locationTableHeaders(".header4", defaultLocations[4]);
-    locationTableHeaders(".header5", defaultLocations[5]);
+    locationTableHeaders(".header0", locations[0]);
+    locationTableHeaders(".header1", locations[1]);
+    locationTableHeaders(".header2", locations[2]);
+    locationTableHeaders(".header3", locations[3]);
+    locationTableHeaders(".header4", locations[4]);
+    locationTableHeaders(".header5", locations[5]);
 
     $("#settings-btn").trigger('click');
     modalPopup("Reset location names back to default", "all")
@@ -161,7 +162,9 @@ function convertToCsvFormat(array) {
 
     for (title in locations){
         flatArray.push(locations[title])
+        console.log(locations[title])
     }
+
 
     for (x in array){
         flatArray.push(array[x].name)
