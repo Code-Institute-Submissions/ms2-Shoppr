@@ -155,7 +155,7 @@ var sListArray = [];
 
 $("#createCSV").on("click", function() {
     if (sListArray.length === 0) {
-        alert('there is nothing in the shoping list')
+        modalPopup("There are no items to download", "all")
     } else {
         convertToCsvFormat(sListArray)
         modalPopup("Downloaded CSV file", "all")
