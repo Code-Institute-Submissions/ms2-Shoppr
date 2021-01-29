@@ -45,6 +45,17 @@ $("#resetLocations").on("click", function() {
     locationTableHeaders(".header5", locations[5]);
 
     $("#settings-btn").trigger('click');
+    // defaultHeroBanner();
+
+    var allTables = $(".card").children('.card-header').next('.collapse')
+    for (x in allTables){
+        if ($(allTables).eq(x).length >0 && $(allTables).eq(x).hasClass('show')){
+            var openTableText = $(allTables).eq(x).parent().children('.card-header').children('.float-left').children('a').children('h5').text()
+            $(".table-title").text(openTableText)
+            return;
+        }
+    } 
+
     modalPopup("Reset location names back to default", "all")
  })
 
