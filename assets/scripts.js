@@ -707,7 +707,6 @@ $("#sendEmail").on("click", function() {
     var userEmail = $("#emailInput").val();
     var csvContent = convertToCsvFormat(sListArray);
     var enc = window.btoa(csvContent)
-    // var enc = window.btoa(encodeURIComponent(csvContent))
     console.log("here")
     console.log(enc)
     $("#sendEmail").css('background-color','#FFF3CD')
