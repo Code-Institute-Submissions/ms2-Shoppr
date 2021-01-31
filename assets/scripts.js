@@ -114,10 +114,10 @@ function insertRowData(tableName, itemQuantity, itemName){
 
     $(tableName).prepend(`
     <tr class="table-row">
-        <td class="px-3 red-line"><input type="checkbox" class="item-check"></td>
-        <td class="px-3 quantity-field"><span class="quantity-number">${itemQuantity}x</span></td>
-        <td class="item-field w-75 text-left">${itemName}</td>
-        <td class="px-2"><button class="remove-field"><i class="far fa-trash-alt"></i></button></td>
+        <td class="px-3 red-line"><input type="checkbox" aria-label="item checkbox" class="item-check"></td>
+        <td class="px-3 quantity-field"><span aria-label="item quantity" class="quantity-number">${itemQuantity}x</span></td>
+        <td class="item-field w-75 text-left" aria-label="item name">${itemName}</td>
+        <td class="px-2"><button class="remove-field" aria-label="remove item"><i class="far fa-trash-alt"></i></button></td>
     </tr>
     `);
 
