@@ -559,10 +559,11 @@ function editLocation(button){
         var originalText = button.text();
         if ($(this).find('i').hasClass('fa-pencil-alt')){
             $(button).addClass('prevent-click');
-            $(button).empty().append(`<input type="text" class="text-center location-input" maxlength="18" placeholder="${originalText}"></input>`);
+            $(button).empty().append(`<input type="text" class="text-center location-input" aria-label="Type new table name" maxlength="18" placeholder="${originalText}"></input>`);
             $(button).removeClass('hover center');
             $(button).find('input').focus();
             $(this).find('i').removeClass('fa-pencil-alt').addClass('fa-check');
+            $(this).find('i').attr('aria-label', 'Save edited table name');
 
             // SOURCE: https://stackoverflow.com/a/302154
             $(button).bind('keypress', function(e) {

@@ -29,7 +29,7 @@
     <body>
         <div id="modal-container" class="d-xl-none d-lg-none d-md-none col-12">
             <div class="text-center popup-alert">
-                <div id="modal-bar"><i class="fas fa-shopping-basket"></i> <span id="modal-text">Added item.</span></div>
+                <div id="modal-bar"><i class="fas fa-shopping-basket" aria-hidden="true"></i> <span id="modal-text">Added item.</span></div>
             </div>
         </div>
         <div class="container-fluid">
@@ -118,13 +118,13 @@
                             <input type="text" id="item-name" maxlength="18" class="text-left pl-4" aria-label="Type item name" placeholder="Type item name">
                         </div>
                         <div class="col-1 mx-0 px-0">
-                            <button id="minus-btn">-</button>
+                            <button id="minus-btn" aria-label="Reduce quantity by 1">-</button>
                         </div>
                         <div class="col-1 my-auto px-0 text-center">
-                            <div id="quantity-counter">1</div>
+                            <div id="quantity-counter" aria-label="Current quantity">1</div>
                         </div>
                         <div class="col-1 mx-0 px-0">
-                            <button id="plus-btn">+</button>
+                            <button id="plus-btn" aria-label="Increase quantity by 1">+</button>
                         </div>
                     </div>
                     <div class="container py-2 mt-2 location-container">
