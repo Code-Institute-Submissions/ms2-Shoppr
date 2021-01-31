@@ -744,7 +744,7 @@ $("#sendEmail").on("click", function() {
                     <img src="https://raw.githubusercontent.com/rbsam176/ms2-Shoppr/develop/assets/images/lightbulb-solid.png" height="32px" style="padding-bottom: 10px;"><br>
                     <em style="font-size: 16px;">This attached file allows you to import your list back into Shoppr, useful for sharing with others or transfering your list on to another of your devices.</em><br>
                     <em style="font-size: 14px;">Email missing attachment?</em><br>
-                    <a style="font-size: 14px;" href="https://rbsam176.github.io/ms2-Shoppr#${csvDownloadURL}">Click here to download your shopping list CSV instead.</a>
+                    <a style="font-size: 14px;" href="${csvDownloadURL}">Click here to download your shopping list CSV instead.</a>
                 </p>
                 <h2 style="font-family: sans-serif; font-weight: 400; font-size: 16px;">Your shopping list:</h2>
                 <div style="display: inline-block;">${tableHTML}</div>
