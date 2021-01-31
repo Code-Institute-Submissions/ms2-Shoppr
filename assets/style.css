@@ -68,7 +68,12 @@ body {
     height: 100%;
     width: 100%;
     float: right;
-    background: rgb(231, 231, 231);
+    background-color: rgb(231, 231, 231);
+}
+
+#minus-btn:hover, #plus-btn:hover {
+    background-color: rgb(192, 192, 192);
+    transition: background-color 100ms linear;
 }
 
 #increaseCol, #decreaseCol {
@@ -93,12 +98,11 @@ body {
     border: none;
     height: 100%;
     color: black;
-    /* padding-left: 40%; */
 }
 
 .location-input::placeholder {
-    color: black;
-    /* padding-right: 20%; */
+    padding-left: 20%;
+    
 }
 
 .location-container {
@@ -198,6 +202,7 @@ body {
     border: none;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12);
     overflow: hidden;
+    transition: box-shadow 100ms linear;
 }
 
 .card a {
@@ -221,6 +226,11 @@ body {
 .remove-field {
     background: none;
     border: none;
+    color: black;
+}
+
+.remove-field:hover {
+    color:rgb(75, 75, 75);
 }
 
 .quantity-number {
@@ -235,7 +245,7 @@ input[type="checkbox"] {
     transform:scale(1.5, 1.5);
     margin: 0px 10px;
     vertical-align: middle;
-  }
+}
 
 #banner-img {
     /* background-image: url("https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/325253_2200-1200x628.jpg"); */
@@ -334,6 +344,7 @@ input[type="checkbox"] {
     text-decoration: none;
     color: black;
     border-bottom: 3px solid rgb(231, 231, 231);
+    transition: border-bottom 100ms linear, box-shadow 100ms linear;
 }
 
 .import-export-btn[aria-expanded="true"]{
@@ -379,14 +390,21 @@ input[type="checkbox"] {
     height: 45px;
 }
 
+.emailSubmit:hover {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
+    text-decoration: none;
+    color: black;
+    border-bottom: 3px solid rgb(231, 231, 231);
+    transition: border-bottom 100ms linear, box-shadow 100ms linear;
+}
+
 #settings-btn.collapsed {
     background-color: white;
 }
 
-/* #settings-btn a {
-    color: black;
-    text-decoration: none;
-} */
+.nav-btn {
+    transition: border-bottom 100ms linear;
+}
 
 .nav-btn:hover {
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
@@ -394,6 +412,7 @@ input[type="checkbox"] {
     color: black;
     border-bottom: 3px solid rgb(231, 231, 231);
     color: black;
+    transition: border-bottom 100ms linear;
 }
 
 #settings-content {
@@ -410,6 +429,7 @@ input[type="checkbox"] {
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
     padding: 15px;
     min-width: 80%;
+    transition: border-bottom 100ms linear;
 }
 
 .options-btn i {
@@ -420,6 +440,7 @@ input[type="checkbox"] {
 .options-btn:hover {
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
     border-bottom: 3px solid rgb(231, 231, 231);
+    transition: border-bottom 100ms linear;
 }
 
 .open-close-btn {
@@ -434,11 +455,13 @@ input[type="checkbox"] {
     border-radius: 20px;
     padding: 5px 10px;
     cursor: pointer;
+    transition: background-color 100ms linear;
 }
 
 .open-close-btn:hover {
     background-color: rgba(255, 255, 255, 0.603);
     color: rgba(0, 0, 0, 0.603);
+    transition: background-color 100ms linear;
 }
 
 @media only screen and (max-width: 768px) {
