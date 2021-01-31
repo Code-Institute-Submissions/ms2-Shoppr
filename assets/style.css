@@ -93,12 +93,12 @@ body {
     border: none;
     height: 100%;
     color: black;
-    padding-left: 16.6%;
+    /* padding-left: 40%; */
 }
 
 .location-input::placeholder {
     color: black;
-    padding-right: 16.6%;
+    /* padding-right: 20%; */
 }
 
 .location-container {
@@ -124,10 +124,10 @@ body {
 }
 
 /* SOURCE: https://stackoverflow.com/questions/38661118/centering-text-in-row-with-bootstrap-grid */
-/* .center::before {
+.center::before {
     content:"";
-    margin-left: 16.6%;
-} */
+    margin-left: 20%;
+}
 
 .location-buttons {
     width: 100%;
@@ -167,6 +167,8 @@ body {
 
 .col-2 > .location-edit {
     transition: background-color 0.3s ease;
+    min-width: 50px;
+    max-width: 80px;
 }
 
 .col-2 > .location-edit:hover {
