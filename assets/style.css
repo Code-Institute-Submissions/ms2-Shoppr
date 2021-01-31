@@ -67,7 +67,12 @@ body {
     border-radius: 5px;
     height: 100%;
     width: 100%;
+    float: right;
     background: rgb(231, 231, 231);
+}
+
+#increaseCol, #decreaseCol {
+    min-width: 40px;
 }
 
 #item-name {
