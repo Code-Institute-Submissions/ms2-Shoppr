@@ -773,6 +773,7 @@ $(document).ready(function() {
         $("#modalDownloadBtn").attr("href", fileURL)
         $("#modalDownloadClose").on('click', function() {
             window.location.hash = "#"
+            defaultHeroBanner();
         })
     }
 
