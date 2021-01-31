@@ -22,8 +22,7 @@
         <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
         <!-- Bootstrap JS -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>  
-
-        <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 
     </head>
 
@@ -43,10 +42,10 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-6 text-right">
-                            <button id="help-btn" class="nav-btn my-2" data-toggle="modal" data-target="#helpModal"><h4>Help <i class="fas fa-info-circle"></i></h4></button>
+                            <button id="help-btn" class="nav-btn my-2 h4" data-toggle="modal" data-target="#helpModal">Help <i class="fas fa-info-circle"></i></button>
                         </div>
                         <div class="col-6 text-left">
-                            <button id="settings-btn" class="nav-btn collapsed my-2" aria-expanded="false" data-toggle="collapse" data-target="#settings-content"><h4>Settings <i class="fas fa-cog"></i><i class="fas fa-level-down-alt"></i></h4></button>
+                            <button id="settings-btn" class="nav-btn collapsed my-2 h4" aria-expanded="false" data-toggle="collapse" data-target="#settings-content">Settings <i class="fas fa-cog"></i><i class="fas fa-level-down-alt"></i></button>
                         </div>
                     </div>
 
@@ -178,7 +177,7 @@
                 <!-- SHOPPING LIST -->
                 <div class="col-md-7 d-block d-xs-block d-sm-block d-md-block my-2 px-4" id="shopping-list">
                     <div id="hero-banner" class="row">
-                        <div id="banner-img"><h1 class="table-title"></h1></div>
+                        <div id="banner-img"><span class="h1 table-title"></span></div>
                         <div id="open-close"><h6 class="open-close-btn"><span class="open-close-text">Open all </span><i class="fas fa-level-down-alt"></i></h6></div>
                     </div>
                     <div class="row">
@@ -188,7 +187,7 @@
                                 <div class="card-header p-0">
                                     <span class="float-left my-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapse0">
-                                            <h5 class="m-0 table-header header0"></h5>
+                                            <span class="h5 m-0 table-header header0"></span>
                                         </a>
                                     </span>
                                     <span class="float-right my-0">
@@ -209,7 +208,7 @@
                                 <div class="card-header p-0">
                                     <span class="float-left my-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapse1">
-                                            <h5 class="m-0 table-header header1"></h5>
+                                            <span class="h5 m-0 table-header header1"></span>
                                         </a>
                                     </span>
                                     <span class="float-right my-0">
@@ -230,7 +229,7 @@
                                 <div class="card-header p-0">
                                     <span class="float-left my-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapse2">
-                                            <h5 class="m-0 table-header header2"></h5>
+                                            <span class="h5 m-0 table-header header2"></span>
                                         </a>
                                     </span>
                                     <span class="float-right my-0">
@@ -251,7 +250,7 @@
                                 <div class="card-header p-0">
                                     <span class="float-left my-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapse3">
-                                            <h5 class="m-0 table-header header3"></h5>
+                                            <span class="h5 m-0 table-header header3"></span>
                                         </a>
                                     </span>
                                     <span class="float-right my-0">
@@ -272,7 +271,7 @@
                                 <div class="card-header p-0">
                                     <span class="float-left my-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapse4">
-                                            <h5 class="m-0 table-header header4"></h5>
+                                            <span class="h5 m-0 table-header header4"></span>
                                         </a>
                                     </span>
                                     <span class="float-right my-0">
@@ -293,7 +292,7 @@
                                 <div class="card-header p-0">
                                     <span class="float-left my-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapse5">
-                                            <h5 class="m-0 table-header header5"></h5>
+                                            <span class="h5 m-0 table-header header5"></span>
                                         </a>
                                     </span>
                                     <span class="float-right my-0">
@@ -313,18 +312,19 @@
                     </div>
                     <div id="import-export" class="row text-center mt-1">
                         <div class="col px-0 mr-3">
-                            <a id="importCSV" class="import-export-btn">
+                            <a id="importCSV" role="button" class="import-export-btn">
                                 <span><i class="fas fa-upload"></i> Import</span>
-                                <input type="file" id="uploadCSV" accept=".csv" name="filename" style="display: none;">
+                                <!-- <input type="file" id="uploadCSV" accept=".csv" name="filename" style="display: none;"> -->
                             </a>
+                            <input type="file" id="uploadCSV" accept=".csv" name="filename" style="display: none;">
                         </div>
                         <div class="col px-0">
-                            <a id="createCSV" href="#" download="shoppr-export.csv" class="import-export-btn">
+                            <a id="createCSV" href="#" download="shoppr-export.csv" role="button" class="import-export-btn">
                                 <span><i class="fas fa-download"></i> Download</span>
                             </a>
                         </div>
                         <div class="col px-0 ml-3">
-                            <a id="emailCSV" class="import-export-btn collapsed" data-toggle="collapse" data-target="#emailDropdown" aria-expanded="false">
+                            <a id="emailCSV" class="import-export-btn collapsed" role="button" data-toggle="collapse" data-target="#emailDropdown" aria-expanded="false">
                                 <span><i class="fas fa-paper-plane"></i> Email</span>
                             </a>
                         </div>
@@ -351,7 +351,7 @@
             <a href="#"><i class="fas fa-plus-circle"></i></a>
         </div> -->
         <div id="test-area"></div>
-        <script type="text/javascript" src="assets/scripts.js"></script>
+        <script src="assets/scripts.js"></script>
     </body>
 
 

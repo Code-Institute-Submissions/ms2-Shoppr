@@ -7,9 +7,25 @@ function decreaseQuantity(quantity){
 }
 
 function checkQuantity(){
-    quantity = parseInt($("#quantity-counter").text());
+    var quantity = parseInt($("#quantity-counter").text());
     return (quantity);
 }
+
+// INCREASE QUANTITY
+$("#plus-btn").on("click", function() {
+    var quantity = checkQuantity();
+    if (quantity < 10){
+        $("#quantity-counter").text(increaseQuantity(quantity));
+    }
+});
+
+// DECREASE QUANTITY
+$("#minus-btn").on("click", function() {
+    var quantity = checkQuantity();
+    if (quantity > 1){
+        $("#quantity-counter").text(decreaseQuantity(quantity));
+    }
+});
 
 function resetInput(){
     $("#quantity-counter").text(1);
@@ -28,14 +44,14 @@ if (JSON.parse(localStorage.getItem('locationsMemory')) == undefined){
 
 $("#resetLocations").on("click", function() {
     // var defaultLocations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves']
-    locations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves']
-    localStorage.removeItem('locationsMemory')
-    locationButtonNames('.location-btn-0', locations[0])
-    locationButtonNames('.location-btn-1', locations[1])
-    locationButtonNames('.location-btn-2', locations[2])
-    locationButtonNames('.location-btn-3', locations[3])
-    locationButtonNames('.location-btn-4', locations[4])
-    locationButtonNames('.location-btn-5', locations[5])
+    locations = ['Fruit & Veg', 'Front Shelves', 'Fridges', 'Freezers', 'Middle Shelves', 'End Shelves'];
+    localStorage.removeItem('locationsMemory');
+    locationButtonNames('.location-btn-0', locations[0]);
+    locationButtonNames('.location-btn-1', locations[1]);
+    locationButtonNames('.location-btn-2', locations[2]);
+    locationButtonNames('.location-btn-3', locations[3]);
+    locationButtonNames('.location-btn-4', locations[4]);
+    locationButtonNames('.location-btn-5', locations[5]);
 
     locationTableHeaders(".header0", locations[0]);
     locationTableHeaders(".header1", locations[1]);
@@ -47,22 +63,22 @@ $("#resetLocations").on("click", function() {
     $("#settings-btn").trigger('click');
     // defaultHeroBanner();
 
-    var allTables = $(".card").children('.card-header').next('.collapse')
-    for (x in allTables){
+    var allTables = $(".card").children('.card-header').next('.collapse');
+    for (var x in allTables){
         if ($(allTables).eq(x).length >0 && $(allTables).eq(x).hasClass('show')){
-            var openTableText = $(allTables).eq(x).parent().children('.card-header').children('.float-left').children('a').children('h5').text()
-            $(".table-title").text(openTableText)
+            var openTableText = $(allTables).eq(x).parent().children('.card-header').children('.float-left').children('a').children().text();
+            $(".table-title").text(openTableText);
             return;
         }
     } 
 
-    modalPopup("Reset location names back to default", "all")
- })
+    modalPopup("Reset location names back to default", "all");
+ });
 
 
 // SETS LOCATION BUTTON TEXT FROM ARRAY
 function locationButtonNames(locationBtn, name) {
-    $(locationBtn).text(name)
+    $(locationBtn).text(name);
 }
 
 // SETS LOCATION TABLE HEADER TEXT FROM ARRAY
@@ -71,30 +87,30 @@ function locationTableHeaders(locationHeader, name) {
 }
 
 function updateTableBanner(tableName){
-    $(".table-title").css('display','block')
-    var tableHeaderText = $(tableName).parent().parent().parent().prev().children().first().children().text()
+    $(".table-title").css('display','block');
+    var tableHeaderText = $(tableName).parent().parent().parent().prev().children().first().children().text();
     $(".table-title").text(tableHeaderText);
 
-    bannerImages = [
+    var bannerImages = [
         ["#table-0", "assets/images/banner0.jpg", "#3F6292"],
         ["#table-1", "assets/images/banner1.jpg", "#D57967"],
         ["#table-2", "assets/images/banner2.jpg", "#AABE8D"],
         ["#table-3", "assets/images/banner3.jpg", "#F2E2BC"],
         ["#table-4", "assets/images/banner4.jpg", "#CA546A"],
         ["#table-5", "assets/images/banner5.jpg", "#E26E5C"],
-    ]
+    ];
 
-    for (x in bannerImages) {
+    for (var x in bannerImages) {
         if (bannerImages[x][0] == tableName){
-            matchingImage = bannerImages[x][1];
-            $("#banner-img").css('background-image',`url('${matchingImage}')`)
+            var matchingImage = bannerImages[x][1];
+            $("#banner-img").css('background-image',`url('${matchingImage}')`);
             $("#banner-img").css('background-color', bannerImages[x][2]);
         }
     }
 }
 
 function insertRowData(tableName, itemQuantity, itemName){
-    console.log(`added ${itemQuantity} ${itemName}`)
+    console.log(`added ${itemQuantity} ${itemName}`);
 
     $(tableName).prepend(`
     <tr class="table-row">
@@ -108,10 +124,10 @@ function insertRowData(tableName, itemQuantity, itemName){
     updateHeaderQuantity(tableName);
     updateTableBanner(tableName);
 
-    var tableTitle = $(tableName).parent().parent().parent().prev().children('.float-left').children().children().text()
+    var tableTitle = $(tableName).parent().parent().parent().prev().children('.float-left').children().children().text();
     // $(".added-item-alert").css('display','block');
     // $("#modal-bar").html(`Added <strong>${itemName}</strong> into <strong>${tableTitle}</strong>`);
-    modalPopup(`Added <strong>${itemName}</strong> into <strong>${tableTitle}</strong>`, "mobile")
+    modalPopup(`Added <strong>${itemName}</strong> into <strong>${tableTitle}</strong>`, "mobile");
     
 }
 
@@ -126,8 +142,10 @@ function modalPopup(text, breakpoint){
         $("#modal-container").removeClass();
     }
     $("#modal-bar").html(text);
-    $(".popup-alert").fadeIn('1000')
-    setTimeout(function(){ $(".popup-alert").fadeOut('1000') }, 1500);
+    $(".popup-alert").fadeIn('1000');
+    setTimeout(function(){
+        $(".popup-alert").fadeOut('1000');
+    }, 1500);
 }
 
 // class Item {
@@ -155,44 +173,46 @@ var sListArray = [];
 
 $("#createCSV").on("click", function() {
     if (sListArray.length === 0) {
-        modalPopup("There are no items to download", "all")
+        modalPopup("There are no items to download", "all");
     } else {
-        toggleSectionCollapse("open")
-        convertToCsvFormat(sListArray)
-        $("#createCSV").attr("href", encodeDataURL(csvFormatted))
+        toggleSectionCollapse("open");
+        // convertToCsvFormat(sListArray);
+        $("#createCSV").attr("href", encodeDataURL(convertToCsvFormat(sListArray)));
         // modalPopup("Downloaded CSV file", "all")
-        $("#downloadModal").modal('show')
-        $("#modalDownloadBtn").attr("href", encodeDataURL(csvFormatted))
+        $("#downloadModal").modal('show');
+        $("#modalDownloadBtn").attr("href", encodeDataURL(convertToCsvFormat(sListArray)));
         $("#modalDownloadClose").on('click', function() {
             defaultHeroBanner();
-        })
+        });
     }
-})
+});
 
 function encodeDataURL(string){
-    var encoded = encodeURIComponent(string)
-    var url = 'data:application/octet-stream,' + encoded
+    var encoded = encodeURIComponent(string);
+    var url = 'data:application/octet-stream,' + encoded;
     return url;
 }
 
 function convertToCsvFormat(array) {
-    flatArray = [];
+    var flatArray = [];
 
-    for (title in locations){
-        flatArray.push(locations[title])
-        console.log(locations[title])
+    // for (var title in locations){
+    for (var title = 0; title < locations.length; title++) {
+        flatArray.push(locations[title]);
+        console.log(locations[title]);
     }
 
 
-    for (x in array){
-        flatArray.push(array[x].name)
-        flatArray.push(array[x].quantity)
-        flatArray.push(array[x].location)
+    // for (var x in array){
+    for (var x = 0; x < array.length; x++) {
+        flatArray.push(array[x].name);
+        flatArray.push(array[x].quantity);
+        flatArray.push(array[x].location);
     }
 
-    console.log("flatArray after items added is " + flatArray)
+    console.log("flatArray after items added is " + flatArray);
 
-    csvFormatted = flatArray.join("|")
+    var csvFormatted = flatArray.join("|");
     // csvConcat = "data:application/csv;charset=utf-8," + csvFormatted // OLD VERSION
     // encoded = encodeURIComponent(csvFormatted) // NEW VERSION
     // csvDownloadURL = 'data:application/octet-stream,' + encoded // NEW VERSION
@@ -217,17 +237,17 @@ function convertToCsvFormat(array) {
     {buttonLocation : ".location-btn-3", tableID: "#table-3"},
     {buttonLocation : ".location-btn-4", tableID: "#table-4"},
     {buttonLocation : ".location-btn-5", tableID: "#table-5"},
- ]
+ ];
 
  function findButtonTableLink(value) {
-    for (i in buttonTableLink){
+    for (var i in buttonTableLink){
         if (buttonTableLink[i].buttonLocation == value) {
             return buttonTableLink[i].tableID;
         } else if (buttonTableLink[i].tableID == value) {
             return buttonTableLink[i].buttonLocation;
         }
         else {
-            console.log(value + " was not found in " + buttonTableLink[i].tableID)
+            console.log(value + " was not found in " + buttonTableLink[i].tableID);
         }
     }
  }
@@ -239,48 +259,48 @@ function convertToCsvFormat(array) {
  }
 
  $("#emptyShoppingList").on("click", function() {
-    removeAllData()
+    removeAllData();
     $("#settings-btn").trigger('click');
-    toggleSectionCollapse("closed")
-    modalPopup("Emptied shopping list", "all")
- })
+    toggleSectionCollapse("closed");
+    modalPopup("Emptied shopping list", "all");
+ });
 
 //  SOURCE: https://stackoverflow.com/a/38095783
  $("#importCSV").on("click", function() {
      $("#uploadCSV")[0].click();
- })
+ });
 
 $("#uploadCSV").change(function() {
     var readFile = new FileReader();
     readFile.onload = function() {
-        var read = readFile.result
-        var result = read.replace('&amp;', '&')
-        var uploadDelimiter = result.split("|")
-        var tableTitles = uploadDelimiter.slice(0, 6)
-        var listItems = uploadDelimiter.slice(6)
+        var read = readFile.result;
+        var result = read.replace('&amp;', '&');
+        var uploadDelimiter = result.split("|");
+        var tableTitles = uploadDelimiter.slice(0, 6);
+        var listItems = uploadDelimiter.slice(6);
 
-        removeAllData()
+        removeAllData();
 
         // CHANGE TITLES OF TABLES HERE USING tableTitles VARIABLE
         // find location-edit-btn class
-        console.log(tableTitles)
+        console.log(tableTitles);
 
         // for (i in tableTitles){
         //     $(".location-btn-" + i).text(tableTitles[i])
         //     $(".header" + i).text(tableTitles[i])
         // }
 
-        locations = tableTitles
-        updateAllLocations()
-        updateLocationsMemory()
+        locations = tableTitles;
+        updateAllLocations();
+        updateLocationsMemory();
 
 
-        for (x in listItems){
+        for (var x in listItems){
             if (x % 3 === 0){
-                console.log(x)
-                var loopIndex = Number.parseInt(x)
-                var quantityIndex = loopIndex + 1
-                var locationIndex = loopIndex + 2
+                console.log(x);
+                var loopIndex = Number.parseInt(x);
+                var quantityIndex = loopIndex + 1;
+                var locationIndex = loopIndex + 2;
                 sListArray.push(new Item(listItems[x], listItems[quantityIndex], listItems[locationIndex]));
 
                 var matchingTable = findButtonTableLink(listItems[locationIndex]);
@@ -290,22 +310,22 @@ $("#uploadCSV").change(function() {
                 
                  // DETECTS DUPLICATES BEFORE ADDING TO ITEMS ARRAY
                 if (itemNames.length > 0){
-                    console.log("itemNames length is more than 0")
+                    console.log("itemNames length is more than 0");
                     if (itemNames.indexOf(listItems[loopIndex]) != -1){
-                        console.log(listItems[loopIndex] + " was found in itemNames array")
+                        console.log(listItems[loopIndex] + " was found in itemNames array");
                     } else if (itemNames.indexOf(listItems[loopIndex]) == -1){
                         items.push(new Item(listItems[loopIndex], listItems[quantityIndex], listItems[locationIndex]));
-                        itemNames.push(listItems[loopIndex])
+                        itemNames.push(listItems[loopIndex]);
                     }
                 } else if (itemNames.length <1) {
                     items.push(new Item(listItems[loopIndex], listItems[quantityIndex], listItems[locationIndex]));
-                    itemNames.push(listItems[loopIndex])
+                    itemNames.push(listItems[loopIndex]);
                 }
 
                 updateLocalStorage();
             }
         }
-    }
+    };
 
     readFile.readAsText(this.files[0]); 
     // var defaultHeroImg = "assets/images/banner-default.jpg"
@@ -316,74 +336,75 @@ $("#uploadCSV").change(function() {
 
 
 function collapseCardsLoop(cardsArray){
-    for (x in cardsArray){
-        var tableItemsCounter = $(cardsArray).eq(x).children().children('.float-right').children('a').text()
+    // for (var x in cardsArray){
+    for (var x = 0; x < cardsArray.length; x++) {
+        var tableItemsCounter = $(cardsArray).eq(x).children().children('.float-right').children('a').text();
         if (tableItemsCounter != "Completed" && tableItemsCounter != "0") {
-            $(cardsArray).eq(x).children('.collapse').addClass('show')
-            var nextTableId = `#${$(cardsArray).eq(x).children('.collapse').children().children().children().attr('id')}`
-            updateTableBanner(nextTableId)
+            $(cardsArray).eq(x).children('.collapse').addClass('show');
+            var nextTableId = `#${$(cardsArray).eq(x).children('.collapse').children().children().children().attr('id')}`;
+            updateTableBanner(nextTableId);
             break;
         }
     }
 }
 
 function updateHeaderQuantity(tableId){
-    var tableRowCount = $(`${tableId} .item-check:not(:checked)`).length
-    $(tableId).parent().parent().parent().prev().children('.float-right').children('a').text(tableRowCount)
+    var tableRowCount = $(`${tableId} .item-check:not(:checked)`).length;
+    $(tableId).parent().parent().parent().prev().children('.float-right').children('a').text(tableRowCount);
     if ($(`${tableId} .item-check:checked`).length >0 && $(`${tableId} .item-check:not(:checked)`).length <=0){ // HANDLES WHEN YOU REMOVE THE LAST UNCHECKED ITEM IN A TABLE OF CHECKED ITEMS
-        tableCompleted(tableId)
+        tableCompleted(tableId);
     }
 }
 
 function tableCompleted(tableId){
-    $(tableId).parent().parent().parent().collapse("toggle")
-    $(tableId).parent().parent().parent().prev().removeClass('card-header')
-    $(tableId).parent().parent().parent().prev().addClass('colour-complete')
-    $(tableId).parent().parent().parent().prev().children('.float-right').children('a').text("Completed")
+    $(tableId).parent().parent().parent().collapse("toggle");
+    $(tableId).parent().parent().parent().prev().removeClass('card-header');
+    $(tableId).parent().parent().parent().prev().addClass('colour-complete');
+    $(tableId).parent().parent().parent().prev().children('.float-right').children('a').text("Completed");
 }
 
 function tableIncomplete(tableId){
-    updateHeaderQuantity(tableId)
+    updateHeaderQuantity(tableId);
     if ($(tableId).parent().parent().parent().prev().hasClass("colour-complete")){
-        $(tableId).parent().parent().parent().prev().removeClass("colour-complete").addClass("colour-neutral")
+        $(tableId).parent().parent().parent().prev().removeClass("colour-complete").addClass("colour-neutral");
     }
 }
 
 // SOURCE: https://stackoverflow.com/a/12602806
 $('#accordion').on('click', 'input[class=item-check]', function(){
     var tableId = "#" + $(this).closest(".table").attr('id');
-    var remainingCards = $(tableId).parent().parent().parent().parent().nextAll().toArray()
+    var remainingCards = $(tableId).parent().parent().parent().parent().nextAll().toArray();
     var remainingCardsCounter = [];
-    var allCards = $("#accordion").children('.card').toArray()
-    var tableRowCount = $(`${tableId} .item-check:not(:checked)`).length
+    var allCards = $("#accordion").children('.card').toArray();
+    var tableRowCount = $(`${tableId} .item-check:not(:checked)`).length;
 
-    for (x in remainingCards){
-        var counters = $(tableId).parent().parent().parent().parent().nextAll().children('.card-header').children('.float-right').children('a').eq(x)
-        remainingCardsCounter.push(counters.text())
+    for (var x = 0; x < remainingCards.length; x++ in remainingCards){
+        var counters = $(tableId).parent().parent().parent().parent().nextAll().children('.card-header').children('.float-right').children('a').eq(x);
+        remainingCardsCounter.push(counters.text());
     }
 
     // SOURCE: https://stackoverflow.com/questions/8846075/css3-unchecked-pseudo-class
     if ($(`${tableId} .item-check:not(:checked)`).length <1) {
-        tableCompleted(tableId)
+        tableCompleted(tableId);
         if (remainingCardsCounter.every(x => x === "0") || remainingCardsCounter.every(x => x === "Completed")) {
-            collapseCardsLoop(allCards)
+            collapseCardsLoop(allCards);
         } else {
-            collapseCardsLoop(remainingCards)
+            collapseCardsLoop(remainingCards);
         }
     } else if (tableRowCount >= 1){ // IF NOT ALL ITEMS ARE CHECKED IN TABLE
-        tableIncomplete(tableId)
+        tableIncomplete(tableId);
     }
-})
+});
 
-function detectDuplicates(item, array){
-    for (x in array){
-        if (array[x].name != $(item).val()){
-            console.log(`${$(item).val()} doesn't exist in array`)
-            var itemValue = $(item).val();
-            return itemValue;
-        }
-    } 
-}
+// function detectDuplicates(item, array){
+//     for (var x in array){
+//         if (array[x].name != $(item).val()){
+//             console.log(`${$(item).val()} doesn't exist in array`);
+//             var itemValue = $(item).val();
+//             return itemValue;
+//         }
+//     } 
+// }
 
 // IF INPUT FIELD ISN'T EMPTY, ADD TO TABLE, OPEN TABLE CARD, CHECK IF IT EXISTS IN LOCALSTORAGE AND IF NOT THEN ADD IT AND RESET INPUT FIELD
 function captureInput(location, tableName){
@@ -392,7 +413,7 @@ function captureInput(location, tableName){
             return;
         }
         if ($(tableName).parent().parent().parent().prev().hasClass("colour-complete")){
-            $(tableName).parent().parent().parent().prev().removeClass("colour-complete").addClass("colour-neutral")
+            $(tableName).parent().parent().parent().prev().removeClass("colour-complete").addClass("colour-neutral");
         }
         if ($("#item-name").val() != ""){
             insertRowData(tableName, $("#quantity-counter").text(), $("#item-name").val());
@@ -410,13 +431,13 @@ function captureInput(location, tableName){
             // goToShoppingList()
 
             // collapseShow(tableName);
-            $(tableName).parent().parent().parent().collapse("show")
+            $(tableName).parent().parent().parent().collapse("show");
 
             // DETECTS DUPLICATES BEFORE ADDING TO ITEMS ARRAY
             if (items.length > 0){
-                for (x in items){
+                for (var x in items){
                     if(items[x].name == $("#item-name").val()){
-                        console.log(`${$("#item-name").val()} exists in memory`)
+                        console.log(`${$("#item-name").val()} exists in memory`);
                         resetInput();
                         return;
                     }
@@ -426,19 +447,19 @@ function captureInput(location, tableName){
             localStorage.setItem('inputObjects', JSON.stringify(items));
             resetInput();
         } else if ($("#item-name").val() == ""){
-            $('.input-row').effect('shake')
+            $('.input-row').effect('shake');
         }
-    })
+    });
 }
 
-function goToShoppingList(){
-    document.location = "#shopping-list";
-}
+// function goToShoppingList(){
+//     document.location = "#shopping-list";
+// }
 
 // CREATES ARRAY OF ITEM NAMES FROM LOCALSTORAGE
-itemNames = [];
-for (x in items){
-    itemNames.push(items[x].name)
+var itemNames = [];
+for (var x = 0; x < items.length; x++){
+    itemNames.push(items[x].name);
 }
 
 // PROVIDES AUTOCOMPLETE SUGGESTIONS FROM ITEM NAMES
@@ -452,8 +473,8 @@ $("#clear-autofill").on("click", function() {
     $("#item-name").autocomplete({source: []});
     localStorage.removeItem('inputObjects');
     $("#settings-btn").trigger('click');
-    modalPopup("Cleared auto-suggestions", "all")
-})
+    modalPopup("Cleared auto-suggestions", "all");
+});
 
 $("#autoSuggestToggle").on("click", function() {
     if ($("#autoSuggestToggle").children('i').hasClass('fa-toggle-on')){
@@ -467,25 +488,25 @@ $("#autoSuggestToggle").on("click", function() {
         $("#item-name").autocomplete('enable');
         localStorage.setItem('autoSuggestToggleState', "toggle-on");
     }
-})
+});
 
 $(".btn").on("click", function() {
-    var clickedTableId = `#${$(this).parent().parent().parent().children('.collapse').children().children().children().attr('id')}`
-    updateTableBanner(clickedTableId)
-})
+    var clickedTableId = `#${$(this).parent().parent().parent().children('.collapse').children().children().children().attr('id')}`;
+    updateTableBanner(clickedTableId);
+});
 
 $('.card-header').on("click", function() {
-    $(this).next('.collapse').collapse('toggle')
-    var cardTableId = "#" + $(this).next().children().children().children().attr('id')
-    updateTableBanner(cardTableId)
-})
+    $(this).next('.collapse').collapse('toggle');
+    var cardTableId = "#" + $(this).next().children().children().children().attr('id');
+    updateTableBanner(cardTableId);
+});
 
 function defaultHeroBanner(){
-    var defaultHeroImg = "assets/images/banner-default.jpg"
-    $("#banner-img").css('background-color','#299D8E')
-    $("#banner-img").css('background-image',`url('${defaultHeroImg}')`)
-    $(".table-title").empty()
-    $(".table-title").css('display','none')
+    var defaultHeroImg = "assets/images/banner-default.jpg";
+    $("#banner-img").css('background-color','#299D8E');
+    $("#banner-img").css('background-image',`url('${defaultHeroImg}')`);
+    $(".table-title").empty();
+    $(".table-title").css('display','none');
 }
 
 function toggleSectionCollapse(toggle){
@@ -493,13 +514,13 @@ function toggleSectionCollapse(toggle){
         $("#accordion .collapse").removeClass('hide');
         $("#accordion .collapse").addClass('show');
         defaultHeroBanner();
-        $("#open-close").children().children('.open-close-text').text("Close all ")
+        $("#open-close").children().children('.open-close-text').text("Close all ");
         $("#open-close").children().children('i').removeClass("fa-level-down-alt").addClass("fa-level-up-alt");
     } else if (toggle == "closed") {
         $(".collapse").removeClass('show');
         $(".collapse").addClass('hide');
         defaultHeroBanner();
-        $("#open-close").children().children('.open-close-text').text("Open all ")
+        $("#open-close").children().children('.open-close-text').text("Open all ");
         // $("#open-close").children().children('i').toggleClass("fa-level-down-alt fa-level-up-alt");
         $("#open-close").children().children('i').removeClass("fa-level-up-alt").addClass("fa-level-down-alt");
     }
@@ -507,12 +528,12 @@ function toggleSectionCollapse(toggle){
 
 // APPLIES OPEN ALL TABLES FUNCTION TO BUTTON CLICK
 $("#open-close").on("click", function() {
-    var openCloseIcon = $("#open-close").children().children()
+    var openCloseIcon = $("#open-close").children().children();
     if (openCloseIcon.hasClass('fa-level-down-alt')) {
-        toggleSectionCollapse("open")
+        toggleSectionCollapse("open");
     } else if (openCloseIcon.hasClass('fa-level-up-alt')) {
-        toggleSectionCollapse("closed")
-    };
+        toggleSectionCollapse("closed");
+    }
 });
 
 function updateAllLocations(){
@@ -535,10 +556,10 @@ function updateAllLocations(){
 function editLocation(button){
     $(button).on("click", function() {
         var button = $(this).parent().prev().find('button');
-        originalText = button.text();
+        var originalText = button.text();
         if ($(this).find('i').hasClass('fa-pencil-alt')){
             $(button).addClass('prevent-click');
-            $(button).empty().append(`<input type="text" class="text-center location-input" maxlength="18" placeholder="${originalText}"></input>`)
+            $(button).empty().append(`<input type="text" class="text-center location-input" maxlength="18" placeholder="${originalText}"></input>`);
             $(button).removeClass('hover center');
             $(button).find('input').focus();
             $(this).find('i').removeClass('fa-pencil-alt').addClass('fa-check');
@@ -546,16 +567,16 @@ function editLocation(button){
             // SOURCE: https://stackoverflow.com/a/302154
             $(button).bind('keypress', function(e) {
                 if(e.keyCode==13){
-                    $(button).parent().next().children('button').trigger('click')
+                    $(button).parent().next().children('button').trigger('click');
                 }
             });
 
         } else if ($(this).find('i').hasClass('fa-check')){
-            var inputPlaceholder = $(button).find('input').attr('placeholder')
+            var inputPlaceholder = $(button).find('input').attr('placeholder');
             var inputText = $(button).find('input').val();
             if (inputText == ""){
                 $(button).empty();
-                $(button).text(inputPlaceholder)
+                $(button).text(inputPlaceholder);
                 $(button).addClass('hover center');
                 $(this).find('i').removeClass('fa-check').addClass('fa-pencil-alt');
             }
@@ -578,12 +599,12 @@ function editLocation(button){
             }
             $(button).removeClass('prevent-click');
         }
-    })
+    });
 }
 
-function updateTableHeaders(newLocationName, targetTableHeader) {
-    $(targetTableHeader).text(`${newLocationName}`);
-}
+// function updateTableHeaders(newLocationName, targetTableHeader) {
+//     $(targetTableHeader).text(`${newLocationName}`);
+// }
 
 // UPDATES LOCALSTORAGE WITH CHANGES TO ITEMS ARRAY
 function updateLocalStorage(){
@@ -599,11 +620,11 @@ function updateLocalStorage(){
             sListArray.splice(sListArray.findIndex(x => x.name === removedItemName),1);
             updateLocalStorage();
             $(this).closest("tr").remove();
-            updateHeaderQuantity(tableName)
-            var rowsLength = $(tableName).children('tr').length
+            updateHeaderQuantity(tableName);
+            var rowsLength = $(tableName).children('tr').length;
             if (rowsLength == "0") {
-                tableIncomplete(tableName)
-                toggleSectionCollapse("closed")
+                tableIncomplete(tableName);
+                toggleSectionCollapse("closed");
             }
             console.log(`Removed ${removedItemName} from array`);
             
@@ -635,16 +656,16 @@ function emailTable(itemsObject){
     var table4 = [];
     var table5 = [];
 
-    var tables = [table0, table1, table2, table3, table4, table5]
+    var tables = [table0, table1, table2, table3, table4, table5];
 
     function tableRow(name, quantity){
         return `<tr>
         <td style="border: 1px dotted black; padding: 8px; border-radius: 8px;">${quantity}x</td>
         <td style="text-align: left; padding-left: 15px;">${name}</td>
-        </tr>`
+        </tr>`;
     }
 
-    for (x in itemsObject){
+    for (var x in itemsObject){
         if (itemsObject[x].location == ".location-btn-0"){
             table0.push(tableRow(itemsObject[x].name, itemsObject[x].quantity));
             // var tableIndex = tables.indexOf(table0)
@@ -680,55 +701,53 @@ function emailTable(itemsObject){
     }
 
     function emailTableHeader(tableID){
-        var tableName = $(tableID).parent().parent().parent().parent().children('.card-header').children('.float-left').children('a').children().text()
-        console.dir(tableName)
+        var tableName = $(tableID).parent().parent().parent().parent().children('.card-header').children('.float-left').children('a').children().text();
+        console.dir(tableName);
         return `
                 <tr>
                 <th> </th>
                 <th style="text-align: left; padding-left: 15px; padding-top: 10px;">${tableName}</th>
                 </tr>
-        `
+        `;
     }
 
-    var concatHTML = [];
+        var concatHTML = [];
 
-    for (i in tables){
-        if (tables[i].length >= 1) {
-            var populatedTableId = `#table-${i}`
-            var populatedTableData = tables[i].join(' ')
-            concatHTML.push(emailTableHeader(populatedTableId))
-            concatHTML.push(populatedTableData)
-
+        for (var i in tables){
+            if (tables[i].length >= 1) {
+                var populatedTableId = `#table-${i}`;
+                var populatedTableData = tables[i].join(' ');
+                concatHTML.push(emailTableHeader(populatedTableId));
+                concatHTML.push(populatedTableData);
+            }
         }
-    }
 
-    // var result = "<table style='font-size: 16px;'>" + emailTableHeader("#table-0") + table0.join(' ') + emailTableHeader("#table-1") + table1.join(' ') + emailTableHeader("#table-2") + table2.join(' ') + "</table>"
+        // var result = "<table style='font-size: 16px;'>" + emailTableHeader("#table-0") + table0.join(' ') + emailTableHeader("#table-1") + table1.join(' ') + emailTableHeader("#table-2") + table2.join(' ') + "</table>"
 
-    // console.log(result)
-    // console.log("HERE")
-    result = "<table style='font-size: 18px; font-family: sans-serif;'>" + concatHTML.join(' ') + "</table>"
+        // console.log(result)
+        // console.log("HERE")
+        var result = "<table style='font-size: 18px; font-family: sans-serif;'>" + concatHTML.join(' ') + "</table>";
     
-    return result;
+        return result;
 }
 
 $("#sendEmail").on("click", function() {
     var userEmail = $("#emailInput").val();
     if (userEmail == ""){
-        $("#emailInput").effect("shake")
+        $("#emailInput").effect("shake");
         return;
     }
     var csvContent = convertToCsvFormat(sListArray);
-    var enc = window.btoa(csvContent)
-    console.log("here")
-    console.log(enc)
-    $("#sendEmail").css('background-color','#FFF3CD')
-    $("#sendEmail").text("Sending...")
+    var enc = window.btoa(csvContent);
+    console.log("here");
+    console.log(enc);
+    $("#sendEmail").css('background-color','#FFF3CD');
+    $("#sendEmail").text("Sending...");
 
-    var tableHTML = emailTable(sListArray)
+    var tableHTML = emailTable(sListArray);
 
-    var csvDownloadURL = "https://rbsam176.github.io/ms2-Shoppr#" + encodeDataURL(csvContent)
-    console.log(csvDownloadURL)
-
+    var csvDownloadURL = "https://rbsam176.github.io/ms2-Shoppr#" + encodeDataURL(csvContent);
+    console.log(csvDownloadURL);
 
     emailjs.init("user_VBOljHoPAv6fbpkGFq5GA");
     emailjs.send('gmail', 'export_email', {
@@ -755,17 +774,17 @@ $("#sendEmail").on("click", function() {
     .then(
         function(response) {
             console.log("Success", response);
-            $("#sendEmail").css('background-color','#D4EDDA')
-            $("#sendEmail").text("Sent!")
+            $("#sendEmail").css('background-color','#D4EDDA');
+            $("#sendEmail").text("Sent!");
         },
         function(error){
             console.log("Failed", error);
-            $("#sendEmail").css('background-color','#E26E5C')
-            $("#sendEmail").text("Try again")
+            $("#sendEmail").css('background-color','#E26E5C');
+            $("#sendEmail").text("Try again");
         });
 
 
-})
+});
 
 // CLICKING ON EMAIL BUTTON WILL FOCUS ON INPUT
 // SOURCE: https://getbootstrap.com/docs/4.0/components/collapse/
@@ -780,19 +799,19 @@ window.onload = function() {
     if (location.hash.includes("data:application/octet-stream")){
         var fileURLsplit = location.hash.split("data:application")[1];
         var fileURL = "data:application" + fileURLsplit;
-        console.log(fileURL)
-        $(`<a href="${fileURL}" download="shoppr-export.csv">`)[0].click()
-        $("#downloadModal").modal('show')
-        $("#modalDownloadBtn").attr("href", fileURL)
+        console.log(fileURL);
+        $(`<a href="${fileURL}" download="shoppr-export.csv">`)[0].click();
+        $("#downloadModal").modal('show');
+        $("#modalDownloadBtn").attr("href", fileURL);
         $("#modalDownloadClose").on('click', function() {
-            window.location.hash = "#"
+            window.location.hash = "#";
             defaultHeroBanner();
-        })
+        });
     }
 
     // SET DEFAULT STATE FOR AUTO-SUGGEST FEATURE AS ON
     if (localStorage.getItem('autoSuggestToggleState') === null) {
-        localStorage.setItem('autoSuggestToggleState', 'toggle-on')
+        localStorage.setItem('autoSuggestToggleState', 'toggle-on');
     }
     // IF WHEN PAGE LOADS THE STATE IS ON THEN WRITE HTML AND CORRECT ON TOGGLE ICON
     if (localStorage.getItem('autoSuggestToggleState') === "toggle-on") {
@@ -830,37 +849,37 @@ window.onload = function() {
     editLocation(".location-edit-btn-4");
     editLocation(".location-edit-btn-5");
 
-    captureInput(".location-btn-0", "#table-0")
-    captureInput(".location-btn-1", "#table-1")
-    captureInput(".location-btn-2", "#table-2")
-    captureInput(".location-btn-3", "#table-3")
-    captureInput(".location-btn-4", "#table-4")
-    captureInput(".location-btn-5", "#table-5")
+    captureInput(".location-btn-0", "#table-0");
+    captureInput(".location-btn-1", "#table-1");
+    captureInput(".location-btn-2", "#table-2");
+    captureInput(".location-btn-3", "#table-3");
+    captureInput(".location-btn-4", "#table-4");
+    captureInput(".location-btn-5", "#table-5");
 
-    removeRow("#table-0")
-    removeRow("#table-1")
-    removeRow("#table-2")
-    removeRow("#table-3")
-    removeRow("#table-4")
-    removeRow("#table-5")
+    removeRow("#table-0");
+    removeRow("#table-1");
+    removeRow("#table-2");
+    removeRow("#table-3");
+    removeRow("#table-4");
+    removeRow("#table-5");
 
 
-    // INCREASE QUANTITY
-    $("#plus-btn").on("click", function() {
-        checkQuantity();
-        if (checkQuantity() < 10){
-            $("#quantity-counter").text(increaseQuantity(quantity));
-        }
-    });
+    // // INCREASE QUANTITY
+    // $("#plus-btn").on("click", function() {
+    //     checkQuantity();
+    //     if (checkQuantity() < 10){
+    //         $("#quantity-counter").text(increaseQuantity(quantity));
+    //     }
+    // });
 
-    // DECREASE QUANTITY
-    $("#minus-btn").on("click", function() {
-        checkQuantity();
-        if (checkQuantity() > 1){
-            $("#quantity-counter").text(decreaseQuantity(quantity));
-        }
-    });
+    // // DECREASE QUANTITY
+    // $("#minus-btn").on("click", function() {
+    //     checkQuantity();
+    //     if (checkQuantity() > 1){
+    //         $("#quantity-counter").text(decreaseQuantity(quantity));
+    //     }
+    // });
 
 // })
-}
+};
 
