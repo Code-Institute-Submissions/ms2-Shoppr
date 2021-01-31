@@ -705,6 +705,10 @@ function emailTable(itemsObject){
 
 $("#sendEmail").on("click", function() {
     var userEmail = $("#emailInput").val();
+    if (userEmail == ""){
+        $("#emailInput").effect("shake")
+        return;
+    }
     var csvContent = convertToCsvFormat(sListArray);
     var enc = window.btoa(csvContent)
     console.log("here")
