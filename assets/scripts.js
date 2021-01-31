@@ -157,8 +157,15 @@ $("#createCSV").on("click", function() {
     if (sListArray.length === 0) {
         modalPopup("There are no items to download", "all")
     } else {
+        toggleSectionCollapse("open")
         convertToCsvFormat(sListArray)
-        modalPopup("Downloaded CSV file", "all")
+        $("#createCSV").attr("href", encodeDataURL(csvFormatted))
+        // modalPopup("Downloaded CSV file", "all")
+        $("#downloadModal").modal('show')
+        $("#modalDownloadBtn").attr("href", encodeDataURL(csvFormatted))
+        $("#modalDownloadClose").on('click', function() {
+            defaultHeroBanner();
+        })
     }
 })
 
@@ -190,7 +197,8 @@ function convertToCsvFormat(array) {
     // encoded = encodeURIComponent(csvFormatted) // NEW VERSION
     // csvDownloadURL = 'data:application/octet-stream,' + encoded // NEW VERSION
     // csvDownloadURL = csvConcat.replace(/ /g, '%20') // NEEDED FOR OLD VERSION
-    $("#createCSV").attr("href", encodeDataURL(csvFormatted))
+
+    // $("#createCSV").attr("href", encodeDataURL(csvFormatted))
 
     return csvFormatted;
 }
