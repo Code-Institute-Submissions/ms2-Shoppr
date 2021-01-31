@@ -774,7 +774,8 @@ $("#emailDropdown.collapse").on("shown.bs.collapse", function() {
   });
 
 
-$(document).ready(function() {
+// $(document).ready(function() {
+window.onload = function() {
 
     if (location.hash.includes("data:application/octet-stream")){
         var fileURLsplit = location.hash.split("data:application")[1];
@@ -860,5 +861,6 @@ $(document).ready(function() {
         }
     });
 
-})
+// })
+}
 
