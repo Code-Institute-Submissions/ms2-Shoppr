@@ -227,6 +227,7 @@ function convertToCsvFormat(array) {
  function removeAllData() {
     $(".table-row").remove();
     sListArray = [];
+    $(".card-header").children('.float-right').children('a').text("0");
  }
 
  $("#emptyShoppingList").on("click", function() {
@@ -356,7 +357,6 @@ $('#accordion').on('click', 'input[class=item-check]', function(){
     // SOURCE: https://stackoverflow.com/questions/8846075/css3-unchecked-pseudo-class
     if ($(`${tableId} .item-check:not(:checked)`).length <1) {
         tableCompleted(tableId)
-        // SOURCE: https://stackoverflow.com/a/18867667
         if (remainingCardsCounter.every(x => x === "0") || remainingCardsCounter.every(x => x === "Completed")) {
             collapseCardsLoop(allCards)
         } else {
@@ -604,19 +604,19 @@ function updateLocalStorage(){
 
 // ADD BUTTON APPEARS AFTER SCROLLING DOWN
 // SOURCE: https://www.tutorialfor.com/questions-309330.htm
-if ($(window).width() >= 768) {
-    $('#add-button').css('display', 'none');
-} else if ($(window).width() < 768) {
-    $('#add-button').css('display', 'none');
-    $(window).scroll(function () {
-        var height = $(window).height();
-        if ($(window).scrollTop() >height) {
-            $('#add-button').css('display', 'block');
-        } else {
-            $('#add-button').css('display', 'none');
-        }
-    })
-}
+// if ($(window).width() >= 768) {
+//     $('#add-button').css('display', 'none');
+// } else if ($(window).width() < 768) {
+//     $('#add-button').css('display', 'none');
+//     $(window).scroll(function () {
+//         var height = $(window).height();
+//         if ($(window).scrollTop() >height) {
+//             $('#add-button').css('display', 'block');
+//         } else {
+//             $('#add-button').css('display', 'none');
+//         }
+//     })
+// }
 
 function emailTable(itemsObject){
 
