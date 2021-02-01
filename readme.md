@@ -266,7 +266,7 @@ As Shoppr has many different features, toggle states, conditional interactions, 
 ### Validation
 <a href="https://validator.w3.org"><img src="assets/images/html5-validator-badge.png" alt="w3 css validation passed" width="352" height="124" />*</a> 
 
-> The only warning that was flagged was 'possible misuse' of an aria label on a div. However, this div's text represents the current quantity of the item the user is about to input, so I believe it needs this aria-label for accessibility users.
+> *The only warning that was flagged was 'possible misuse' of an aria label on a div. However, this div's text represents the current quantity of the item the user is about to input, so I believe it needs this aria-label for accessibility users.
 
 <a href="https://jigsaw.w3.org/css-validator/"><img src="assets/images/css-validator-badge.png" alt="w3 css validation passed" width="352" height="124" /></a>
 
