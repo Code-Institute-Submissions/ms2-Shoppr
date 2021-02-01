@@ -292,14 +292,14 @@ Below are examples of how it looked throughout development:
 ### First draft 
 <img src="assets/images/shoppr-old-desktop.png" alt="Screenshot of first draft of Shoppr on desktop"/>  
 
-<img src="assets/images/shoppr-old-mobile.png" alt="Screenshot of first draft of Shoppr on mobile"/>
+<img src="assets/images/shoppr-old-mobile.png" width="450" alt="Screenshot of first draft of Shoppr on mobile"/>
 
 ### Final release
 <img src="assets/images/shoppr-final-desktop.png" alt="Screenshot of final release of Shoppr on desktop"/>  
 
-<img src="assets/images/shoppr-final-mobile-top.png" alt="Screenshot of first half of final release of Shoppr on mobile"/>
+<img src="assets/images/shoppr-final-mobile-top.png" width="450" alt="Screenshot of first half of final release of Shoppr on mobile"/>
 
-<img src="assets/images/shoppr-final-mobile-bottom.png" alt="Screenshot of second half of final release of Shoppr on mobile"/>
+<img src="assets/images/shoppr-final-mobile-bottom.png" width="450" alt="Screenshot of second half of final release of Shoppr on mobile"/>
 
 ## Credits & Attributes
 * [Icons8](https://icons8.com/illustrations/illustration/pale-grocery-store) as the source of hero banner image
