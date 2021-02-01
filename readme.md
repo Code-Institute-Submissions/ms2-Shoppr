@@ -25,6 +25,7 @@ View the Github repo: [here](https://github.com/rbsam176/ms2-shoppr)
 	* [Visual Structure](#visual-structure)
 	* [Wireframing & Development Journey](#wireframing-and-development-journey)
 	* [Colour](#colour)
+	* [Input Validation](#input-validation)
 	* [Animation](#animation)
 	* [Typography/Icons](#typographyicons)
 * [Accessibility](#accessibility)
@@ -168,6 +169,18 @@ I didn't want Shoppr to have a specific accented colour, and instead wanted to r
   * The next instance of colour is the final destination of the user journey, the hero banner wrapping the results of the users interactions in the form of the shopping list table. Each hero banner matches the colours attached to the corresponding location buttons to keep the journey consistent, while the table features a double red line to mimic a traditional notepad which further affirms that it is a shopping list being added to.
   * Any alerts that show on Shoppr, for example, validation for mobile users that their item has been added successfully, will always need to demand attention as their native state is to be hidden and as such, this element is deserving of colour. 
   * Lastly, a button only visible for mobile users that is located at the bottom of the shopping list and serves as a useful way to take the user back to the top so they can add an additional item. This is the last element visible for a mobile user and deserved to stand out as a kind of 'finish line'.
+
+### Input Validation
+
+Two notable areas where Shoppr handles invalid user interaction.
+
+#### Missing item name
+
+<img src="assets/images/inputnovalue.gif" height="60" alt="GIF of no item name validation"/>
+
+#### Missing email address
+
+<img src="assets/images/emailinputnovalue.gif" height="90" alt="GIF of missing email address validation"/>
 
 ### Animation
 
