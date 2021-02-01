@@ -176,11 +176,11 @@ Two notable areas where Shoppr handles invalid user interaction.
 
 #### Missing item name
 
-<img src="assets/images/inputnovalue.gif" height="60" alt="GIF of no item name validation"/>
+<img src="assets/images/inputnovalue.gif" width="600" alt="GIF of no item name validation"/>
 
 #### Missing email address
 
-<img src="assets/images/emailinputnovalue.gif" height="90" alt="GIF of missing email address validation"/>
+<img src="assets/images/emailinputnovalue.gif" width="600" alt="GIF of missing email address validation"/>
 
 ### Animation
 
