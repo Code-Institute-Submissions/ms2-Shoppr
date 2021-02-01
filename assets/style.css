@@ -27,9 +27,7 @@ body {
 }
 
 #modal-bar {
-    /* background-color: #299D8E; */
     background-color: white;
-    /* color: white; */
     color: black;
     box-shadow: 5px -5px 15px -11px rgba(0,0,0,0.58);
     border-radius: 10px;
@@ -111,11 +109,9 @@ body {
 }
 
 .location-container {
-    /* background-color: white; */
     border: none;
     border-radius: 20px;
     color: black;
-    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.315); */
 }
 
 .colour-complete {
@@ -139,7 +135,6 @@ body {
     color: black;
     font-size: 18px;
     border: none;
-    /* border-bottom: 4px solid rgb(91, 247, 174); */
     background-color: white;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12);
     border-radius: 8px 0px 0px 8px;
@@ -188,8 +183,6 @@ body {
 .hover:hover {
     border-width: 24px;
     transition: border-width 0.3s linear;
-    /* background-color: #F2E2BC; */
-    /* color: white; */
 }
 
 .card-header {
@@ -248,7 +241,6 @@ input[type="checkbox"] {
 }
 
 #banner-img {
-    /* background-image: url("https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/325253_2200-1200x628.jpg"); */
     background-image: url("images/banner-default.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -358,7 +350,6 @@ input[type="checkbox"] {
 
 /* SOURCE: https://stackoverflow.com/a/38850580 */
 .hero-btn:after {
-    /* background: rgb(63,98,146); */
     background: linear-gradient(90deg, rgba(63,98,146,1) 0%, rgba(213,121,103,1) 20%, rgba(242,226,188,1) 40%, rgba(170,190,141,1) 60%, rgba(202,84,106,1) 80%, rgba(226,110,92,1) 100%);
     position: absolute;
     content: '';
@@ -373,7 +364,7 @@ input[type="checkbox"] {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12);
     padding: 10px 0px;
     background: white;
-    border: none;
+    border: 3px solid transparent;
     display: block;
     color: black;
     border-radius: 5px;
@@ -391,7 +382,6 @@ input[type="checkbox"] {
 .import-export-btn[aria-expanded="true"]{
     background-color: rgb(235, 235, 235);
     border-bottom: 10px solid rgb(235, 235, 235);
-    /* box-shadow: 2px 0px 3px rgba(0,0,0,0.12); */
     box-shadow: none;
     border-radius: 10px 10px 0px 0px;
 }
@@ -402,7 +392,6 @@ input[type="checkbox"] {
     float: left;
     background-color: rgb(235, 235, 235);
     border-radius: 10px 0px 10px 10px;
-    /* box-shadow: 0 1px 3px rgba(0,0,0,0.12); */
 }
 
 #emailInput {
@@ -515,7 +504,6 @@ input[type="checkbox"] {
     border: 1px dotted rgba(0, 0, 0, 0.171);
     box-shadow: 5px -5px 15px rgba(0, 0, 0, 0.089);
     border-radius: 15px;
-    /* background-color:rgb(90, 90, 90); */
     width: 98vw;
     margin: auto;
 }
