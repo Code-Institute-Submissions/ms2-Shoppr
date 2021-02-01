@@ -4,7 +4,7 @@ Interactive Front-End Web Development Project Submission
 
 ## Access
 
-View the project live: [here](http://rbsam176.github.io/ms2-shoppr/)
+View the project live: [here](https://rbsam176.github.io/ms2-Shoppr/)
 
 View the Github repo: [here](https://github.com/rbsam176/ms2-shoppr)
 
@@ -160,7 +160,7 @@ Through the development of Shoppr I was very crticial of which features were nee
 
 *Click the image to see it full-size.*  
 
-<a href="assets/images/wireframe.png"><img src="assets/images/wireframe.png" alt="Wireframe" width="478.5" height="213" /></a>
+<a href="assets/images/wireframe.png"><img src="assets/images/wireframe.png" alt="Wireframe" width="700" /></a>
 
 ### Colour
 
@@ -258,7 +258,7 @@ Both forms featured on the site, Booking and Contact, have aria-labels so that s
 
 As Shoppr has many different features, toggle states, conditional interactions, I felt it was neccesary to have an exhaustive suite of test cases to ensure everything operated as it should. This also served as a way for me to ensure introducing a new feature didn't inadvertently cause issues elsewhere.
 
-[Click here to see the full suite of test cases.](/testcases.md)
+[Click here to see the full suite of test cases.](/bugtests.md)
 
 
 ### Validation
