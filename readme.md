@@ -174,16 +174,16 @@ I didn't want Shoppr to have a specific accented colour, and instead wanted to r
 
 * Mouse-over hover effects added to all buttons to inform the user that the element is a clickable button
 
-<img src="assets/images/locationhover.gif" width="150" alt="GIF of location buttons hover"/>
+<img src="assets/images/locationhover.gif" height="40" alt="GIF of location buttons hover"/>
 
-<img src="assets/images/importhover.gif" alt="GIF of import button hover"/>
+<img src="assets/images/importhover.gif" height="40" alt="GIF of import button hover"/>
 
 * Hidden interactive elements such as a table or the settings panel collapsing will slide in rather than abruptly appearing
 
-<img src="assets/images/tablecollapse.gif" alt="GIF of table collapsing"/>
+<img src="assets/images/tablecollapse.gif" height="40" alt="GIF of table collapsing"/>
 <img src="assets/images/collapsecomplete.gif" alt="GIF of table being marked as complete"/>
-<img src="assets/images/settingscollapse.gif" alt="GIF of settings collapsing"/>
-<img src="assets/images/emailcollapse.gif" alt="GIF of email collapsing"/>
+<img src="assets/images/settingscollapse.gif" height="40" alt="GIF of settings collapsing"/>
+<img src="assets/images/emailcollapse.gif" height="40" alt="GIF of email collapsing"/>
 
 * While hidden informational alerts such as the 'Help' guide and modal alerts will fade in and out 
 
