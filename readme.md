@@ -10,23 +10,23 @@ View the Github repo: [here](https://github.com/rbsam176/ms2-shoppr)
 
 ## Table of Contents
 * [Strategy](#Strategy)
-	* [User Stories & Project Objectives](#user-stories-&-project-objectives)
+	* [User Stories & Project Objectives](#user-stories--project-objectives)
 * [Scope](#scope)
 	* [Current Features](#current-features)
 	* [Long-term Vision](#long-term-vision)
 * [Code Walkthrough & Challenges](#code-walkthrough-&-challenges)
 	* [Auto-suggest](#auto-suggest)
 	* [Web Storage API (localStorage)](#web-storage-api-localstorage)
-	* [Import/Download](#import-download)
+	* [Import/Download](#importdownload)
 	* [Email](#email)
 	* [Automatic Collapsing of Tables](#automatic-collapsing-of-tables)
 	* [Toggles](#toggles)
 * [UX](#ux)
 	* [Visual Structure](#visual-structure)
-	* [Wireframing & Development Journey](#wireframing-&-devlopment-journey)
+	* [Wireframing & Development Journey](#wireframing-and-devlopment-journey)
 	* [Colour](#colour)
 	* [Animation](#animation)
-	* [Typography/Icons](#typography-icons)
+	* [Typography/Icons](#typographyicons)
 * [Accessibility](#accessibility)
 	* [Alt Tags](#alt-tags)
 	* [Interactive Elements](#interactive-elements)
@@ -250,6 +250,7 @@ Both forms featured on the site, Booking and Contact, have aria-labels so that s
 | [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)  | Validation of CSS code                    |
 | [JavaScript Validator](https://jshint.com)  | Validation of JavaScript code                    |
 | [Icons8.com](https://icons8.com/illustrations/illustration/pale-grocery-store)  | Source of hero banner image                    |
+| [TablesGenerator.com](https://www.tablesgenerator.com/markdown_tables)  | For easy HTML table creation for readme.md and bugtests.md                    |
 
 ## Testing
 
