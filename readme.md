@@ -271,7 +271,10 @@ As Shoppr has many different features, toggle states, conditional interactions, 
 > *The project passed the JS Hint validator with the configuration set to allow 'New JavaScript features (ES6)'. The only issue raised during the final validation is 'emailjs' being an undefined variable. This is because JS Hint does not know that in the HTML document it is linking to a CDN for Email JS and so doesn't recognise that `emailjs.init` or `emailjs.send` are not meant to be variables.
 
 ### Lighthouse
-<img src="assets/images/lighthouse-score.png" alt="lighthouse score"/>
+<img src="assets/images/lighthouse-desktop.png" alt="lighthouse desktop score"/>
+<img src="assets/images/lighthouse-mobile.png" alt="lighthouse mobile score"/>
+
+> Mobile Performance score 88 partially due to images not being served in next-gen formats such as JPEG-2000 but I have avoided this in order to maintain cross-browser compatability.
 
 ### Accessibility Testing
 
