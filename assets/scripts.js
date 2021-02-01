@@ -97,7 +97,7 @@ function updateTableBanner(tableName){
         ["#table-2", "assets/images/banner2.jpg", "#AABE8D"],
         ["#table-3", "assets/images/banner3.jpg", "#F2E2BC"],
         ["#table-4", "assets/images/banner4.jpg", "#CA546A"],
-        ["#table-5", "assets/images/banner5.jpg", "#E26E5C"],
+        ["#table-5", "assets/images/banner5.jpg", "#55a1b8"],
     ];
 
     for (var x in bannerImages) {
