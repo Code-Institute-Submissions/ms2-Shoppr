@@ -174,7 +174,7 @@ I didn't want Shoppr to have a specific accented colour, and instead wanted to r
 
 * Mouse-over hover effects added to all buttons to inform the user that the element is a clickable button
 
-<img src="assets/images/locationhover.gif" width="30" alt="GIF of location buttons hover"/>
+<img src="assets/images/locationhover.gif" width="150" alt="GIF of location buttons hover"/>
 
 <img src="assets/images/importhover.gif" alt="GIF of import button hover"/>
 
