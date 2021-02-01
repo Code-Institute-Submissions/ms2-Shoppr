@@ -354,7 +354,7 @@ function captureInput(location, tableID){
         }
         if ($("#item-name").val() != ""){
             insertRowData(tableID, $("#quantity-counter").text(), $("#item-name").val());
-            var tableTitle = $(tableID).parent().parent().parent().parent().children('.card-header').children('.float-left').children('a').children().text()
+            var tableTitle = $(tableID).parent().parent().parent().parent().children('.card-header').children('.float-left').children('a').children().text();
             modalPopup(`Added <strong>${$("#item-name").val()}</strong> into <strong>${tableTitle}</strong>`, "mobile");
             sListArray.push(new Item($("#item-name").val(), $("#quantity-counter").text(), location));
             $(tableID).parent().parent().parent().collapse("show");
@@ -511,7 +511,7 @@ $(".location-edit").on("click", function() {
             }
             if ($(".table-title").css('display') == 'block') {
                 if ($(".table-title").text().indexOf(inputPlaceholder) > 0 ) {
-                    $(".table-title").text(inputText)
+                    $(".table-title").text(inputText);
                 }
             }
         }
@@ -527,7 +527,7 @@ function updateLocalStorage(){
 // REMOVES ROW FROM TABLE AND LOCALSTORAGE ARRAY
 // Source: https://stackoverflow.com/a/171293
 $(".card").on("click", ".remove-field", function() {
-    var tableID = "#" + $(this).parent().parent().parent().attr('id')
+    var tableID = "#" + $(this).parent().parent().parent().attr('id');
     var removedItemName = $(this).closest("tr").find(".item-field").text();
     items.splice(items.findIndex(x => x.name === removedItemName),1);
     sListArray.splice(sListArray.findIndex(x => x.name === removedItemName),1);
