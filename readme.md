@@ -38,7 +38,7 @@ View the Github repo: [here](https://github.com/rbsam176/ms2-shoppr)
     * [Lighthouse](#lighthouse)
     * [Accessibility Testing](#accessibility-testing)
 * [Deployment](#deployment)
-* [Final Product](#final-product)
+* [Final Product (Before/After)](#final-product-beforeafter)
 * [Credits & Attributes](#credits--attributes)
 
 ## Strategy
