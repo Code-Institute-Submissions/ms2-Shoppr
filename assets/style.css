@@ -1,0 +1,559 @@
+textarea:focus, input:focus, button:focus {
+    outline: solid 1px rgb(75, 75, 75);
+}
+
+body {
+    background-color: rgb(252, 252, 252);
+}
+
+/* SOURCE: https://stackoverflow.com/a/39405065 */
+#settings-btn:not([aria-expanded="true"]) .fas.fa-level-down-alt,
+#settings-btn[aria-expanded="false"] .fas.fa-level-down-alt,
+#settings-btn[aria-expanded="true"] .fas.fa-cog {
+   display:none;
+}
+
+.popup-alert {
+    padding: 15px;
+    position: fixed;
+    left: 50%;
+    z-index: 1;
+    /* SOURCE: https://www.w3schools.com/css/css_align.asp */
+    transform:translateX(-50%);
+    -webkit-transform:translate(-50%);
+    -ms-transform: translate(-50%);
+    display: none;
+    width: 100%;
+}
+
+#modal-bar {
+    /* background-color: #299D8E; */
+    background-color: white;
+    /* color: white; */
+    color: black;
+    box-shadow: 5px -5px 15px -11px rgba(0,0,0,0.58);
+    border-radius: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    line-height: 25px;
+    position: relative;
+}
+
+#modal-bar:after {
+    background: rgb(63,98,146);
+    background: linear-gradient(90deg, rgba(63,98,146,1) 0%, rgba(213,121,103,1) 20%, rgba(242,226,188,1) 40%, rgba(170,190,141,1) 60%, rgba(202,84,106,1) 80%, rgba(226,110,92,1) 100%);
+    position: absolute;
+    content: '';
+    height: 8px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.card:hover { 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.39);
+}
+
+#fileBrowser {
+    padding: 0px;
+}
+
+#accordion {
+    width: 100%;
+}
+
+.red-line {
+    border-right: red double;
+}
+
+#minus-btn, #plus-btn {
+    border: none;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    float: right;
+    background-color: rgb(231, 231, 231);
+}
+
+#minus-btn:hover, #plus-btn:hover {
+    background-color: rgb(192, 192, 192);
+    transition: background-color 100ms linear;
+}
+
+#increaseCol, #decreaseCol {
+    min-width: 40px;
+}
+
+#item-name {
+    width: 100%;
+    border: none;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.input-row {
+    border: 1px solid rgb(182, 182, 182);
+    border-radius: 5px;
+}
+
+.location-input {
+    width: 100%;
+    background: none;
+    border: none;
+    height: 100%;
+    color: black;
+}
+
+.location-input::placeholder {
+    padding-left: 20%;
+    
+}
+
+.location-container {
+    /* background-color: white; */
+    border: none;
+    border-radius: 20px;
+    color: black;
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.315); */
+}
+
+.colour-complete {
+    background-color: #D4EDDA;
+    transition: background-color 70ms linear;
+}
+
+.colour-neutral {
+    transition: background-color 70ms linear;
+}
+
+/* SOURCE: https://stackoverflow.com/questions/38661118/centering-text-in-row-with-bootstrap-grid */
+.center::before {
+    content:"";
+    margin-left: 20%;
+}
+
+.location-buttons {
+    width: 100%;
+    height: 100%;
+    color: black;
+    font-size: 18px;
+    border: none;
+    /* border-bottom: 4px solid rgb(91, 247, 174); */
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    border-radius: 8px 0px 0px 8px;
+}
+
+.location-btn-0 {
+    border-left: 6px solid #3F6292;
+}
+
+.location-btn-1  {
+    border-left: 6px solid #D57967;
+}
+
+.location-btn-2 {
+    border-left: 6px solid #AABE8D;
+}
+
+.location-btn-3 {
+    border-left: 6px solid #F2E2BC;
+}
+
+.location-btn-4 {
+    border-left: 6px solid #CA546A;
+}
+
+.location-btn-5 {
+    border-left: 6px solid #55a1b8;
+}
+
+.col-2 > .location-edit {
+    transition: background-color 0.3s ease;
+    min-width: 50px;
+    max-width: 80px;
+}
+
+.col-2 > .location-edit:hover {
+    background-color: rgb(243, 243, 243);
+    transition: background-color 0.3s linear;
+    border-radius: 0 8px 8px 0;
+}
+
+.hover {
+    transition: border-width 0.3s ease;
+}
+
+.hover:hover {
+    border-width: 24px;
+    transition: border-width 0.3s linear;
+    /* background-color: #F2E2BC; */
+    /* color: white; */
+}
+
+.card-header {
+    background: none;
+    cursor: pointer;
+}
+
+.card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    overflow: hidden;
+    transition: box-shadow 100ms linear;
+}
+
+.card a {
+    color: black;
+}
+
+.card a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.location-edit {
+    border-radius: 0px 8px 8px 0px;
+}
+
+.location-edit:hover {
+    background-color: rgba(255, 255, 255, 0.568);
+    color: black;
+}
+
+.remove-field {
+    background: none;
+    border: none;
+    color: black;
+}
+
+.remove-field:hover {
+    color:rgb(75, 75, 75);
+}
+
+.quantity-number {
+    padding: 5px 8px;
+    vertical-align: middle;
+    border: dotted black 1px;
+    border-radius: 8px;
+}
+
+/* Source: https://www.w3schools.com/css/css3_2dtransforms.asp */
+input[type="checkbox"] {
+    transform:scale(1.5, 1.5);
+    margin: 0px 10px;
+    vertical-align: middle;
+}
+
+#banner-img {
+    /* background-image: url("https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/325253_2200-1200x628.jpg"); */
+    background-image: url("images/banner-default.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #299D8E;
+    background-position: center;
+    border-radius: 20px;
+    height: 40vh;
+    width: 100vw;
+}
+
+#hero-banner {
+    position: relative;
+}
+
+.table-title {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    box-shadow: 5px -5px 15px -11px rgba(0,0,0,0.58);
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    display: none;
+    font-size: 3vmax;
+}
+
+.nav-btn {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    border-radius: 10px;
+    padding: 0px 10px;
+    margin-bottom: 10px;
+    /* SOURCE: https://stackoverflow.com/a/9612782  */
+    border: 3px solid transparent;
+    background: white;
+    width: 150px;
+    height: 50px;
+}
+
+#settings-btn {
+    background-color: rgb(247, 247, 247);
+}
+
+#addNew {
+    width: 100%;
+    margin: 10px 0px;
+}
+
+#modalDownloadClose {
+    height: 50px;
+    background-color: white;
+    color: black;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    border-radius: 10px;
+}
+
+#modalDownloadClose:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.397);
+}
+
+#modalDownloadBtn {
+    background-color: white;
+    color: black;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    border-radius: 10px;
+    height: 50px;
+    padding: 11px 20px 0px 20px;
+    position: relative;
+    margin-left: 20px;
+}
+
+#modalDownloadBtn::after {
+    background: rgb(63,98,146);
+    background: linear-gradient(90deg, rgba(63,98,146,1) 0%, rgba(213,121,103,1) 20%, rgba(242,226,188,1) 40%, rgba(170,190,141,1) 60%, rgba(202,84,106,1) 80%, rgba(226,110,92,1) 100%);
+    position: absolute;
+    content: '';
+    height: 6px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 0px 0px 20px 20px;
+}
+
+#modalDownloadBtn:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.397);
+}
+
+.hero-btn {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    border-radius: 10px;
+    border: none;
+    padding: 15px 0px 10px 0px;
+    margin-bottom: 10px;
+    background-color: white;
+    width: 100%;
+    height: 65px;
+    position: relative;
+}
+
+.hero-btn a {
+    color: black;
+    text-align: center;
+}
+
+/* SOURCE: https://stackoverflow.com/a/38850580 */
+.hero-btn:after {
+    /* background: rgb(63,98,146); */
+    background: linear-gradient(90deg, rgba(63,98,146,1) 0%, rgba(213,121,103,1) 20%, rgba(242,226,188,1) 40%, rgba(170,190,141,1) 60%, rgba(202,84,106,1) 80%, rgba(226,110,92,1) 100%);
+    position: absolute;
+    content: '';
+    height: 6px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.import-export-btn {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    padding: 10px 0px;
+    background: white;
+    border: none;
+    display: block;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.import-export-btn:hover {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
+    text-decoration: none;
+    color: black;
+    border-bottom: 3px solid rgb(231, 231, 231);
+    transition: border-bottom 100ms linear, box-shadow 100ms linear;
+}
+
+.import-export-btn[aria-expanded="true"]{
+    background-color: rgb(235, 235, 235);
+    border-bottom: 10px solid rgb(235, 235, 235);
+    /* box-shadow: 2px 0px 3px rgba(0,0,0,0.12); */
+    box-shadow: none;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#emailDropdown {
+    width: 100%;
+    padding: 0px;
+    float: left;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px 0px 10px 10px;
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.12); */
+}
+
+#emailInput {
+    width: 62.5%;
+    border-radius: 10px;
+    padding: 10px 0px;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    margin: 2.5%;
+    font-size: 0.8em;
+    height: 45px;
+    float: left;
+}
+
+.emailSubmit {
+    background: none;
+    border: none;
+    width: 30%;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    padding: 10px 0px;
+    float: right;
+    background-color: white;
+    margin: 2.5% 2.5% 2.5% 0px;
+    height: 45px;
+}
+
+.emailSubmit:hover {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
+    text-decoration: none;
+    color: black;
+    border-bottom: 3px solid rgb(231, 231, 231);
+    transition: border-bottom 100ms linear, box-shadow 100ms linear;
+}
+
+#settings-btn.collapsed {
+    background-color: white;
+}
+
+.nav-btn {
+    transition: border-bottom 100ms linear;
+}
+
+.nav-btn:hover {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
+    text-decoration: none;
+    color: black;
+    border-bottom: 3px solid rgb(231, 231, 231);
+    color: black;
+    transition: border-bottom 100ms linear;
+}
+
+#settings-content {
+    margin: 20px 0px;
+}
+
+.options-btn {
+    background: none;
+    border: none;
+    border-radius: 10px;
+    margin: 10px 0px;
+    font-size: large;
+    border: 3px solid transparent;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
+    padding: 15px;
+    min-width: 80%;
+    transition: border-bottom 100ms linear;
+}
+
+.options-btn i {
+    float: left;
+    margin: 5px 0px;
+}
+
+.options-btn:hover {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.274);
+    border-bottom: 3px solid rgb(231, 231, 231);
+    transition: border-bottom 100ms linear;
+}
+
+.open-close-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    box-shadow: 5px -5px 15px -11px rgba(0,0,0,0.58);
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 100ms linear;
+}
+
+.open-close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.603);
+    color: rgba(0, 0, 0, 0.603);
+    transition: background-color 100ms linear;
+}
+
+#main {
+    min-height: 90vh;
+}
+
+#fixed-footer {
+    min-height: 8vh;
+    margin-bottom: 2vh;
+    border: 1px dotted rgba(0, 0, 0, 0.171);
+    box-shadow: 5px -5px 15px rgba(0, 0, 0, 0.089);
+    border-radius: 15px;
+    /* background-color:rgb(90, 90, 90); */
+    width: 98vw;
+    margin: auto;
+}
+
+#footer-text {
+    margin-top: 2.8vh;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+
+#ccLogo img {
+    margin-top: 2.3vh;
+}
+
+#fixed-footer a {
+    color: black;
+    transition: color 100ms linear;
+}
+
+#fixed-footer a:hover, #fixed-footer span:hover {
+    text-decoration: none;
+    color:rgb(126, 126, 126);
+    transition: color 100ms linear;
+}
+
+@media only screen and (max-width: 576px) {
+    #fixed-footer {
+        margin-bottom: 10px;
+    }
+
+    #footer-text {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    #ccLogo {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
