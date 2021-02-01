@@ -28,7 +28,6 @@ View the Github repo: [here](https://github.com/rbsam176/ms2-shoppr)
 	* [Animation](#animation)
 	* [Typography/Icons](#typographyicons)
 * [Accessibility](#accessibility)
-	* [Alt Tags](#alt-tags)
 	* [Interactive Elements](#interactive-elements)
 * [Technologies Used](#technologies-used)
 * [Resources](#resources)
@@ -192,7 +191,7 @@ I didn't want Shoppr to have a specific accented colour, and instead wanted to r
 
 <img src="assets/images/helpmodal.gif" width="600" alt="gif of help guide fading"/>
 
-<img src="assets/images/modalpopup.gif" height="150" alt="GIF of modal alert popup"/>
+<img src="assets/images/modalpopup.gif" height="300" alt="GIF of modal alert popup"/>
 
 
 ### Typography/Icons 
@@ -221,11 +220,8 @@ I didn't want Shoppr to have a specific accented colour, and instead wanted to r
 
 ## Accessibility
 
-### Alt tags
-
-
 ### Interactive elements
-Both forms featured on the site, Booking and Contact, have aria-labels so that screen readers read out what content belongs in each input field. <<<----
+Extra attention was made to ensure all interactive elements had aria-labels, totalling 38. I loaded Shoppr on my iPhone and enabled VoiceOver to experience how the project operated without visual indications.
 
 ## Technologies Used
 
