@@ -285,23 +285,41 @@ Using my iPhone I was able to verify that the accessibility tags and labels were
 * Occasional periods of experimentation would be performed on a separate branch to prevent causing any issues with the existing code
 * At the end of the development before the first public release, all code was put into the 'master' branch, pushed to the remote repo on GitHub and deployed using GitHub Pages for public use.
 
-## Final product
+## Final product (Before/After)
 
 Below are examples of how it looked throughout development:  
 
 ### First draft 
+
+#### Desktop
+
 <hr>
+
 <img src="assets/images/shoppr-old-desktop.png" alt="Screenshot of first draft of Shoppr on desktop"/>  
+
 <hr>
+
+#### Mobile
+
 <img src="assets/images/shoppr-old-mobile.png" width="450" alt="Screenshot of first draft of Shoppr on mobile"/>
+
 <hr>
+
 ### Final release
-<img src="assets/images/shoppr-final-desktop.png" alt="Screenshot of final release of Shoppr on desktop"/>  
+
+#### Desktop
+
+<img src="assets/images/shoppr-final-desktop.png" alt="Screenshot of final release of Shoppr on desktop"/> 
+ 
 <hr>
+
+#### Mobile
+
 <img src="assets/images/shoppr-final-mobile-top.png" width="450" alt="Screenshot of first half of final release of Shoppr on mobile"/>
-<hr>
 <img src="assets/images/shoppr-final-mobile-bottom.png" width="450" alt="Screenshot of second half of final release of Shoppr on mobile"/>
+
 <hr>
+
 ## Credits & Attributes
 * [Icons8](https://icons8.com/illustrations/illustration/pale-grocery-store) as the source of hero banner image
 * Bootstrap Documentation
