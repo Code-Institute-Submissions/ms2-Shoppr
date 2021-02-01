@@ -278,7 +278,7 @@ As Shoppr has many different features, toggle states, conditional interactions, 
 
 ### Accessibility Testing
 
-Using my iPhone I was able to verify that the accessibility tags and labels were correctly applied to all elements to ensure the user experience for any user was the best that it could be.
+Using my iPhone I was able to verify that the accessibility tags and labels were correctly applied to all elements to ensure the user experience for any user was the best that it could be. I also used Lighthouse as a guide and actioned any suggestions it made to make Shoppr more accessible.
 
 ## Deployment
 * Most development was written while on a 'develop' branch
@@ -289,9 +289,17 @@ Using my iPhone I was able to verify that the accessibility tags and labels were
 
 Below are examples of how it looked throughout development:  
 
-<img src="assets/images/firstdraft.gif" alt="GIF demonstrating first draft"/>  
+### First draft 
+<img src="assets/images/shoppr-old-desktop.png" alt="Screenshot of first draft of Shoppr on desktop"/>  
 
-<img src="assets/images/finalproduct.gif" alt="GIF demonstrating final product"/>  
+<img src="assets/images/shoppr-old-mobile.png" alt="Screenshot of first draft of Shoppr on mobile"/>
+
+### Final release
+<img src="assets/images/shoppr-final-desktop.png" alt="Screenshot of final release of Shoppr on desktop"/>  
+
+<img src="assets/images/shoppr-final-mobile-top.png" alt="Screenshot of first half of final release of Shoppr on mobile"/>
+
+<img src="assets/images/shoppr-final-mobile-bottom.png" alt="Screenshot of second half of final release of Shoppr on mobile"/>
 
 ## Credits & Attributes
 * [Icons8](https://icons8.com/illustrations/illustration/pale-grocery-store) as the source of hero banner image
