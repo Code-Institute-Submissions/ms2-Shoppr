@@ -248,7 +248,7 @@ Both forms featured on the site, Booking and Contact, have aria-labels so that s
 | [Notion](https://www.notion.so)             | Notes & todo list, tracking progress      |
 | [W3C HTML Validator](https://validator.w3.org) | Validation of HTML code                   |
 | [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)  | Validation of CSS code                    |
-| [JavaScript Validator](https://jshint.com)  | Validation of JavaScript code                    |
+| [JS Hint](https://jshint.com)  | Validation of JavaScript code                    |
 | [Icons8.com](https://icons8.com/illustrations/illustration/pale-grocery-store)  | Source of hero banner image                    |
 | [TablesGenerator.com](https://www.tablesgenerator.com/markdown_tables)  | For easy HTML table creation for readme.md and bugtests.md                    |
 
@@ -271,9 +271,7 @@ As Shoppr has many different features, toggle states, conditional interactions, 
 > *The project passed the JS Hint validator with the configuration set to allow 'New JavaScript features (ES6)'. The only issue raised during the final validation is 'emailjs' being an undefined variable. This is because JS Hint does not know that in the HTML document it is linking to a CDN for Email JS and so doesn't recognise that `emailjs.init` or `emailjs.send` are not meant to be variables.
 
 ### Lighthouse
-<img src="assets/images/lighthouse-score.png" alt="lighthouse score"/>   <<<---
-
-*Performance improvements detailed in [Scope: Long Term Vision](#long-term-vision) section.*
+<img src="assets/images/lighthouse-score.png" alt="lighthouse score"/>
 
 ### Accessibility Testing
 
