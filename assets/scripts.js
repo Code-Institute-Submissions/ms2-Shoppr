@@ -229,6 +229,8 @@ $("#createCSV").on("click", function() {
     $("#settings-btn").trigger('click');
     toggleSectionCollapse("closed");
     modalPopup("Emptied shopping list", "all");
+    $(".card").children().removeClass('colour-complete');
+    $(".card").children().children('.float-right').children('a').text("0");
  });
 
 // CLICKS ON HIDDEN FILE BROWSE BUTTON ON CLICK OF CUSTOM 'IMPORT' BUTTON
