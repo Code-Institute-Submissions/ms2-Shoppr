@@ -63,7 +63,7 @@ Most shopping list apps will allow you to choose from a pre-determined list of c
 
 <details>
  <summary>I want to be able to quickly identify where I need to input information so I can quickly generate a shopping list</summary>
- In order to promote frequent reuse of Shoppr, the experience should quick and simplified. A lot of content such as Settings, Email input and the shopping list tables are collapsed by default and are revealed when the user needs them. This ensures that what is visible on screen is the essential information needed to operate the app rather than bloating it with content not needed at all times.
+ In order to promote frequent reuse of Shoppr, the experience should be quick and simplified. A lot of content such as Settings, Email input and the shopping list tables are collapsed by default and are revealed when the user needs them. This ensures that what is visible on screen is the essential information needed to operate the app rather than bloating it with content not needed at all times.
 </details><br>
 
 ### Scope
@@ -208,6 +208,8 @@ Two notable areas where Shoppr handles invalid user interaction.
 
 
 ### Typography/Icons 
+
+In order to make Shoppr the most easily read, I have used Bootstrap-standard sans serif fonts throughout. 
 
 | Useage              | Source                        |
 |:--------------------|:------------------------------|
